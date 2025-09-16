@@ -4,15 +4,35 @@ import { ChevronDown } from "lucide-react";
 const Hero = () => {
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center relative">
-      <div className="text-center z-20 max-w-5xl mx-auto px-4 relative">
-        {/* Profile Photo */}
+      <div className="z-20 max-w-6xl mx-auto px-4 relative grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+        {/* Informações - Coluna Esquerda */}
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, delay: 0.3 }}
+          className="order-2 md:order-1 text-center md:text-left"
+        >
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-orbitron font-black text-white mb-6">
+            KENYLSON
+            <span className="block text-neon-green glow-text">LOURENÇO</span>
+          </h1>
+          
+          <div className="text-xl md:text-2xl text-white/80 font-orbitron mb-4">
+            Desenvolvedor Full Stack
+          </div>
+          <div className="text-neon-green text-lg md:text-xl font-orbitron">
+            Criando Experiências Digitais em Espaço 3D
+          </div>
+        </motion.div>
+
+        {/* Fotografia - Coluna Direita */}
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2, delay: 0.2 }}
-          className="mb-8"
+          className="order-1 md:order-2 flex justify-center md:justify-end"
         >
-          <div className="relative w-32 h-32 md:w-48 md:h-48 mx-auto">
+          <div className="relative w-40 h-40 md:w-56 md:h-56 lg:w-64 lg:h-64">
             <div className="absolute inset-0 rounded-full bg-gradient-to-r from-neon-green to-cyan-400 p-1 glow-strong animate-pulse">
               <img 
                 src="/images/profile.png" 
@@ -35,32 +55,6 @@ const Hero = () => {
                 />
               ))}
             </div>
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.5 }}
-          className="mb-8"
-        >
-          <h1 className="text-6xl md:text-8xl font-orbitron font-black text-white mb-4">
-            KENYLSON
-            <span className="block text-neon-green glow-text">LOURENÇO</span>
-          </h1>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.3 }}
-          className="mb-16"
-        >
-          <div className="text-xl md:text-2xl text-white/80 font-orbitron mb-6">
-            Desenvolvedor Full Stack
-          </div>
-          <div className="text-neon-green text-lg md:text-xl font-orbitron">
-            Criando Experiências Digitais em Espaço 3D
           </div>
         </motion.div>
 
