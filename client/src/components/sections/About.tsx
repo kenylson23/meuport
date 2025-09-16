@@ -6,23 +6,23 @@ const About = () => {
   const features = [
     {
       icon: <Code className="w-8 h-8" />,
-      title: "Frontend Development",
+      title: "Desenvolvimento Frontend",
       description: "React, Vue, Angular, Three.js"
     },
     {
       icon: <Database className="w-8 h-8" />,
-      title: "Backend Development",
-      description: "Node.js, Python, PHP, Databases"
+      title: "Desenvolvimento Backend",
+      description: "Node.js, Python, PHP, Bancos de Dados"
     },
     {
       icon: <Globe className="w-8 h-8" />,
-      title: "Full Stack Solutions",
-      description: "Complete web applications"
+      title: "Soluções Full Stack",
+      description: "Aplicações web completas"
     },
     {
       icon: <Zap className="w-8 h-8" />,
-      title: "3D & Interactive",
-      description: "WebGL, Three.js, Animations"
+      title: "3D e Interativo",
+      description: "WebGL, Three.js, Animações"
     }
   ];
 
@@ -37,7 +37,7 @@ const About = () => {
           className="text-center mb-16"
         >
           <h2 className="text-5xl md:text-6xl font-orbitron font-bold text-white mb-6">
-            About <span className="text-neon-green glow-text">Me</span>
+            Sobre <span className="text-neon-green glow-text">Mim</span>
           </h2>
           <div className="w-24 h-1 bg-neon-green mx-auto mb-8 glow-box"></div>
         </motion.div>
@@ -50,19 +50,19 @@ const About = () => {
             viewport={{ once: true }}
           >
             <h3 className="text-3xl font-orbitron text-neon-green mb-6">
-              Passionate Developer
+              Desenvolvedor Apaixonado
             </h3>
             <p className="text-white/80 text-lg leading-relaxed mb-6">
-              I'm Kenylson Lourenço, a passionate full-stack developer who loves creating 
-              immersive digital experiences. With expertise across multiple programming 
-              languages and frameworks, I specialize in building modern web applications 
-              that combine functionality with stunning visual appeal.
+              Sou Kenylson Lourenço, um desenvolvedor full-stack apaixonado que adora criar 
+              experiências digitais imersivas. Com expertise em múltiplas linguagens de programação 
+              e frameworks, me especializo em construir aplicações web modernas 
+              que combinam funcionalidade com apelo visual impressionante.
             </p>
             <p className="text-white/80 text-lg leading-relaxed">
-              My journey in technology spans from traditional web development to cutting-edge 
-              3D interactive experiences. I believe in pushing the boundaries of what's 
-              possible on the web, creating solutions that not only work flawlessly but 
-              also inspire and engage users.
+              Minha jornada na tecnologia vai desde o desenvolvimento web tradicional até 
+              experiências 3D interativas de ponta. Acredito em expandir os limites do que é 
+              possível na web, criando soluções que não apenas funcionam perfeitamente, mas 
+              também inspiram e engajam usuários.
             </p>
           </motion.div>
 

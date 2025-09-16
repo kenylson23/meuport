@@ -25,10 +25,10 @@ const Hero = () => {
           className="mb-8"
         >
           <div className="text-xl md:text-2xl text-white/80 font-orbitron mb-4">
-            Full Stack Developer
+            Desenvolvedor Full Stack
           </div>
           <div className="text-neon-green text-lg font-orbitron">
-            Creating Digital Experiences in 3D Space
+            Criando Experiências Digitais em Espaço 3D
           </div>
         </motion.div>
 
@@ -45,7 +45,7 @@ const Hero = () => {
               });
             }}
           >
-            View My Work
+            Ver Meu Trabalho
           </NeonButton>
           <NeonButton
             variant="outline"
@@ -55,7 +55,7 @@ const Hero = () => {
               });
             }}
           >
-            Get In Touch
+            Entre em Contato
           </NeonButton>
         </motion.div>
 

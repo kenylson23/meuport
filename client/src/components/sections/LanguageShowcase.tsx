@@ -32,12 +32,12 @@ const LanguageShowcase = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-orbitron font-bold text-white mb-6">
-            Interactive <span className="text-neon-green glow-text">Language Models</span>
+            Modelos 3D de <span className="text-neon-green glow-text">Linguagens</span>
           </h2>
           <div className="w-24 h-1 bg-neon-green mx-auto mb-8 glow-box"></div>
           <p className="text-white/70 text-lg max-w-2xl mx-auto">
-            Explore my programming expertise through interactive 3D language representations. 
-            Hover and click to see the technologies I master.
+            Explore minha expertise em programação através de representações 3D interativas de linguagens. 
+            Passe o mouse e clique para ver as tecnologias que domino.
           </p>
         </motion.div>
 
@@ -64,19 +64,19 @@ const LanguageShowcase = () => {
             <div className="text-3xl font-orbitron font-bold text-neon-green">
               {languages.length}+
             </div>
-            <div className="text-white/70">Programming Languages</div>
+            <div className="text-white/70">Linguagens de Programação</div>
           </div>
           <div className="space-y-2">
             <div className="text-3xl font-orbitron font-bold text-neon-green">
               {Math.round(languages.reduce((sum, lang) => sum + lang.level, 0) / languages.length)}%
             </div>
-            <div className="text-white/70">Average Proficiency</div>
+            <div className="text-white/70">Proficiência Média</div>
           </div>
           <div className="space-y-2">
             <div className="text-3xl font-orbitron font-bold text-neon-green">
               5+
             </div>
-            <div className="text-white/70">Years Experience</div>
+            <div className="text-white/70">Anos de Experiência</div>
           </div>
         </motion.div>
 
@@ -89,7 +89,7 @@ const LanguageShowcase = () => {
           className="text-center mt-12"
         >
           <p className="text-neon-green/60 text-sm font-orbitron animate-pulse">
-            ← Hover and click the 3D models to interact →
+            ← Passe o mouse e clique nos modelos 3D para interagir →
           </p>
         </motion.div>
       </div>

@@ -99,14 +99,14 @@ const ProjectCard = ({ project, index, onViewDetails }: ProjectCardProps) => {
               onClick={() => window.open(project.github, '_blank')}
             >
               <Github className="w-4 h-4 mr-1" />
-              Code
+              Código
             </NeonButton>
             <NeonButton
               size="sm"
               onClick={() => window.open(project.live, '_blank')}
             >
               <ExternalLink className="w-4 h-4 mr-1" />
-              Live
+              Acessar
             </NeonButton>
             <NeonButton
               variant="outline"
@@ -114,7 +114,7 @@ const ProjectCard = ({ project, index, onViewDetails }: ProjectCardProps) => {
               onClick={onViewDetails}
             >
               <Eye className="w-4 h-4 mr-1" />
-              Details
+              Detalhes
             </NeonButton>
           </div>
         </div>
@@ -142,57 +142,57 @@ const Projects = () => {
 
   const projects: Project[] = [
     {
-      title: "3D Portfolio Website",
-      description: "Interactive 3D portfolio built with React Three Fiber, featuring particle systems and smooth animations.",
-      longDescription: "A cutting-edge portfolio website that pushes the boundaries of web development. Built with React Three Fiber for immersive 3D experiences, featuring real-time particle systems, dynamic lighting, and smooth camera movements. The site showcases modern web technologies while maintaining excellent performance across all devices.",
+      title: "Site de Portfólio 3D",
+      description: "Portfólio 3D interativo construído com React Three Fiber, apresentando sistemas de partículas e animações suaves.",
+      longDescription: "Um site de portfólio de ponta que expande os limites do desenvolvimento web. Construído com React Three Fiber para experiências 3D imersivas, apresentando sistemas de partículas em tempo real, iluminação dinâmica e movimentos suaves de câmera. O site apresenta tecnologias web modernas mantendo excelente performance em todos os dispositivos.",
       tech: ["React", "Three.js", "TypeScript", "Framer Motion"],
       image: "/textures/sky.png",
       github: "#",
       live: "#",
       features: [
-        "Real-time 3D particle systems",
-        "Interactive camera controls",
-        "Responsive 3D design",
-        "Optimized WebGL rendering",
-        "Smooth transition animations",
-        "Cross-platform compatibility"
+        "Sistemas de partículas 3D em tempo real",
+        "Controles de câmera interativos",
+        "Design 3D responsivo",
+        "Renderização WebGL otimizada",
+        "Animações de transição suaves",
+        "Compatibilidade multiplataforma"
       ]
     },
     {
-      title: "E-Commerce Platform",
-      description: "Full-stack e-commerce solution with payment integration, admin dashboard, and real-time inventory management.",
+      title: "Plataforma de E-Commerce",
+      description: "Solução e-commerce full-stack com integração de pagamentos, painel administrativo e gerenciamento de estoque em tempo real.",
       tech: ["Vue.js", "Node.js", "MongoDB", "Stripe"],
       image: "/textures/wood.jpg",
       github: "#",
       live: "#"
     },
     {
-      title: "Real-time Chat App",
-      description: "WebSocket-based chat application with rooms, file sharing, and emoji reactions.",
+      title: "App de Chat em Tempo Real",
+      description: "Aplicação de chat baseada em WebSocket com salas, compartilhamento de arquivos e reações com emoji.",
       tech: ["React", "Socket.io", "Express", "PostgreSQL"],
       image: "/textures/grass.png",
       github: "#",
       live: "#"
     },
     {
-      title: "Data Visualization Dashboard",
-      description: "Interactive dashboard for data analysis with custom charts, filters, and export functionality.",
+      title: "Dashboard de Visualização de Dados",
+      description: "Dashboard interativo para análise de dados com gráficos personalizados, filtros e funcionalidade de exportação.",
       tech: ["Python", "Django", "D3.js", "Chart.js"],
       image: "/textures/asphalt.png",
       github: "#",
       live: "#"
     },
     {
-      title: "Mobile-First Web App",
-      description: "Progressive Web App with offline capabilities, push notifications, and responsive design.",
+      title: "App Web Mobile-First",
+      description: "Progressive Web App com capacidades offline, notificações push e design responsivo.",
       tech: ["Vue.js", "PWA", "Service Workers", "Firebase"],
       image: "/textures/sand.jpg",
       github: "#",
       live: "#"
     },
     {
-      title: "AI-Powered Tool",
-      description: "Machine learning web application for image recognition and classification with real-time processing.",
+      title: "Ferramenta Alimentada por IA",
+      description: "Aplicação web de aprendizado de máquina para reconhecimento e classificação de imagens com processamento em tempo real.",
       tech: ["Python", "TensorFlow", "Flask", "React"],
       image: "/textures/sky.png",
       github: "#",
@@ -211,11 +211,11 @@ const Projects = () => {
           className="text-center mb-16"
         >
           <h2 className="text-5xl md:text-6xl font-orbitron font-bold text-white mb-6">
-            Featured <span className="text-neon-green glow-text">Projects</span>
+            Projetos em <span className="text-neon-green glow-text">Destaque</span>
           </h2>
           <div className="w-24 h-1 bg-neon-green mx-auto mb-8 glow-box"></div>
           <p className="text-white/70 text-xl max-w-3xl mx-auto">
-            A showcase of my recent work across different technologies and domains
+            Uma vitrine do meu trabalho recente em diferentes tecnologias e domínios
           </p>
         </motion.div>
 

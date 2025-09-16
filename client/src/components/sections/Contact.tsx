@@ -33,20 +33,20 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: <Mail className="w-6 h-6" />,
-      title: "Email",
+      title: "E-mail",
       value: "kenylson@example.com",
       link: "mailto:kenylson@example.com"
     },
     {
       icon: <Phone className="w-6 h-6" />,
-      title: "Phone",
+      title: "Telefone",
       value: "+123 456 7890",
       link: "tel:+1234567890"
     },
     {
       icon: <MapPin className="w-6 h-6" />,
-      title: "Location",
-      value: "Available Worldwide",
+      title: "Localização",
+      value: "Disponível Mundialmente",
       link: "#"
     }
   ];
@@ -62,11 +62,11 @@ const Contact = () => {
           className="text-center mb-16"
         >
           <h2 className="text-5xl md:text-6xl font-orbitron font-bold text-white mb-6">
-            Get In <span className="text-neon-green glow-text">Touch</span>
+            Entre em <span className="text-neon-green glow-text">Contato</span>
           </h2>
           <div className="w-24 h-1 bg-neon-green mx-auto mb-8 glow-box"></div>
           <p className="text-white/70 text-xl max-w-2xl mx-auto">
-            Ready to bring your ideas to life? Let's create something amazing together.
+            Pronto para dar vida às suas ideias? Vamos criar algo incrível juntos.
           </p>
         </motion.div>
 
@@ -82,7 +82,7 @@ const Contact = () => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-neon-green font-orbitron text-sm font-semibold mb-2">
-                    Name
+                    Nome
                   </label>
                   <input
                     type="text"
@@ -92,13 +92,13 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 bg-black/50 border border-neon-green/30 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-neon-green focus:glow-input transition-all duration-300"
-                    placeholder="Your name"
+                    placeholder="Seu nome"
                   />
                 </div>
 
                 <div>
                   <label htmlFor="email" className="block text-neon-green font-orbitron text-sm font-semibold mb-2">
-                    Email
+                    E-mail
                   </label>
                   <input
                     type="email"
@@ -108,13 +108,13 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 bg-black/50 border border-neon-green/30 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-neon-green focus:glow-input transition-all duration-300"
-                    placeholder="your.email@example.com"
+                    placeholder="seu.email@exemplo.com"
                   />
                 </div>
 
                 <div>
                   <label htmlFor="message" className="block text-neon-green font-orbitron text-sm font-semibold mb-2">
-                    Message
+                    Mensagem
                   </label>
                   <textarea
                     id="message"
@@ -124,13 +124,13 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 bg-black/50 border border-neon-green/30 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-neon-green focus:glow-input transition-all duration-300 resize-none"
-                    placeholder="Tell me about your project..."
+                    placeholder="Conte-me sobre seu projeto..."
                   />
                 </div>
 
                 <NeonButton type="submit" className="w-full">
                   <Send className="w-4 h-4 mr-2" />
-                  Send Message
+                  Enviar Mensagem
                 </NeonButton>
               </form>
             </GlowCard>
@@ -146,12 +146,12 @@ const Contact = () => {
           >
             <div className="mb-8">
               <h3 className="text-3xl font-orbitron text-white mb-4">
-                Let's Create Something <span className="text-neon-green">Amazing</span>
+                Vamos Criar Algo <span className="text-neon-green">Incrível</span>
               </h3>
               <p className="text-white/70 text-lg leading-relaxed">
-                I'm always excited to work on new projects and collaborate with creative minds. 
-                Whether you have a specific idea or need consultation, I'm here to help bring 
-                your vision to reality.
+                Estou sempre animado para trabalhar em novos projetos e colaborar com mentes criativas. 
+                Seja para uma ideia específica ou consultoria, estou aqui para ajudar a tornar 
+                sua visão realidade.
               </p>
             </div>
 
@@ -194,7 +194,7 @@ const Contact = () => {
           className="text-center mt-16 pt-8 border-t border-neon-green/20"
         >
           <p className="text-white/60 font-orbitron">
-            © 2025 Kenylson Lourenço. Built with passion and code.
+            © 2025 Kenylson Lourenço. Construído com paixão e código.
           </p>
         </motion.div>
       </div>

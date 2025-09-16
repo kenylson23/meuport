@@ -39,7 +39,7 @@ const Portfolio = () => {
   }, []);
 
   const handleScroll = () => {
-    const sections = ['hero', 'about', 'skills', 'projects', 'contact'];
+    const sections = ['hero', 'about', 'skills', 'languages', 'projects', 'contact'];
     const scrollPosition = window.scrollY + window.innerHeight / 2;
     
     for (let i = 0; i < sections.length; i++) {
@@ -62,7 +62,7 @@ const Portfolio = () => {
   if (!isLoaded) {
     return (
       <div className="flex items-center justify-center h-screen bg-black">
-        <div className="text-neon-green text-xl animate-pulse">Initializing Portfolio...</div>
+        <div className="text-neon-green text-xl animate-pulse">Inicializando Portfólio...</div>
       </div>
     );
   }
@@ -154,22 +154,29 @@ const Portfolio = () => {
               KL
             </div>
             <div className="hidden md:flex space-x-8">
-              {['Hero', 'About', 'Skills', 'Languages', 'Projects', 'Contact'].map((item) => (
+              {[
+                { label: 'Início', id: 'hero' },
+                { label: 'Sobre', id: 'about' },
+                { label: 'Habilidades', id: 'skills' },
+                { label: 'Linguagens', id: 'languages' },
+                { label: 'Projetos', id: 'projects' },
+                { label: 'Contato', id: 'contact' }
+              ].map((item) => (
                 <button
-                  key={item}
+                  key={item.id}
                   onClick={() => {
-                    document.getElementById(item.toLowerCase())?.scrollIntoView({
+                    document.getElementById(item.id)?.scrollIntoView({
                       behavior: 'smooth'
                     });
                   }}
                   onMouseEnter={() => playHover()}
                   className={`nav-link font-orbitron ${
-                    currentSection === item.toLowerCase() 
+                    currentSection === item.id 
                       ? 'text-neon-green' 
                       : 'text-white/70 hover:text-neon-green'
                   } transition-colors duration-300`}
                 >
-                  {item}
+                  {item.label}
                 </button>
               ))}
             </div>

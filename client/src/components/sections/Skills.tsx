@@ -58,8 +58,8 @@ const SkillCard = ({ skill, index }: SkillCardProps) => {
           
           {/* Skill level indicator */}
           <div className="flex justify-between text-xs text-white/60">
-            <span>Beginner</span>
-            <span>Expert</span>
+            <span>Iniciante</span>
+            <span>Especialista</span>
           </div>
         </div>
         
@@ -109,11 +109,11 @@ const Skills = () => {
           className="text-center mb-16"
         >
           <h2 className="text-5xl md:text-6xl font-orbitron font-bold text-white mb-6">
-            Technical <span className="text-neon-green glow-text">Skills</span>
+            Habilidades <span className="text-neon-green glow-text">Técnicas</span>
           </h2>
           <div className="w-24 h-1 bg-neon-green mx-auto mb-8 glow-box"></div>
           <p className="text-white/70 text-xl max-w-2xl mx-auto">
-            A comprehensive toolkit for building modern web applications
+            Um conjunto abrangente de ferramentas para construir aplicações web modernas
           </p>
           
           {/* View Mode Toggle */}
@@ -136,7 +136,7 @@ const Skills = () => {
                     : 'text-white/70 hover:text-neon-green'
                 }`}
               >
-                Grid View
+                Visão em Grade
               </button>
               <button
                 onClick={() => {
@@ -150,7 +150,7 @@ const Skills = () => {
                     : 'text-white/70 hover:text-neon-green'
                 }`}
               >
-                Skills Tree
+Árvore de Habilidades
               </button>
             </div>
           </motion.div>
@@ -197,13 +197,13 @@ const Skills = () => {
               className="absolute top-4 right-4 bg-black/80 backdrop-blur-md border border-neon-green/30 rounded-lg p-3 max-w-xs"
             >
               <h4 className="text-neon-green font-orbitron font-semibold text-sm mb-2">
-                Interactive Skills Tree
+Árvore de Habilidades Interativa
               </h4>
               <ul className="text-white/70 text-xs space-y-1">
-                <li>• Hover nodes to see connections</li>
-                <li>• Click to select multiple nodes</li>
-                <li>• Lines show skill relationships</li>
-                <li>• Locked skills require prerequisites</li>
+                <li>• Passe o mouse sobre os nós para ver conexões</li>
+                <li>• Clique para selecionar múltiplos nós</li>
+                <li>• Linhas mostram relações entre habilidades</li>
+                <li>• Habilidades bloqueadas exigem pré-requisitos</li>
               </ul>
             </motion.div>
           </motion.div>
@@ -217,7 +217,7 @@ const Skills = () => {
           className="text-center mt-16"
         >
           <p className="text-white/60 text-lg font-orbitron">
-            Always learning, always evolving
+            Sempre aprendendo, sempre evoluindo
           </p>
         </motion.div>
       </div>

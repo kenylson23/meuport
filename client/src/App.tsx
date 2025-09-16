@@ -18,7 +18,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <Suspense fallback={
         <div className="flex items-center justify-center h-screen bg-black">
-          <div className="text-neon-green text-xl animate-pulse">Loading Portfolio...</div>
+          <div className="text-neon-green text-xl animate-pulse">Carregando Portfólio...</div>
         </div>
       }>
         <Portfolio />
