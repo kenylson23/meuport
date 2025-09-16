@@ -10,18 +10,68 @@ const Hero = () => {
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
-          className="order-2 md:order-1 text-center md:text-left"
+          className="order-2 md:order-1 text-center md:text-left space-y-6"
         >
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-orbitron font-black text-white mb-6">
+          {/* Nome Principal */}
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-orbitron font-black text-white">
             KENYLSON
             <span className="block text-neon-green glow-text">LOURENÇO</span>
           </h1>
           
-          <div className="text-xl md:text-2xl text-white/80 font-orbitron mb-4">
-            Desenvolvedor Full Stack
+          {/* Título e Experiência */}
+          <div className="space-y-2">
+            <div className="text-xl md:text-2xl text-white/90 font-orbitron">
+              Desenvolvedor Full Stack • <span className="text-neon-green">5+ Anos</span>
+            </div>
+            
+            {/* Localização e Status */}
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-2 text-white/70 font-orbitron">
+              <span>São Paulo, Brasil</span>
+              <span className="hidden md:block">|</span>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                <span className="text-green-400">Disponível para Projetos</span>
+              </div>
+            </div>
           </div>
-          <div className="text-neon-green text-lg md:text-xl font-orbitron">
-            Criando Experiências Digitais em Espaço 3D
+          
+          {/* Descrição */}
+          <div className="space-y-2">
+            <div className="text-lg md:text-xl text-white/80 font-orbitron">
+              Especialista em React, TypeScript e Experiências 3D
+            </div>
+            <div className="text-neon-green text-base md:text-lg font-orbitron">
+              Transformando ideias complexas em soluções digitais elegantes
+            </div>
+          </div>
+          
+          {/* Tecnologias Principais */}
+          <div className="flex flex-wrap justify-center md:justify-start gap-2">
+            {['React', 'TypeScript', 'Node.js', 'Python', 'PostgreSQL'].map((tech) => (
+              <motion.span
+                key={tech}
+                whileHover={{ scale: 1.05 }}
+                className="px-3 py-1 bg-black/30 border border-neon-green/30 rounded-full text-neon-green text-sm font-orbitron glow-text-subtle"
+              >
+                {tech}
+              </motion.span>
+            ))}
+          </div>
+          
+          {/* Mini Contadores */}
+          <div className="flex justify-center md:justify-start gap-6 text-sm">
+            <div className="text-center">
+              <div className="text-2xl font-orbitron font-bold text-neon-green">50+</div>
+              <div className="text-white/60 font-orbitron">Projetos</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-orbitron font-bold text-neon-green">15+</div>
+              <div className="text-white/60 font-orbitron">Clientes</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-orbitron font-bold text-neon-green">3+</div>
+              <div className="text-white/60 font-orbitron">Anos Replit</div>
+            </div>
           </div>
         </motion.div>
 
