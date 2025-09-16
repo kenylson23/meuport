@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { cn } from "../../lib/utils";
+import { useAudio } from "../../lib/stores/useAudio";
 
 interface NeonButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
@@ -12,8 +13,10 @@ const NeonButton = ({
   className, 
   variant = "default", 
   size = "md",
+  onClick,
   ...props 
 }: NeonButtonProps) => {
+  const { playButtonClick, playHover } = useAudio();
   const baseClasses = "relative font-orbitron font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-neon-green/50";
   
   const variantClasses = {
@@ -27,10 +30,19 @@ const NeonButton = ({
     lg: "px-8 py-4 text-lg"
   };
 
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    playButtonClick();
+    if (onClick) {
+      onClick(e);
+    }
+  };
+
   return (
     <motion.button
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
+      onMouseEnter={() => playHover()}
+      onClick={handleClick}
       className={cn(
         baseClasses,
         variantClasses[variant],

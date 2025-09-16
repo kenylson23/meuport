@@ -3,8 +3,10 @@ import { motion } from "framer-motion";
 import { Mail, MapPin, Phone, Send } from "lucide-react";
 import NeonButton from "../ui/NeonButton";
 import GlowCard from "../ui/GlowCard";
+import { useAudio } from "../../lib/stores/useAudio";
 
 const Contact = () => {
+  const { playSuccess } = useAudio();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -15,6 +17,10 @@ const Contact = () => {
     e.preventDefault();
     // Handle form submission
     console.log("Form submitted:", formData);
+    // Play success sound
+    playSuccess();
+    // Clear form
+    setFormData({ name: "", email: "", message: "" });
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {

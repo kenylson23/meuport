@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { cn } from "../../lib/utils";
+import { useAudio } from "../../lib/stores/useAudio";
 
 interface GlowCardProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
@@ -12,12 +13,15 @@ const GlowCard = ({
   glowColor = "#00ff00",
   ...props 
 }: GlowCardProps) => {
+  const { playHover } = useAudio();
+  
   return (
     <motion.div
       whileHover={{ 
         boxShadow: `0 0 30px ${glowColor}40, 0 0 60px ${glowColor}20`,
         borderColor: glowColor
       }}
+      onMouseEnter={() => playHover()}
       transition={{ duration: 0.3 }}
       className={cn(
         "relative bg-black/20 backdrop-blur-sm border border-neon-green/20 rounded-lg transition-all duration-300",

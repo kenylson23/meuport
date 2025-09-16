@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, Eye } from "lucide-react";
 import GlowCard from "../ui/GlowCard";
 import NeonButton from "../ui/NeonButton";
+import ProjectModal from "../ui/ProjectModal";
 
 interface Project {
   title: string;
@@ -10,14 +12,19 @@ interface Project {
   image: string;
   github: string;
   live: string;
+  longDescription?: string;
+  features?: string[];
+  codeSnippet?: string;
+  demoImages?: string[];
 }
 
 interface ProjectCardProps {
   project: Project;
   index: number;
+  onViewDetails: () => void;
 }
 
-const ProjectCard = ({ project, index }: ProjectCardProps) => {
+const ProjectCard = ({ project, index, onViewDetails }: ProjectCardProps) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -85,12 +92,11 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
           </div>
 
           {/* Action Buttons */}
-          <div className="flex space-x-3">
+          <div className="grid grid-cols-3 gap-2">
             <NeonButton
               variant="outline"
               size="sm"
               onClick={() => window.open(project.github, '_blank')}
-              className="flex-1"
             >
               <Github className="w-4 h-4 mr-1" />
               Code
@@ -98,10 +104,17 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
             <NeonButton
               size="sm"
               onClick={() => window.open(project.live, '_blank')}
-              className="flex-1"
             >
               <ExternalLink className="w-4 h-4 mr-1" />
               Live
+            </NeonButton>
+            <NeonButton
+              variant="outline"
+              size="sm"
+              onClick={onViewDetails}
+            >
+              <Eye className="w-4 h-4 mr-1" />
+              Details
             </NeonButton>
           </div>
         </div>
@@ -114,14 +127,36 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
 };
 
 const Projects = () => {
-  const projects = [
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleViewDetails = (project: Project) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setTimeout(() => setSelectedProject(null), 300);
+  };
+
+  const projects: Project[] = [
     {
       title: "3D Portfolio Website",
       description: "Interactive 3D portfolio built with React Three Fiber, featuring particle systems and smooth animations.",
+      longDescription: "A cutting-edge portfolio website that pushes the boundaries of web development. Built with React Three Fiber for immersive 3D experiences, featuring real-time particle systems, dynamic lighting, and smooth camera movements. The site showcases modern web technologies while maintaining excellent performance across all devices.",
       tech: ["React", "Three.js", "TypeScript", "Framer Motion"],
       image: "/textures/sky.png",
       github: "#",
-      live: "#"
+      live: "#",
+      features: [
+        "Real-time 3D particle systems",
+        "Interactive camera controls",
+        "Responsive 3D design",
+        "Optimized WebGL rendering",
+        "Smooth transition animations",
+        "Cross-platform compatibility"
+      ]
     },
     {
       title: "E-Commerce Platform",
@@ -193,11 +228,22 @@ const Projects = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <ProjectCard project={project} index={index} />
+              <ProjectCard 
+                project={project} 
+                index={index} 
+                onViewDetails={() => handleViewDetails(project)}
+              />
             </motion.div>
           ))}
         </div>
       </div>
+
+      {/* Project Detail Modal */}
+      <ProjectModal
+        project={selectedProject}
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+      />
     </section>
   );
 };

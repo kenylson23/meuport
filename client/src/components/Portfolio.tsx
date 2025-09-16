@@ -1,13 +1,37 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import Hero from "./sections/Hero";
 import About from "./sections/About";
 import Skills from "./sections/Skills";
+import LanguageShowcase from "./sections/LanguageShowcase";
 import Projects from "./sections/Projects";
 import Contact from "./sections/Contact";
+import AudioControls from "./ui/AudioControls";
 import { usePortfolio } from "../lib/stores/usePortfolio";
+import { useAudio } from "../lib/stores/useAudio";
 
 const Portfolio = () => {
   const { currentSection, setCurrentSection } = usePortfolio();
+  const { playHover } = useAudio();
+
+  // Pre-compute random values for consistent renders
+  const matrixData = useMemo(() => 
+    Array.from({ length: 20 }, (_, i) => ({
+      left: i * 5,
+      animationDelay: Math.random() * 5,
+      animationDuration: 10 + Math.random() * 10,
+      characters: Array.from({ length: 20 }, () => 
+        String.fromCharCode(0x30A0 + Math.random() * 96)
+      )
+    })), []
+  );
+
+  const particleData = useMemo(() => 
+    Array.from({ length: 80 }, () => ({
+      left: Math.random() * 100,
+      top: Math.random() * 100,
+      animationDelay: Math.random() * 15
+    })), []
+  );
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -45,25 +69,76 @@ const Portfolio = () => {
 
   return (
     <div className="relative min-h-screen bg-black overflow-x-hidden">
-      {/* Animated CSS Background */}
+      {/* Advanced Animated CSS Background */}
       <div className="fixed inset-0 z-0">
         <div className="w-full h-full bg-gradient-to-br from-black via-gray-900 to-black">
+          {/* Shader-like Wave Background */}
+          <div className="shader-background"></div>
+          
           {/* CSS Neon Grid Effect */}
           <div className="absolute inset-0 opacity-20">
             <div className="grid-background"></div>
           </div>
           
-          {/* Floating Particles Effect */}
+          {/* Matrix Rain Effect */}
+          <div className="matrix-container">
+            {matrixData.map((column, i) => (
+              <div
+                key={i}
+                className="matrix-column"
+                style={{
+                  left: `${column.left}%`,
+                  animationDelay: `${column.animationDelay}s`,
+                  animationDuration: `${column.animationDuration}s`
+                }}
+              >
+                {column.characters.map((char, j) => (
+                  <div key={j}>{char}</div>
+                ))}
+              </div>
+            ))}
+          </div>
+          
+          {/* Enhanced Floating Particles */}
           <div className="particles-container">
-            {Array.from({ length: 50 }, (_, i) => (
+            {particleData.map((particle, i) => (
               <div
                 key={i}
                 className="particle"
                 style={{
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`,
-                  animationDelay: `${Math.random() * 10}s`,
-                  animationDuration: `${5 + Math.random() * 10}s`
+                  left: `${particle.left}%`,
+                  top: `${particle.top}%`,
+                  animationDelay: `${particle.animationDelay}s`,
+                }}
+              />
+            ))}
+          </div>
+          
+          {/* Morphing Shapes */}
+          <div className="absolute inset-0">
+            {Array.from({ length: 8 }, (_, i) => (
+              <div
+                key={i}
+                className="morphing-shape"
+                style={{
+                  position: 'absolute',
+                  left: `${10 + (i * 12)}%`,
+                  top: `${20 + (i % 3) * 30}%`,
+                  animationDelay: `${i * 1.5}s`,
+                }}
+              />
+            ))}
+          </div>
+          
+          {/* Energy Waves */}
+          <div className="absolute inset-0">
+            {Array.from({ length: 5 }, (_, i) => (
+              <div
+                key={i}
+                className="energy-wave"
+                style={{
+                  top: `${20 * i}%`,
+                  animationDelay: `${i * 2}s`,
                 }}
               />
             ))}
@@ -79,7 +154,7 @@ const Portfolio = () => {
               KL
             </div>
             <div className="hidden md:flex space-x-8">
-              {['Hero', 'About', 'Skills', 'Projects', 'Contact'].map((item) => (
+              {['Hero', 'About', 'Skills', 'Languages', 'Projects', 'Contact'].map((item) => (
                 <button
                   key={item}
                   onClick={() => {
@@ -87,6 +162,7 @@ const Portfolio = () => {
                       behavior: 'smooth'
                     });
                   }}
+                  onMouseEnter={() => playHover()}
                   className={`nav-link font-orbitron ${
                     currentSection === item.toLowerCase() 
                       ? 'text-neon-green' 
@@ -106,9 +182,13 @@ const Portfolio = () => {
         <Hero />
         <About />
         <Skills />
+        <LanguageShowcase />
         <Projects />
         <Contact />
       </main>
+
+      {/* Audio Controls */}
+      <AudioControls />
     </div>
   );
 };

@@ -1,5 +1,8 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import GlowCard from "../ui/GlowCard";
+import SkillTreeVisualization from "../3d/SkillTreeVisualization";
+import { useAudio } from "../../lib/stores/useAudio";
 
 interface Skill {
   name: string;
@@ -71,6 +74,9 @@ const SkillCard = ({ skill, index }: SkillCardProps) => {
 };
 
 const Skills = () => {
+  const [viewMode, setViewMode] = useState<'grid' | 'tree'>('grid');
+  const { playHover, playHit } = useAudio();
+  
   const skills = [
     { name: "JavaScript", level: 95, color: "#f7df1e" },
     { name: "TypeScript", level: 90, color: "#3178c6" },
@@ -109,21 +115,99 @@ const Skills = () => {
           <p className="text-white/70 text-xl max-w-2xl mx-auto">
             A comprehensive toolkit for building modern web applications
           </p>
+          
+          {/* View Mode Toggle */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+            className="flex justify-center mt-8"
+          >
+            <div className="flex bg-black/50 backdrop-blur-md border border-neon-green/20 rounded-lg p-1">
+              <button
+                onClick={() => {
+                  setViewMode('grid');
+                  playHit();
+                }}
+                onMouseEnter={() => playHover()}
+                className={`px-6 py-2 rounded-md transition-all duration-300 font-orbitron text-sm ${
+                  viewMode === 'grid'
+                    ? 'bg-neon-green text-black font-bold'
+                    : 'text-white/70 hover:text-neon-green'
+                }`}
+              >
+                Grid View
+              </button>
+              <button
+                onClick={() => {
+                  setViewMode('tree');
+                  playHit();
+                }}
+                onMouseEnter={() => playHover()}
+                className={`px-6 py-2 rounded-md transition-all duration-300 font-orbitron text-sm ${
+                  viewMode === 'tree'
+                    ? 'bg-neon-green text-black font-bold'
+                    : 'text-white/70 hover:text-neon-green'
+                }`}
+              >
+                Skills Tree
+              </button>
+            </div>
+          </motion.div>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {skills.map((skill, index) => (
+        {/* Dynamic Content Based on View Mode */}
+        {viewMode === 'grid' ? (
+          <motion.div
+            key="grid-view"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            transition={{ duration: 0.5 }}
+            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+          >
+            {skills.map((skill, index) => (
+              <motion.div
+                key={skill.name}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <SkillCard skill={skill} index={index} />
+              </motion.div>
+            ))}
+          </motion.div>
+        ) : (
+          <motion.div
+            key="tree-view"
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 1.1 }}
+            transition={{ duration: 0.5 }}
+            className="h-[800px] relative bg-black/20 backdrop-blur-sm border border-neon-green/20 rounded-lg overflow-hidden"
+          >
+            <SkillTreeVisualization />
+            
+            {/* Instructions Overlay */}
             <motion.div
-              key={skill.name}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1 }}
+              className="absolute top-4 right-4 bg-black/80 backdrop-blur-md border border-neon-green/30 rounded-lg p-3 max-w-xs"
             >
-              <SkillCard skill={skill} index={index} />
+              <h4 className="text-neon-green font-orbitron font-semibold text-sm mb-2">
+                Interactive Skills Tree
+              </h4>
+              <ul className="text-white/70 text-xs space-y-1">
+                <li>• Hover nodes to see connections</li>
+                <li>• Click to select multiple nodes</li>
+                <li>• Lines show skill relationships</li>
+                <li>• Locked skills require prerequisites</li>
+              </ul>
             </motion.div>
-          ))}
-        </div>
+          </motion.div>
+        )}
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
