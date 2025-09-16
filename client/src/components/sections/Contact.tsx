@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { Mail, MapPin, Send, MessageCircle } from "lucide-react";
 import NeonButton from "../ui/NeonButton";
 import GlowCard from "../ui/GlowCard";
 import { useAudio } from "../../lib/stores/useAudio";
@@ -35,19 +35,22 @@ const Contact = () => {
       icon: <Mail className="w-6 h-6" />,
       title: "E-mail",
       value: "kenylson@example.com",
-      link: "mailto:kenylson@example.com"
+      link: "mailto:kenylson@example.com",
+      isWhatsApp: false
     },
     {
-      icon: <Phone className="w-6 h-6" />,
-      title: "Telefone",
-      value: "+123 456 7890",
-      link: "tel:+1234567890"
+      icon: <MessageCircle className="w-6 h-6" />,
+      title: "WhatsApp",
+      value: "+244 949 639 932",
+      link: "https://wa.me/244949639932?text=Ol%C3%A1%20Kenylson%2C%20vim%20do%20seu%20portf%C3%B3lio!",
+      isWhatsApp: true
     },
     {
       icon: <MapPin className="w-6 h-6" />,
       title: "Localização",
       value: "Disponível Mundialmente",
-      link: "#"
+      link: "#",
+      isWhatsApp: false
     }
   ];
 
@@ -159,6 +162,9 @@ const Contact = () => {
               <motion.a
                 key={info.title}
                 href={info.link}
+                target={info.isWhatsApp ? '_blank' : undefined}
+                rel={info.isWhatsApp ? 'noopener noreferrer' : undefined}
+                aria-label={info.isWhatsApp ? 'Abrir conversa no WhatsApp' : undefined}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
