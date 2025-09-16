@@ -34,8 +34,8 @@ const Contact = () => {
     {
       icon: <Mail className="w-6 h-6" />,
       title: "E-mail",
-      value: "kenylson@example.com",
-      link: "mailto:kenylson@example.com",
+      value: "kenylsonlourenco0@gmail.com",
+      link: "mailto:kenylsonlourenco0@gmail.com",
       isWhatsApp: false
     },
     {
