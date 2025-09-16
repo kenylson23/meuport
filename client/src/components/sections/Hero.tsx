@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-import NeonButton from "../ui/NeonButton";
 
 const Hero = () => {
   return (
@@ -55,41 +54,14 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
-          className="mb-8"
+          className="mb-16"
         >
-          <div className="text-xl md:text-2xl text-white/80 font-orbitron mb-4">
+          <div className="text-xl md:text-2xl text-white/80 font-orbitron mb-6">
             Desenvolvedor Full Stack
           </div>
-          <div className="text-neon-green text-lg font-orbitron">
+          <div className="text-neon-green text-lg md:text-xl font-orbitron">
             Criando Experiências Digitais em Espaço 3D
           </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.6 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-        >
-          <NeonButton
-            onClick={() => {
-              document.getElementById('projects')?.scrollIntoView({
-                behavior: 'smooth'
-              });
-            }}
-          >
-            Ver Meu Trabalho
-          </NeonButton>
-          <NeonButton
-            variant="outline"
-            onClick={() => {
-              document.getElementById('contact')?.scrollIntoView({
-                behavior: 'smooth'
-              });
-            }}
-          >
-            Entre em Contato
-          </NeonButton>
         </motion.div>
 
         <motion.div
