@@ -150,8 +150,19 @@ const Portfolio = () => {
       <nav className="fixed top-0 left-0 w-full z-50 bg-black/10 backdrop-blur-md border-b border-neon-green/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
-            <div className="text-neon-green font-orbitron text-xl font-bold">
-              KL
+            <div className="flex items-center space-x-3">
+              <div className="relative w-10 h-10">
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-neon-green to-cyan-400 p-0.5">
+                  <img 
+                    src="/images/profile.png" 
+                    alt="KL"
+                    className="w-full h-full rounded-full object-cover"
+                  />
+                </div>
+              </div>
+              <div className="text-neon-green font-orbitron text-xl font-bold">
+                KL
+              </div>
             </div>
             <div className="hidden md:flex space-x-8">
               {[

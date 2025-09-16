@@ -49,6 +49,25 @@ const About = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
+            {/* Profile Photo for About Section */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="mb-8 md:hidden"
+            >
+              <div className="relative w-40 h-40 mx-auto">
+                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-neon-green/50 to-cyan-400/50 p-1">
+                  <img 
+                    src="/images/profile.png" 
+                    alt="Kenylson Lourenço"
+                    className="w-full h-full rounded-full object-cover border-2 border-neon-green/30"
+                  />
+                </div>
+              </div>
+            </motion.div>
+
             <h3 className="text-3xl font-orbitron text-neon-green mb-6">
               Desenvolvedor Apaixonado
             </h3>
@@ -71,8 +90,31 @@ const About = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="grid grid-cols-2 gap-4"
+            className="space-y-8"
           >
+            {/* Profile Photo for Desktop */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="hidden md:block"
+            >
+              <div className="relative w-64 h-64 mx-auto">
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-neon-green/30 via-cyan-400/20 to-purple-500/20 p-2 backdrop-blur-sm border border-neon-green/30">
+                  <img 
+                    src="/images/profile.png" 
+                    alt="Kenylson Lourenço - Desenvolvedor Full Stack"
+                    className="w-full h-full rounded-2xl object-cover"
+                  />
+                </div>
+                {/* Decorative elements */}
+                <div className="absolute -top-2 -right-2 w-6 h-6 bg-neon-green rounded-full animate-pulse" />
+                <div className="absolute -bottom-2 -left-2 w-4 h-4 bg-cyan-400 rounded-full animate-ping" />
+              </div>
+            </motion.div>
+            
+            <div className="grid grid-cols-2 gap-4">
             {features.map((feature, index) => (
               <GlowCard key={index} className="p-6 text-center">
                 <div className="text-neon-green mb-4 flex justify-center">
@@ -86,6 +128,7 @@ const About = () => {
                 </p>
               </GlowCard>
             ))}
+            </div>
           </motion.div>
         </div>
       </div>

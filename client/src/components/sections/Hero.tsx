@@ -5,11 +5,44 @@ import NeonButton from "../ui/NeonButton";
 const Hero = () => {
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center relative">
-      <div className="text-center z-20 max-w-4xl mx-auto px-4">
+      <div className="text-center z-20 max-w-5xl mx-auto px-4 relative">
+        {/* Profile Photo */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.2, delay: 0.2 }}
+          className="mb-8"
+        >
+          <div className="relative w-32 h-32 md:w-48 md:h-48 mx-auto">
+            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-neon-green to-cyan-400 p-1 glow-strong animate-pulse">
+              <img 
+                src="/images/profile.png" 
+                alt="Kenylson Lourenço - Desenvolvedor Full Stack"
+                className="w-full h-full rounded-full object-cover"
+              />
+            </div>
+            {/* Floating particles around photo */}
+            <div className="absolute -inset-4">
+              {[...Array(6)].map((_, i) => (
+                <div
+                  key={i}
+                  className="absolute w-2 h-2 bg-neon-green rounded-full opacity-60 animate-ping"
+                  style={{
+                    left: `${20 + (i * 15)}%`,
+                    top: `${10 + (i % 3) * 30}%`,
+                    animationDelay: `${i * 0.5}s`,
+                    animationDuration: '2s'
+                  }}
+                />
+              ))}
+            </div>
+          </div>
+        </motion.div>
+
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 1, delay: 0.5 }}
           className="mb-8"
         >
           <h1 className="text-6xl md:text-8xl font-orbitron font-black text-white mb-4">
