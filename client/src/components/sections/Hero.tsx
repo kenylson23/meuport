@@ -21,7 +21,7 @@ const Hero = () => {
           {/* Título e Experiência */}
           <div className="space-y-2">
             <div className="text-xl md:text-2xl text-white/90 font-orbitron">
-              Desenvolvedor Full Stack • <span className="text-neon-green">5+ Anos</span>
+              Desenvolvedor Full Stack • <span className="text-neon-green">3+ Anos</span>
             </div>
             
             {/* Localização e Status */}
@@ -61,16 +61,16 @@ const Hero = () => {
           {/* Mini Contadores */}
           <div className="flex justify-center md:justify-start gap-6 text-sm">
             <div className="text-center">
-              <div className="text-2xl font-orbitron font-bold text-neon-green">50+</div>
+              <div className="text-2xl font-orbitron font-bold text-neon-green">30+</div>
               <div className="text-white/60 font-orbitron">Projetos</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-orbitron font-bold text-neon-green">15+</div>
+              <div className="text-2xl font-orbitron font-bold text-neon-green">10+</div>
               <div className="text-white/60 font-orbitron">Clientes</div>
             </div>
             <div className="text-center">
               <div className="text-2xl font-orbitron font-bold text-neon-green">3+</div>
-              <div className="text-white/60 font-orbitron">Anos Replit</div>
+              <div className="text-white/60 font-orbitron">Anos</div>
             </div>
           </div>
         </motion.div>
