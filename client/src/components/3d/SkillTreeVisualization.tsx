@@ -39,18 +39,15 @@ const SkillTreeVisualization = () => {
     // Backend Foundation
     { id: "node", name: "Node.js", level: 90, category: "backend", color: "#339933", x: 50, y: 85, connections: ["express", "nest"], description: "Server-side JavaScript", isUnlocked: true },
     { id: "python", name: "Python", level: 85, category: "backend", color: "#3776ab", x: 80, y: 70, connections: ["django", "flask"], description: "Versatile programming language", isUnlocked: true },
-    { id: "php", name: "PHP", level: 80, category: "backend", color: "#777bb4", x: 80, y: 55, connections: ["laravel"], description: "Server-side scripting", isUnlocked: true },
     
     // Backend Frameworks
     { id: "express", name: "Express", level: 85, category: "backend", color: "#68a063", x: 35, y: 90, connections: ["node"], description: "Minimal web framework", isUnlocked: true },
     { id: "nest", name: "NestJS", level: 75, category: "backend", color: "#e0234e", x: 65, y: 95, connections: ["node", "ts"], description: "Enterprise Node.js framework", isUnlocked: false },
     { id: "django", name: "Django", level: 70, category: "backend", color: "#092e20", x: 90, y: 75, connections: ["python"], description: "High-level Python framework", isUnlocked: false },
     { id: "flask", name: "Flask", level: 75, category: "backend", color: "#000000", x: 90, y: 65, connections: ["python"], description: "Micro web framework", isUnlocked: true },
-    { id: "laravel", name: "Laravel", level: 70, category: "backend", color: "#ff2d20", x: 90, y: 45, connections: ["php"], description: "Elegant PHP framework", isUnlocked: false },
     
     // Database
     { id: "mysql", name: "MySQL", level: 80, category: "database", color: "#4479a1", x: 80, y: 30, connections: [], description: "Relational database", isUnlocked: true },
-    { id: "mongo", name: "MongoDB", level: 85, category: "database", color: "#47a248", x: 65, y: 25, connections: [], description: "NoSQL database", isUnlocked: true },
     { id: "postgres", name: "PostgreSQL", level: 80, category: "database", color: "#336791", x: 50, y: 20, connections: [], description: "Advanced relational DB", isUnlocked: true },
     
     // Advanced Frameworks

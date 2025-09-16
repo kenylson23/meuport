@@ -84,18 +84,13 @@ const Skills = () => {
     { name: "Vue.js", level: 85, color: "#4fc08d" },
     { name: "Node.js", level: 90, color: "#339933" },
     { name: "Python", level: 85, color: "#3776ab" },
-    { name: "PHP", level: 80, color: "#777bb4" },
     { name: "Angular", level: 80, color: "#dd0031" },
     { name: "Svelte", level: 75, color: "#ff3e00" },
-    { name: "MongoDB", level: 85, color: "#47a248" },
     { name: "PostgreSQL", level: 80, color: "#336791" },
-    { name: "Docker", level: 75, color: "#2496ed" },
     { name: "Rust", level: 70, color: "#000000" },
     { name: "Go", level: 75, color: "#00add8" },
     { name: "Java", level: 80, color: "#ed8b00" },
-    { name: "C++", level: 75, color: "#00599c" },
-    { name: "Swift", level: 70, color: "#fa7343" },
-    { name: "Kotlin", level: 75, color: "#7f52ff" }
+    { name: "C++", level: 75, color: "#00599c" }
   ];
 
   return (
