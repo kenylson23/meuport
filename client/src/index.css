@@ -28,3 +28,56 @@ canvas {
   height: 100% !important;
   touch-action: none;
 }
+
+/* Melhorias para Mobile e Tablet */
+@media (max-width: 768px) {
+  /* Melhor espaçamento para telas pequenas */
+  .min-h-screen {
+    padding: 1rem 0;
+  }
+  
+  /* Otimização de texto para mobile */
+  .font-orbitron {
+    letter-spacing: -0.025em;
+  }
+  
+  /* Melhor toque para elementos interativos */
+  button, a, [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Otimização de scrolling para mobile */
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Melhor rendering de texto em mobile */
+  body {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+}
+
+/* Otimizações específicas para tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Ajustes para tablets em orientação portrait e landscape */
+  .max-w-6xl, .max-w-7xl {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Melhorias para telas muito pequenas */
+@media (max-width: 480px) {
+  /* Reduzir ainda mais os espaçamentos */
+  section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  
+  /* Otimizar tamanhos de card para telas pequenas */
+  .grid > * {
+    min-height: auto;
+  }
+}

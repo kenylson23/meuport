@@ -103,11 +103,11 @@ const Skills = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-orbitron font-bold text-white mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-orbitron font-bold text-white mb-6">
             Habilidades <span className="text-neon-green glow-text">Técnicas</span>
           </h2>
           <div className="w-24 h-1 bg-neon-green mx-auto mb-8 glow-box"></div>
-          <p className="text-white/70 text-xl max-w-2xl mx-auto">
+          <p className="text-white/70 text-base sm:text-lg md:text-xl max-w-2xl mx-auto px-4">
             Um conjunto abrangente de ferramentas para construir aplicações web modernas
           </p>
           
@@ -159,7 +159,7 @@ const Skills = () => {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
             transition={{ duration: 0.5 }}
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6"
           >
             {skills.map((skill, index) => (
               <motion.div
@@ -180,7 +180,7 @@ const Skills = () => {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 1.1 }}
             transition={{ duration: 0.5 }}
-            className="h-[800px] relative bg-black/20 backdrop-blur-sm border border-neon-green/20 rounded-lg overflow-hidden"
+            className="h-[600px] sm:h-[700px] md:h-[800px] relative bg-black/20 backdrop-blur-sm border border-neon-green/20 rounded-lg overflow-hidden"
           >
             <SkillTreeVisualization />
             

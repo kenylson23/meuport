@@ -210,16 +210,16 @@ const Projects = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-orbitron font-bold text-white mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-orbitron font-bold text-white mb-6">
             Projetos em <span className="text-neon-green glow-text">Destaque</span>
           </h2>
           <div className="w-24 h-1 bg-neon-green mx-auto mb-8 glow-box"></div>
-          <p className="text-white/70 text-xl max-w-3xl mx-auto">
+          <p className="text-white/70 text-base sm:text-lg md:text-xl max-w-3xl mx-auto px-4">
             Uma vitrine do meu trabalho recente em diferentes tecnologias e domínios
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}

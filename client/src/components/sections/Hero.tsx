@@ -3,8 +3,8 @@ import { ChevronDown } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center relative">
-      <div className="z-20 max-w-6xl mx-auto px-4 relative grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+    <section id="hero" className="min-h-screen flex items-center justify-center relative px-4 sm:px-6 lg:px-8">
+      <div className="z-20 max-w-6xl mx-auto relative grid md:grid-cols-2 gap-6 sm:gap-10 md:gap-16 items-center">
         {/* Informações - Coluna Esquerda */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
@@ -13,19 +13,19 @@ const Hero = () => {
           className="order-2 md:order-1 text-center md:text-left space-y-6"
         >
           {/* Nome Principal */}
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-orbitron font-black text-white">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-orbitron font-black text-white">
             KENYLSON
             <span className="block text-neon-green glow-text">LOURENÇO</span>
           </h1>
           
           {/* Título e Experiência */}
           <div className="space-y-2">
-            <div className="text-xl md:text-2xl text-white/90 font-orbitron">
+            <div className="text-lg sm:text-xl md:text-2xl text-white/90 font-orbitron">
               Desenvolvedor Full Stack • <span className="text-neon-green">3+ Anos</span>
             </div>
             
             {/* Localização e Status */}
-            <div className="flex flex-col md:flex-row items-center md:items-start gap-2 text-white/70 font-orbitron">
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-2 text-sm sm:text-base text-white/70 font-orbitron">
               <span>Luanda, Angola</span>
               <span className="hidden md:block">|</span>
               <div className="flex items-center gap-2">
@@ -37,10 +37,10 @@ const Hero = () => {
           
           {/* Descrição */}
           <div className="space-y-2">
-            <div className="text-lg md:text-xl text-white/80 font-orbitron">
+            <div className="text-base sm:text-lg md:text-xl text-white/80 font-orbitron">
               Especialista em React, TypeScript e Experiências 3D
             </div>
-            <div className="text-neon-green text-base md:text-lg font-orbitron">
+            <div className="text-neon-green text-sm sm:text-base md:text-lg font-orbitron">
               Transformando ideias complexas em soluções digitais elegantes
             </div>
           </div>
@@ -59,18 +59,18 @@ const Hero = () => {
           </div>
           
           {/* Mini Contadores */}
-          <div className="flex justify-center md:justify-start gap-6 text-sm">
+          <div className="flex justify-center md:justify-start gap-4 sm:gap-6 text-sm">
             <div className="text-center">
-              <div className="text-2xl font-orbitron font-bold text-neon-green">30+</div>
-              <div className="text-white/60 font-orbitron">Projetos</div>
+              <div className="text-xl sm:text-2xl font-orbitron font-bold text-neon-green">30+</div>
+              <div className="text-xs sm:text-sm text-white/60 font-orbitron">Projetos</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-orbitron font-bold text-neon-green">10+</div>
-              <div className="text-white/60 font-orbitron">Clientes</div>
+              <div className="text-xl sm:text-2xl font-orbitron font-bold text-neon-green">10+</div>
+              <div className="text-xs sm:text-sm text-white/60 font-orbitron">Clientes</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-orbitron font-bold text-neon-green">3+</div>
-              <div className="text-white/60 font-orbitron">Anos</div>
+              <div className="text-xl sm:text-2xl font-orbitron font-bold text-neon-green">3+</div>
+              <div className="text-xs sm:text-sm text-white/60 font-orbitron">Anos</div>
             </div>
           </div>
         </motion.div>
@@ -82,7 +82,7 @@ const Hero = () => {
           transition={{ duration: 1.2, delay: 0.2 }}
           className="order-1 md:order-2 flex justify-center md:justify-end"
         >
-          <div className="relative w-40 h-40 md:w-56 md:h-56 lg:w-64 lg:h-64">
+          <div className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-56 md:h-56 lg:w-64 lg:h-64">
             <div className="absolute inset-0 rounded-full bg-gradient-to-r from-neon-green to-cyan-400 p-1 glow-strong animate-pulse">
               <img 
                 src="/images/profile.png" 

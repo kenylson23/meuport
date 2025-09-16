@@ -27,18 +27,18 @@ const LanguageShowcase = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-orbitron font-bold text-white mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-orbitron font-bold text-white mb-6">
             Modelos 3D de <span className="text-neon-green glow-text">Linguagens</span>
           </h2>
           <div className="w-24 h-1 bg-neon-green mx-auto mb-8 glow-box"></div>
-          <p className="text-white/70 text-lg max-w-2xl mx-auto">
+          <p className="text-white/70 text-base sm:text-lg max-w-2xl mx-auto px-4">
             Explore minha expertise em programação através de representações 3D interativas de linguagens. 
             Passe o mouse e clique para ver as tecnologias que domino.
           </p>
         </motion.div>
 
         {/* 3D Language Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 place-items-center">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6 md:gap-8 place-items-center">
           {languages.map((language, index) => (
             <LanguageModel3D
               key={language.name}
@@ -54,25 +54,25 @@ const LanguageShowcase = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
           viewport={{ once: true }}
-          className="mt-20 grid md:grid-cols-3 gap-8 text-center"
+          className="mt-12 sm:mt-16 md:mt-20 grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 text-center"
         >
           <div className="space-y-2">
-            <div className="text-3xl font-orbitron font-bold text-neon-green">
+            <div className="text-2xl sm:text-3xl font-orbitron font-bold text-neon-green">
               {languages.length}+
             </div>
-            <div className="text-white/70">Linguagens de Programação</div>
+            <div className="text-sm sm:text-base text-white/70">Linguagens de Programação</div>
           </div>
           <div className="space-y-2">
-            <div className="text-3xl font-orbitron font-bold text-neon-green">
+            <div className="text-2xl sm:text-3xl font-orbitron font-bold text-neon-green">
               {Math.round(languages.reduce((sum, lang) => sum + lang.level, 0) / languages.length)}%
             </div>
-            <div className="text-white/70">Proficiência Média</div>
+            <div className="text-sm sm:text-base text-white/70">Proficiência Média</div>
           </div>
           <div className="space-y-2">
-            <div className="text-3xl font-orbitron font-bold text-neon-green">
+            <div className="text-2xl sm:text-3xl font-orbitron font-bold text-neon-green">
               3+
             </div>
-            <div className="text-white/70">Anos de Experiência</div>
+            <div className="text-sm sm:text-base text-white/70">Anos de Experiência</div>
           </div>
         </motion.div>
 
