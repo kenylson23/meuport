@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import GlowCard from "../ui/GlowCard";
 import SkillTreeVisualization from "../3d/SkillTreeVisualization";
 import Quiz from "./Quiz";
+import AIQuiz from "./AIQuiz";
 import { useAudio } from "../../lib/stores/useAudio";
 
 interface Skill {
@@ -75,7 +76,7 @@ const SkillCard = ({ skill, index }: SkillCardProps) => {
 };
 
 const Skills = () => {
-  const [viewMode, setViewMode] = useState<'grid' | 'tree' | 'quiz'>('grid');
+  const [viewMode, setViewMode] = useState<'grid' | 'tree' | 'quiz' | 'ai-quiz'>('grid');
   const { playHover, playHit } = useAudio();
   
   const skills = [
@@ -154,13 +155,27 @@ const Skills = () => {
                   playHit();
                 }}
                 onMouseEnter={() => playHover()}
-                className={`px-4 py-2 rounded-md transition-all duration-300 font-orbitron text-sm ${
+                className={`px-3 py-2 rounded-md transition-all duration-300 font-orbitron text-sm ${
                   viewMode === 'quiz'
                     ? 'bg-neon-green text-black font-bold'
                     : 'text-white/70 hover:text-neon-green'
                 }`}
               >
-                Quiz de Programação
+                Quiz Básico
+              </button>
+              <button
+                onClick={() => {
+                  setViewMode('ai-quiz');
+                  playHit();
+                }}
+                onMouseEnter={() => playHover()}
+                className={`px-3 py-2 rounded-md transition-all duration-300 font-orbitron text-sm ${
+                  viewMode === 'ai-quiz'
+                    ? 'bg-neon-green text-black font-bold'
+                    : 'text-white/70 hover:text-neon-green'
+                }`}
+              >
+                Quiz IA
               </button>
             </div>
           </motion.div>
@@ -217,7 +232,7 @@ const Skills = () => {
               </ul>
             </motion.div>
           </motion.div>
-        ) : (
+        ) : viewMode === 'quiz' ? (
           <motion.div
             key="quiz-view"
             initial={{ opacity: 0, scale: 0.9 }}
@@ -227,6 +242,17 @@ const Skills = () => {
             className="min-h-[600px] relative bg-black/20 backdrop-blur-sm border border-neon-green/20 rounded-lg p-6"
           >
             <Quiz />
+          </motion.div>
+        ) : (
+          <motion.div
+            key="ai-quiz-view"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            transition={{ duration: 0.5 }}
+            className="min-h-[600px] relative bg-black/20 backdrop-blur-sm border border-neon-green/20 rounded-lg p-6"
+          >
+            <AIQuiz />
           </motion.div>
         )}
 
