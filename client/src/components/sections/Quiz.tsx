@@ -168,7 +168,7 @@ const Quiz = ({ onComplete }: QuizProps) => {
       setShowExplanation(false);
     } else {
       setQuizCompleted(true);
-      onComplete?.(score + (selectedAnswer === question.correctAnswer ? 1 : 0), totalQuestions);
+      onComplete?.(score, totalQuestions);
     }
   };
 
@@ -198,7 +198,7 @@ const Quiz = ({ onComplete }: QuizProps) => {
   };
 
   if (quizCompleted) {
-    const finalScore = score + (selectedAnswer === question.correctAnswer ? 1 : 0);
+    const finalScore = score;
     const percentage = Math.round((finalScore / totalQuestions) * 100);
     
     return (
