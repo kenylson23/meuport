@@ -142,20 +142,16 @@ const Projects = () => {
 
   const projects: Project[] = [
     {
-      title: "Site de Portfólio 3D",
-      description: "Portfólio 3D interativo construído com React Three Fiber, apresentando sistemas de partículas e animações suaves.",
-      longDescription: "Um site de portfólio de ponta que expande os limites do desenvolvimento web. Construído com React Three Fiber para experiências 3D imersivas, apresentando sistemas de partículas em tempo real, iluminação dinâmica e movimentos suaves de câmera. O site apresenta tecnologias web modernas mantendo excelente performance em todos os dispositivos.",
-      tech: ["React", "Three.js", "TypeScript", "Framer Motion"],
-      image: "/textures/sky.png",
+      title: "Site para Marca de Cerveja Kenito",
+      description: "Site moderno para minha marca de cerveja",
+      longDescription: "Site criado para minha marca de cerveja baseada na minha marca pessoal com design moderno e paleta de cores a risca.",
+      tech: ["React", "TypeScript"],
+      image: "/textures/kenito-beer.png",
       github: "#",
-      live: "#",
+      live: "https://kenybeerr.netlify.app/",
       features: [
-        "Sistemas de partículas 3D em tempo real",
-        "Controles de câmera interativos",
-        "Design 3D responsivo",
-        "Renderização WebGL otimizada",
-        "Animações de transição suaves",
-        "Compatibilidade multiplataforma"
+        "Sobre o produto",
+        "Pontos de Venda"
       ]
     },
     {
