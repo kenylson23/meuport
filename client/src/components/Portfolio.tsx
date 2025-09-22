@@ -160,7 +160,7 @@ const Portfolio = () => {
                   />
                 </div>
               </div>
-              <div className="text-neon-green font-orbitron text-xl font-bold">
+              <div className="text-neon-green font-orbitron text-xl font-bold" translate="no">
                 KL
               </div>
             </div>
