@@ -170,12 +170,18 @@ const Projects = () => {
       ]
     },
     {
-      title: "App de Chat em Tempo Real",
-      description: "Aplicação de chat baseada em WebSocket com salas, compartilhamento de arquivos e reações com emoji.",
-      tech: ["React", "Socket.io", "Express", "PostgreSQL"],
-      image: "/textures/grass.png",
+      title: "Site para Cuca",
+      description: "Site feito para a Marca de cerveja Cuca",
+      longDescription: "Inspirado na marca de cerveja Cuca",
+      tech: ["React", "TypeScript"],
+      image: "/textures/cuca-beer.png",
       github: "#",
-      live: "#"
+      live: "https://textcuca.netlify.app/",
+      features: [
+        "Nossa História",
+        "Pontos de Venda",
+        "Galeria dos Fãs"
+      ]
     },
     {
       title: "Dashboard de Visualização de Dados",
