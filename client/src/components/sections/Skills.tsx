@@ -117,7 +117,7 @@ const Skills = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            className="flex justify-center mt-8"
+            className="flex justify-center mt-6 sm:mt-8"
           >
             <div className="flex bg-black/50 backdrop-blur-md border border-neon-green/20 rounded-lg p-1">
               <button
@@ -126,13 +126,13 @@ const Skills = () => {
                   playHit();
                 }}
                 onMouseEnter={() => playHover()}
-                className={`px-4 py-2 rounded-md transition-all duration-300 font-orbitron text-sm ${
+                className={`px-2 sm:px-4 py-2 rounded-md transition-all duration-300 font-orbitron text-xs sm:text-sm ${
                   viewMode === 'grid'
                     ? 'bg-neon-green text-black font-bold'
                     : 'text-white/70 hover:text-neon-green'
                 }`}
               >
-                Visão em Grade
+                <span className="hidden sm:inline">Visão em </span>Grade
               </button>
               <button
                 onClick={() => {
@@ -140,13 +140,13 @@ const Skills = () => {
                   playHit();
                 }}
                 onMouseEnter={() => playHover()}
-                className={`px-4 py-2 rounded-md transition-all duration-300 font-orbitron text-sm ${
+                className={`px-2 sm:px-4 py-2 rounded-md transition-all duration-300 font-orbitron text-xs sm:text-sm ${
                   viewMode === 'tree'
                     ? 'bg-neon-green text-black font-bold'
                     : 'text-white/70 hover:text-neon-green'
                 }`}
               >
-                Árvore de Habilidades
+                <span className="hidden sm:inline">Árvore de </span>Habilidades
               </button>
               <button
                 onClick={() => {
@@ -154,13 +154,13 @@ const Skills = () => {
                   playHit();
                 }}
                 onMouseEnter={() => playHover()}
-                className={`px-3 py-2 rounded-md transition-all duration-300 font-orbitron text-sm ${
+                className={`px-2 sm:px-3 py-2 rounded-md transition-all duration-300 font-orbitron text-xs sm:text-sm ${
                   viewMode === 'quiz'
                     ? 'bg-neon-green text-black font-bold'
                     : 'text-white/70 hover:text-neon-green'
                 }`}
               >
-                Quiz Básico
+                Quiz<span className="hidden sm:inline"> Básico</span>
               </button>
             </div>
           </motion.div>
@@ -195,7 +195,7 @@ const Skills = () => {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 1.1 }}
             transition={{ duration: 0.5 }}
-            className="h-[600px] sm:h-[700px] md:h-[800px] relative bg-black/20 backdrop-blur-sm border border-neon-green/20 rounded-lg overflow-hidden"
+            className="h-[500px] sm:h-[600px] md:h-[700px] lg:h-[800px] relative bg-black/20 backdrop-blur-sm border border-neon-green/20 rounded-lg overflow-hidden"
           >
             <SkillTreeVisualization />
             
@@ -204,17 +204,28 @@ const Skills = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1 }}
-              className="absolute top-4 right-4 bg-black/80 backdrop-blur-md border border-neon-green/30 rounded-lg p-3 max-w-xs"
+              className="absolute top-2 sm:top-4 right-2 sm:right-4 bg-black/80 backdrop-blur-md border border-neon-green/30 rounded-lg p-2 sm:p-3 max-w-xs sm:max-w-sm hidden sm:block"
             >
-              <h4 className="text-neon-green font-orbitron font-semibold text-sm mb-2">
-                Árvore de Habilidades Interativa
+              <h4 className="text-neon-green font-orbitron font-semibold text-xs sm:text-sm mb-1 sm:mb-2">
+                Árvore Interativa
               </h4>
-              <ul className="text-white/70 text-xs space-y-1">
-                <li>• Passe o mouse sobre os nós para ver conexões</li>
-                <li>• Clique para selecionar múltiplos nós</li>
-                <li>• Linhas mostram relações entre habilidades</li>
-                <li>• Habilidades bloqueadas exigem pré-requisitos</li>
+              <ul className="text-white/70 text-xs space-y-0.5 sm:space-y-1">
+                <li>• Toque nos nós para detalhes</li>
+                <li>• Conexões mostram relações</li>
+                <li>• Habilidades bloqueadas</li>
               </ul>
+            </motion.div>
+            
+            {/* Mobile Instructions - Bottom positioned */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1 }}
+              className="absolute bottom-2 left-2 right-2 bg-black/80 backdrop-blur-md border border-neon-green/30 rounded-lg p-2 sm:hidden"
+            >
+              <p className="text-neon-green font-orbitron font-semibold text-xs text-center">
+                Toque nos nós para ver detalhes das habilidades
+              </p>
             </motion.div>
           </motion.div>
         ) : viewMode === 'quiz' ? (

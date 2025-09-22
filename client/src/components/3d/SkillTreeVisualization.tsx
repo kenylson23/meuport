@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import SkillTreeNode from "./SkillTreeNode";
 
@@ -18,6 +18,25 @@ interface SkillNode {
 const SkillTreeVisualization = () => {
   const [hoveredNode, setHoveredNode] = useState<string | null>(null);
   const [selectedNodes, setSelectedNodes] = useState<Set<string>>(new Set());
+  const [containerDimensions, setContainerDimensions] = useState({ width: 1200, height: 600 });
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Update container dimensions when component mounts and on resize
+  useEffect(() => {
+    const updateDimensions = () => {
+      if (containerRef.current) {
+        const rect = containerRef.current.getBoundingClientRect();
+        setContainerDimensions({ 
+          width: rect.width, 
+          height: rect.height 
+        });
+      }
+    };
+
+    updateDimensions();
+    window.addEventListener('resize', updateDimensions);
+    return () => window.removeEventListener('resize', updateDimensions);
+  }, []);
 
   // Skill tree data with interconnected nodes
   const skillNodes: SkillNode[] = useMemo(() => [
@@ -116,7 +135,7 @@ const SkillTreeVisualization = () => {
   const connectedNodes = hoveredNode ? getConnectedNodes(hoveredNode) : new Set();
 
   return (
-    <div className="relative w-full h-screen overflow-hidden">
+    <div ref={containerRef} className="relative w-full h-full overflow-hidden">
       {/* SVG for connection lines */}
       <svg className="absolute inset-0 w-full h-full pointer-events-none">
         <defs>
@@ -129,10 +148,12 @@ const SkillTreeVisualization = () => {
         
         {connections.map((connection, index) => {
           const isHighlighted = connectedNodes.has(connection.from.id) || connectedNodes.has(connection.to.id);
-          const fromX = (connection.from.x / 100) * window.innerWidth;
-          const fromY = (connection.from.y / 100) * window.innerHeight;
-          const toX = (connection.to.x / 100) * window.innerWidth;
-          const toY = (connection.to.y / 100) * window.innerHeight;
+          
+          // Use actual container dimensions
+          const fromX = (connection.from.x / 100) * containerDimensions.width;
+          const fromY = (connection.from.y / 100) * containerDimensions.height;
+          const toX = (connection.to.x / 100) * containerDimensions.width;
+          const toY = (connection.to.y / 100) * containerDimensions.height;
           
           return (
             <motion.line
@@ -180,25 +201,25 @@ const SkillTreeVisualization = () => {
         initial={{ opacity: 0, x: -50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 2 }}
-        className="absolute top-4 left-4 space-y-2 bg-black/80 backdrop-blur-md border border-neon-green/20 rounded-lg p-4"
+        className="absolute top-2 sm:top-4 left-2 sm:left-4 space-y-1 sm:space-y-2 bg-black/80 backdrop-blur-md border border-neon-green/20 rounded-lg p-2 sm:p-4"
       >
-        <h3 className="text-neon-green font-orbitron font-semibold text-sm">Skill Categories</h3>
-        <div className="space-y-1 text-xs">
-          <div className="flex items-center space-x-2">
-            <div className="w-3 h-3 rounded-full" style={{ backgroundColor: "#61dafb" }}></div>
-            <span className="text-white/70">Frontend</span>
+        <h3 className="text-neon-green font-orbitron font-semibold text-xs sm:text-sm">Categorias</h3>
+        <div className="space-y-0.5 sm:space-y-1 text-xs">
+          <div className="flex items-center space-x-1 sm:space-x-2">
+            <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full" style={{ backgroundColor: "#61dafb" }}></div>
+            <span className="text-white/70 text-xs">Frontend</span>
           </div>
-          <div className="flex items-center space-x-2">
-            <div className="w-3 h-3 rounded-full" style={{ backgroundColor: "#339933" }}></div>
-            <span className="text-white/70">Backend</span>
+          <div className="flex items-center space-x-1 sm:space-x-2">
+            <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full" style={{ backgroundColor: "#339933" }}></div>
+            <span className="text-white/70 text-xs">Backend</span>
           </div>
-          <div className="flex items-center space-x-2">
-            <div className="w-3 h-3 rounded-full" style={{ backgroundColor: "#47a248" }}></div>
-            <span className="text-white/70">Database</span>
+          <div className="flex items-center space-x-1 sm:space-x-2">
+            <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full" style={{ backgroundColor: "#47a248" }}></div>
+            <span className="text-white/70 text-xs">Database</span>
           </div>
-          <div className="flex items-center space-x-2">
-            <div className="w-3 h-3 rounded-full opacity-50"></div>
-            <span className="text-white/50">Locked Skills</span>
+          <div className="flex items-center space-x-1 sm:space-x-2">
+            <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full opacity-50"></div>
+            <span className="text-white/50 text-xs">Bloqueados</span>
           </div>
         </div>
       </motion.div>
@@ -209,7 +230,7 @@ const SkillTreeVisualization = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
-          className="absolute bottom-4 right-4 bg-black/90 backdrop-blur-md border border-neon-green/30 rounded-lg p-4 max-w-xs"
+          className="absolute bottom-2 sm:bottom-4 right-2 sm:right-4 bg-black/90 backdrop-blur-md border border-neon-green/30 rounded-lg p-2 sm:p-4 max-w-xs sm:max-w-sm"
         >
           {(() => {
             const node = skillNodes.find(n => n.id === hoveredNode);
@@ -217,19 +238,19 @@ const SkillTreeVisualization = () => {
             
             return (
               <>
-                <h3 className="text-neon-green font-orbitron font-semibold mb-2">
+                <h3 className="text-neon-green font-orbitron font-semibold mb-1 sm:mb-2 text-sm sm:text-base">
                   {node.name}
                 </h3>
-                <p className="text-white/80 text-sm mb-3">
+                <p className="text-white/80 text-xs sm:text-sm mb-2 sm:mb-3">
                   {node.description}
                 </p>
                 <div className="flex justify-between items-center">
-                  <span className="text-white/60 text-xs">Proficiency</span>
-                  <span className="text-neon-green font-bold">{node.level}%</span>
+                  <span className="text-white/60 text-xs">Proficiência</span>
+                  <span className="text-neon-green font-bold text-xs sm:text-sm">{node.level}%</span>
                 </div>
-                <div className="w-full bg-gray-700 rounded-full h-2 mt-2">
+                <div className="w-full bg-gray-700 rounded-full h-1.5 sm:h-2 mt-1 sm:mt-2">
                   <motion.div
-                    className="h-2 rounded-full"
+                    className="h-1.5 sm:h-2 rounded-full"
                     style={{ backgroundColor: node.color }}
                     initial={{ width: 0 }}
                     animate={{ width: `${node.level}%` }}

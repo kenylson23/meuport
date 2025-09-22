@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useAudio } from "../../lib/stores/useAudio";
 
@@ -30,10 +30,27 @@ const SkillTreeNode = ({
 }: SkillTreeNodeProps) => {
   const { playHover, playHit } = useAudio();
   const [isSelected, setIsSelected] = useState(false);
+  const [screenWidth, setScreenWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
+
+  // Update screen width on resize
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const handleClick = () => {
     setIsSelected(!isSelected);
     onNodeClick(node.id);
+    
+    // For mobile: also trigger hover to show details panel
+    if (screenWidth < 1024) {
+      onNodeHover(isSelected ? null : node.id);
+    }
+    
     playHit();
   };
 
@@ -46,7 +63,20 @@ const SkillTreeNode = ({
     onNodeHover(null);
   };
 
-  const nodeSize = node.isUnlocked ? 60 : 40;
+  // Responsive node sizes based on screen width
+  const getNodeSize = () => {
+    if (screenWidth < 480) {
+      return node.isUnlocked ? 40 : 28; // Small mobile
+    } else if (screenWidth < 768) {
+      return node.isUnlocked ? 48 : 32; // Mobile
+    } else if (screenWidth < 1024) {
+      return node.isUnlocked ? 56 : 36; // Tablet
+    } else {
+      return node.isUnlocked ? 60 : 40; // Desktop
+    }
+  };
+
+  const nodeSize = getNodeSize();
   const opacity = node.isUnlocked ? 1 : 0.4;
 
   return (
@@ -96,13 +126,14 @@ const SkillTreeNode = ({
       >
         {/* Skill Icon/Text */}
         <span 
-          className="text-xs font-orbitron font-bold text-center leading-tight"
+          className="text-xs sm:text-xs md:text-sm font-orbitron font-bold text-center leading-tight"
           style={{ 
             color: node.isUnlocked ? node.color : `${node.color}80`,
-            textShadow: node.isUnlocked ? `0 0 8px ${node.color}` : 'none'
+            textShadow: node.isUnlocked ? `0 0 8px ${node.color}` : 'none',
+            fontSize: nodeSize < 40 ? '0.6rem' : nodeSize < 50 ? '0.7rem' : '0.75rem'
           }}
         >
-          {node.name.split(' ').map(word => word.charAt(0)).join('').slice(0, 3)}
+          {node.name.split(' ').map(word => word.charAt(0)).join('').slice(0, nodeSize < 40 ? 2 : 3)}
         </span>
 
         {/* Progress Ring */}
@@ -176,24 +207,25 @@ const SkillTreeNode = ({
 
       {/* Node Label */}
       <motion.div
-        className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 text-center min-w-max"
+        className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 sm:mt-2 text-center min-w-max"
         animate={{ 
           opacity: isConnected ? 1 : 0.7,
           y: isConnected ? -5 : 0
         }}
       >
         <div 
-          className="text-xs font-orbitron font-semibold px-2 py-1 rounded whitespace-nowrap"
+          className="text-xs sm:text-xs md:text-sm font-orbitron font-semibold px-1 sm:px-2 py-0.5 sm:py-1 rounded whitespace-nowrap"
           style={{ 
             color: node.color,
             backgroundColor: `${node.color}10`,
             border: `1px solid ${node.color}30`,
-            textShadow: `0 0 4px ${node.color}`
+            textShadow: `0 0 4px ${node.color}`,
+            fontSize: nodeSize < 40 ? '0.6rem' : '0.75rem'
           }}
         >
-          {node.name}
+          {nodeSize < 40 ? node.name.slice(0, 6) + (node.name.length > 6 ? '...' : '') : node.name}
         </div>
-        <div className="text-xs text-white/50 mt-1">
+        <div className="text-xs text-white/50 mt-0.5 sm:mt-1" style={{ fontSize: nodeSize < 40 ? '0.6rem' : '0.75rem' }}>
           {node.level}%
         </div>
       </motion.div>
