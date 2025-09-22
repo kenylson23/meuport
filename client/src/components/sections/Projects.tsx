@@ -184,12 +184,19 @@ const Projects = () => {
       ]
     },
     {
-      title: "Dashboard de Visualização de Dados",
-      description: "Dashboard interativo para análise de dados com gráficos personalizados, filtros e funcionalidade de exportação.",
-      tech: ["Python", "Django", "D3.js", "Chart.js"],
-      image: "/textures/asphalt.png",
+      title: "Site para o colégio Narfive",
+      description: "Site moderno e inovador para colégio",
+      longDescription: "Baseado em uma melhor experiência para os clientes do colégio",
+      tech: ["React", "TypeScript"],
+      image: "/textures/colegio-narfive.png",
       github: "#",
-      live: "#"
+      live: "https://narff.netlify.app/",
+      features: [
+        "Nossos Programas",
+        "Galeria Fotográfica",
+        "Calculadora de Mensalidades",
+        "Tour Virtual"
+      ]
     },
     {
       title: "App Web Mobile-First",
