@@ -15,8 +15,13 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted:", formData);
+    // Formulário estático - redireciona para email
+    const subject = `Mensagem de ${formData.name}`;
+    const body = `Nome: ${formData.name}\nEmail: ${formData.email}\n\nMensagem:\n${formData.message}`;
+    const mailtoLink = `mailto:kenylsonlourenco0@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    window.location.href = mailtoLink;
+    
     // Play success sound
     playSuccess();
     // Clear form
