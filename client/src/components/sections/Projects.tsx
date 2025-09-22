@@ -155,12 +155,19 @@ const Projects = () => {
       ]
     },
     {
-      title: "Plataforma de E-Commerce",
-      description: "Solução e-commerce full-stack com integração de pagamentos, painel administrativo e gerenciamento de estoque em tempo real.",
-      tech: ["Vue.js", "Node.js", "MongoDB", "Stripe"],
-      image: "/textures/wood.jpg",
+      title: "Site para Escola de Condução",
+      description: "Site moderno e inovador para escola de condução",
+      longDescription: "novo conceito de site para escolas de condução",
+      tech: ["React", "TypeScript"],
+      image: "/textures/escola-conducao.png",
       github: "#",
-      live: "#"
+      live: "https://escoladeconducaomariaolga.netlify.app/",
+      features: [
+        "Calculadora de Mensalidades",
+        "Quiz do Código da Estrada",
+        "Dicas de Condução Defensiva",
+        "Conselhos para o Exame Prático"
+      ]
     },
     {
       title: "App de Chat em Tempo Real",
