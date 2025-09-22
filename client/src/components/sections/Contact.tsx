@@ -200,7 +200,16 @@ const Contact = () => {
           className="text-center mt-16 pt-8 border-t border-neon-green/20"
         >
           <p className="text-white/60 font-orbitron">
-            © 2025 Kenylson Lourenço. Construído com paixão e código.
+            © 2025{" "}
+            <a 
+              href="https://www.instagram.com/kenylson_lourenco/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-neon-green hover:text-white transition-colors duration-300 cursor-pointer"
+            >
+              Kenylson Lourenço
+            </a>
+            . Construído com paixão e código.
           </p>
         </motion.div>
       </div>
