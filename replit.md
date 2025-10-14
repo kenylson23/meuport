@@ -52,6 +52,12 @@ Basic user authentication structure is in place using the shared user schema. Th
 
 **Component Library**: Comprehensive UI component library based on Radix UI primitives with custom styling to match the neon theme.
 
+## SEO and Accessibility
+
+**Search Engine Optimization**: Valid robots.txt file in client/public allowing crawler access. Enhanced HTML meta tags including description, robots directive, author, Open Graph tags for social sharing, and Twitter Card support. Portuguese locale (pt-BR) specified for proper language targeting.
+
+**WCAG Compliance**: Accessibility improvements including viewport zoom enabled, comprehensive ARIA labels on interactive elements (audio controls, navigation), accessible tab patterns in modals with proper role/aria-controls/tabindex management, and semantic HTML structure. All interactive elements have descriptive aria-labels in Portuguese.
+
 # External Dependencies
 
 **3D Graphics**: Three.js ecosystem including @react-three/fiber, @react-three/drei, and @react-three/postprocessing for advanced 3D rendering and effects.
