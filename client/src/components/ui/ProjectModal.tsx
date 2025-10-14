@@ -159,6 +159,7 @@ export default ${project.title.replace(/[^a-zA-Z0-9]/g, '')};`;
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.1 }}
+                    aria-label="Ver código-fonte no GitHub"
                     className="p-2 text-neon-green hover:text-white transition-colors"
                   >
                     <Github className="w-5 h-5" />
@@ -168,6 +169,7 @@ export default ${project.title.replace(/[^a-zA-Z0-9]/g, '')};`;
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.1 }}
+                    aria-label="Ver demonstração ao vivo"
                     className="p-2 text-neon-green hover:text-white transition-colors"
                   >
                     <ExternalLink className="w-5 h-5" />
@@ -176,6 +178,7 @@ export default ${project.title.replace(/[^a-zA-Z0-9]/g, '')};`;
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     onClick={onClose}
+                    aria-label="Fechar modal"
                     className="p-2 text-white/60 hover:text-white transition-colors"
                   >
                     <X className="w-5 h-5" />
@@ -184,7 +187,7 @@ export default ${project.title.replace(/[^a-zA-Z0-9]/g, '')};`;
               </div>
 
               {/* Tabs */}
-              <div className="flex border-b border-neon-green/20">
+              <div className="flex border-b border-neon-green/20" role="tablist">
                 {[
                   { id: 'overview', label: 'Overview', icon: Eye },
                   { id: 'code', label: 'Code', icon: Code },
@@ -192,7 +195,12 @@ export default ${project.title.replace(/[^a-zA-Z0-9]/g, '')};`;
                 ].map(({ id, label, icon: Icon }) => (
                   <button
                     key={id}
+                    id={`${id}-tab`}
                     onClick={() => handleTabChange(id as any)}
+                    role="tab"
+                    aria-selected={activeTab === id}
+                    aria-controls={`${id}-panel`}
+                    tabIndex={activeTab === id ? 0 : -1}
                     className={`flex items-center space-x-2 px-6 py-3 font-orbitron text-sm transition-colors ${
                       activeTab === id
                         ? 'text-neon-green border-b-2 border-neon-green'
@@ -207,145 +215,146 @@ export default ${project.title.replace(/[^a-zA-Z0-9]/g, '')};`;
 
               {/* Content */}
               <div className="p-6 h-96 overflow-y-auto">
-                {activeTab === 'overview' && (
-                  <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    className="space-y-6"
-                  >
-                    {/* Hero Image */}
-                    <div className="relative h-48 rounded-lg overflow-hidden">
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full h-full object-cover"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                    </div>
+                {/* Overview Panel */}
+                <div
+                  id="overview-panel"
+                  role="tabpanel"
+                  aria-labelledby="overview-tab"
+                  hidden={activeTab !== 'overview'}
+                  className="space-y-6"
+                >
+                  {/* Hero Image */}
+                  <div className="relative h-48 rounded-lg overflow-hidden">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  </div>
 
-                    {/* Description */}
-                    <div>
-                      <h3 className="text-lg font-orbitron font-semibold text-neon-green mb-3">
-                        About This Project
-                      </h3>
-                      <p className="text-white/80 leading-relaxed">
-                        {project.longDescription || project.description}
-                      </p>
-                    </div>
-
-                    {/* Tech Stack */}
-                    <div>
-                      <h3 className="text-lg font-orbitron font-semibold text-neon-green mb-3">
-                        Technologies Used
-                      </h3>
-                      <div className="flex flex-wrap gap-2">
-                        {project.tech.map((tech, index) => (
-                          <span
-                            key={index}
-                            className="px-3 py-1 bg-neon-green/10 border border-neon-green/30 rounded text-neon-green text-sm font-orbitron"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Features */}
-                    <div>
-                      <h3 className="text-lg font-orbitron font-semibold text-neon-green mb-3">
-                        Key Features
-                      </h3>
-                      <ul className="space-y-2">
-                        {mockFeatures.map((feature, index) => (
-                          <motion.li
-                            key={index}
-                            initial={{ opacity: 0, x: -10 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: index * 0.1 }}
-                            className="flex items-center space-x-2 text-white/80"
-                          >
-                            <div className="w-1 h-1 bg-neon-green rounded-full" />
-                            <span>{feature}</span>
-                          </motion.li>
-                        ))}
-                      </ul>
-                    </div>
-                  </motion.div>
-                )}
-
-                {activeTab === 'code' && (
-                  <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    className="space-y-4"
-                  >
-                    <div className="flex items-center justify-between">
-                      <h3 className="text-lg font-orbitron font-semibold text-neon-green">
-                        Code Preview
-                      </h3>
-                      <NeonButton
-                        size="sm"
-                        variant="outline"
-                        onClick={handleCopyCode}
-                        className="flex items-center space-x-2"
-                      >
-                        {copiedCode ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
-                        <span>{copiedCode ? 'Copied!' : 'Copy'}</span>
-                      </NeonButton>
-                    </div>
-                    
-                    <div className="relative">
-                      <pre className="bg-black/50 border border-neon-green/20 rounded-lg p-4 overflow-x-auto text-sm">
-                        <code className="text-white/90 font-mono">
-                          {project.codeSnippet || mockCodeSnippet}
-                        </code>
-                      </pre>
-                    </div>
-                  </motion.div>
-                )}
-
-                {activeTab === 'gallery' && (
-                  <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    className="space-y-4"
-                  >
-                    <h3 className="text-lg font-orbitron font-semibold text-neon-green">
-                      Project Gallery
+                  {/* Description */}
+                  <div>
+                    <h3 className="text-lg font-orbitron font-semibold text-neon-green mb-3">
+                      About This Project
                     </h3>
-                    
-                    {/* Main Image */}
-                    <div className="relative h-64 rounded-lg overflow-hidden">
-                      <img
-                        src={mockDemoImages[currentImageIndex]}
-                        alt={`${project.title} - Image ${currentImageIndex + 1}`}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
+                    <p className="text-white/80 leading-relaxed">
+                      {project.longDescription || project.description}
+                    </p>
+                  </div>
 
-                    {/* Thumbnail Grid */}
-                    <div className="grid grid-cols-4 gap-2">
-                      {mockDemoImages.map((image, index) => (
-                        <motion.button
+                  {/* Tech Stack */}
+                  <div>
+                    <h3 className="text-lg font-orbitron font-semibold text-neon-green mb-3">
+                      Technologies Used
+                    </h3>
+                    <div className="flex flex-wrap gap-2">
+                      {project.tech.map((tech, index) => (
+                        <span
                           key={index}
-                          whileHover={{ scale: 1.05 }}
-                          onClick={() => setCurrentImageIndex(index)}
-                          className={`relative h-16 rounded overflow-hidden border-2 transition-colors ${
-                            index === currentImageIndex
-                              ? 'border-neon-green'
-                              : 'border-transparent hover:border-neon-green/50'
-                          }`}
+                          className="px-3 py-1 bg-neon-green/10 border border-neon-green/30 rounded text-neon-green text-sm font-orbitron"
                         >
-                          <img
-                            src={image}
-                            alt={`Thumbnail ${index + 1}`}
-                            className="w-full h-full object-cover"
-                          />
-                        </motion.button>
+                          {tech}
+                        </span>
                       ))}
                     </div>
-                  </motion.div>
-                )}
+                  </div>
+
+                  {/* Features */}
+                  <div>
+                    <h3 className="text-lg font-orbitron font-semibold text-neon-green mb-3">
+                      Key Features
+                    </h3>
+                    <ul className="space-y-2">
+                      {mockFeatures.map((feature, index) => (
+                        <li
+                          key={index}
+                          className="flex items-center space-x-2 text-white/80"
+                        >
+                          <div className="w-1 h-1 bg-neon-green rounded-full" />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Code Panel */}
+                <div
+                  id="code-panel"
+                  role="tabpanel"
+                  aria-labelledby="code-tab"
+                  hidden={activeTab !== 'code'}
+                  className="space-y-4"
+                >
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-lg font-orbitron font-semibold text-neon-green">
+                      Code Preview
+                    </h3>
+                    <NeonButton
+                      size="sm"
+                      variant="outline"
+                      onClick={handleCopyCode}
+                      className="flex items-center space-x-2"
+                    >
+                      {copiedCode ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                      <span>{copiedCode ? 'Copied!' : 'Copy'}</span>
+                    </NeonButton>
+                  </div>
+                  
+                  <div className="relative">
+                    <pre className="bg-black/50 border border-neon-green/20 rounded-lg p-4 overflow-x-auto text-sm">
+                      <code className="text-white/90 font-mono">
+                        {project.codeSnippet || mockCodeSnippet}
+                      </code>
+                    </pre>
+                  </div>
+                </div>
+
+                {/* Gallery Panel */}
+                <div
+                  id="gallery-panel"
+                  role="tabpanel"
+                  aria-labelledby="gallery-tab"
+                  hidden={activeTab !== 'gallery'}
+                  className="space-y-4"
+                >
+                  <h3 className="text-lg font-orbitron font-semibold text-neon-green">
+                    Project Gallery
+                  </h3>
+                  
+                  {/* Main Image */}
+                  <div className="relative h-64 rounded-lg overflow-hidden">
+                    <img
+                      src={mockDemoImages[currentImageIndex]}
+                      alt={`${project.title} - Image ${currentImageIndex + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+
+                  {/* Thumbnail Grid */}
+                  <div className="grid grid-cols-4 gap-2">
+                    {mockDemoImages.map((image, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentImageIndex(index)}
+                        aria-label={`Ver imagem ${index + 1}`}
+                        aria-current={index === currentImageIndex}
+                        className={`relative h-16 rounded overflow-hidden border-2 transition-colors hover:scale-105 ${
+                          index === currentImageIndex
+                            ? 'border-neon-green'
+                            : 'border-transparent hover:border-neon-green/50'
+                        }`}
+                      >
+                        <img
+                          src={image}
+                          alt={`Thumbnail ${index + 1}`}
+                          className="w-full h-full object-cover"
+                        />
+                      </button>
+                    ))}
+                  </div>
+                </div>
               </div>
 
               {/* Footer Actions */}

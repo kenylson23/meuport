@@ -87,6 +87,7 @@ const AudioControls = () => {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={handleToggleMusic}
+              aria-label={isBackgroundPlaying ? "Pausar música ambiente" : "Reproduzir música ambiente"}
               className={cn(
                 "p-1 rounded text-xs",
                 isBackgroundPlaying 
@@ -108,6 +109,11 @@ const AudioControls = () => {
               step="0.1"
               value={volume}
               onChange={handleVolumeChange}
+              aria-label="Controle de volume"
+              aria-valuemin={0}
+              aria-valuemax={1}
+              aria-valuenow={volume}
+              aria-valuetext={`${Math.round(volume * 100)}%`}
               className="w-20 h-1 bg-gray-600 rounded-lg appearance-none cursor-pointer"
               style={{
                 background: `linear-gradient(to right, var(--neon-green) 0%, var(--neon-green) ${volume * 100}%, #374151 ${volume * 100}%, #374151 100%)`
@@ -125,6 +131,8 @@ const AudioControls = () => {
           whileTap={{ scale: 0.9 }}
           onClick={() => setIsExpanded(!isExpanded)}
           onMouseEnter={() => setIsExpanded(true)}
+          aria-label={isExpanded ? "Fechar controles de áudio" : "Abrir controles de áudio"}
+          aria-expanded={isExpanded}
           className="bg-black/80 backdrop-blur-md border border-neon-green/30 rounded-full p-3 text-neon-green hover:border-neon-green transition-colors duration-300"
         >
           {isMuted ? (

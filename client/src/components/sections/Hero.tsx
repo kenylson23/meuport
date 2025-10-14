@@ -108,21 +108,22 @@ const Hero = () => {
           </div>
         </motion.div>
 
-        <motion.div
+        <motion.button
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1 }}
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+          onClick={() => {
+            document.getElementById('about')?.scrollIntoView({
+              behavior: 'smooth'
+            });
+          }}
+          aria-label="Rolar para a seção Sobre"
+          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 bg-transparent border-none cursor-pointer"
         >
           <ChevronDown 
-            className="w-8 h-8 text-neon-green animate-bounce cursor-pointer"
-            onClick={() => {
-              document.getElementById('about')?.scrollIntoView({
-                behavior: 'smooth'
-              });
-            }}
+            className="w-8 h-8 text-neon-green animate-bounce"
           />
-        </motion.div>
+        </motion.button>
       </div>
     </section>
   );

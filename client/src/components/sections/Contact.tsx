@@ -169,7 +169,11 @@ const Contact = () => {
                 href={info.link}
                 target={info.isWhatsApp ? '_blank' : undefined}
                 rel={info.isWhatsApp ? 'noopener noreferrer' : undefined}
-                aria-label={info.isWhatsApp ? 'Abrir conversa no WhatsApp' : undefined}
+                aria-label={
+                  info.title === 'WhatsApp' ? 'Abrir conversa no WhatsApp' :
+                  info.title === 'E-mail' ? 'Enviar e-mail para kenylsonlourenco0@gmail.com' :
+                  'Informação de localização'
+                }
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -210,6 +214,7 @@ const Contact = () => {
               href="https://www.instagram.com/kenylson_lourenco/" 
               target="_blank" 
               rel="noopener noreferrer"
+              aria-label="Visitar perfil de Kenylson Lourenço no Instagram"
               className="text-neon-green hover:text-white transition-colors duration-300 cursor-pointer"
             >
               Kenylson Lourenço
