@@ -21,16 +21,16 @@ const Hero = () => {
       />
 
       <div className="max-w-7xl mx-auto relative z-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch min-h-[600px]">
           
           {/* Content Card - Left Column */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            className="order-2 lg:order-1"
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="order-2 lg:order-1 h-full flex flex-col justify-center"
           >
-            <div className="p-8 lg:p-12 shadow-2xl border border-white/10 rounded-3xl bg-white/[0.03] backdrop-blur-[40px] relative overflow-hidden group">
+            <div className="p-6 sm:p-8 lg:p-10 shadow-2xl border border-white/10 rounded-3xl bg-white/[0.03] backdrop-blur-[40px] relative overflow-hidden group h-fit">
               {/* Subtle background glow */}
               <div className="absolute -top-24 -left-24 w-48 h-48 bg-neon-green/10 rounded-full blur-3xl group-hover:bg-neon-green/20 transition-colors duration-700" />
               
@@ -152,7 +152,7 @@ const Hero = () => {
                 <span className="text-white font-orbitron text-xs tracking-wider">STATUS: DISPONÍVEL</span>
               </div>
               
-              <div className="relative aspect-[4/5] lg:aspect-auto lg:h-[700px]">
+              <div className="relative aspect-[4/5] lg:aspect-[3/4] lg:h-[650px]">
                 <img 
                   src="/images/profile.png" 
                   alt="Kenylson Lourenço" 
