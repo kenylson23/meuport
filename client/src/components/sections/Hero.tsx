@@ -1,37 +1,91 @@
-import { motion } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ChevronDown, Sparkles } from "lucide-react";
+import Typewriter from "typewriter-effect";
 
 const Hero = () => {
+  const { scrollY } = useScroll();
+  const y1 = useTransform(scrollY, [0, 500], [0, 200]);
+  const y2 = useTransform(scrollY, [0, 500], [0, -150]);
+  const rotate = useTransform(scrollY, [0, 500], [0, 45]);
+
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center relative px-4 sm:px-6 lg:px-8">
+    <section id="hero" className="min-h-screen flex items-center justify-center relative px-4 sm:px-6 lg:px-8 overflow-hidden">
+      {/* Decorative 3D-like elements */}
+      <motion.div 
+        style={{ y: y1, rotate }}
+        className="absolute top-20 left-[10%] w-64 h-64 bg-neon-green/5 rounded-full blur-3xl -z-10"
+      />
+      <motion.div 
+        style={{ y: y2, rotate: -rotate }}
+        className="absolute bottom-20 right-[10%] w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl -z-10"
+      />
+
       <div className="z-20 max-w-6xl mx-auto relative grid md:grid-cols-2 gap-6 sm:gap-10 md:gap-16 items-center">
         {/* Informações - Coluna Esquerda */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
           className="order-2 md:order-1 text-center md:text-left space-y-8"
         >
           {/* Nome Principal */}
-          <div className="space-y-2">
-            <motion.span 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+          <div className="space-y-4">
+            <motion.div 
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="text-neon-green font-orbitron text-sm tracking-[0.3em] uppercase"
+              className="flex items-center justify-center md:justify-start gap-2 text-neon-green font-orbitron text-sm tracking-[0.4em] uppercase"
             >
-              Full Stack Developer
-            </motion.span>
+              <Sparkles className="w-4 h-4 animate-pulse" />
+              <span>Full Stack Developer</span>
+            </motion.div>
+            
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-orbitron font-black text-white leading-tight tracking-tighter">
-              KENYLSON
-              <span className="block text-neon-green glow-text filter brightness-110">LOURENÇO</span>
+              <motion.span
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6 }}
+                className="block"
+              >
+                KENYLSON
+              </motion.span>
+              <motion.span 
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.8, type: "spring" }}
+                className="block text-neon-green glow-text filter brightness-110"
+              >
+                LOURENÇO
+              </motion.span>
             </h1>
+
+            <div className="h-8 text-xl md:text-2xl font-orbitron text-cyan-400 font-bold">
+              <Typewriter
+                options={{
+                  strings: [
+                    'Transformando ideias em código.',
+                    'Criando experiências 3D.',
+                    'Desenvolvendo o futuro da web.',
+                    'Especialista em React & Node.'
+                  ],
+                  autoStart: true,
+                  loop: true,
+                  deleteSpeed: 50,
+                  delay: 80
+                }}
+              />
+            </div>
           </div>
           
           {/* Descrição Simplificada */}
-          <p className="text-lg sm:text-xl text-slate-200 font-medium max-w-lg mx-auto md:mx-0 leading-relaxed drop-shadow-sm">
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.2 }}
+            className="text-lg sm:text-xl text-slate-200 font-medium max-w-lg mx-auto md:mx-0 leading-relaxed drop-shadow-sm"
+          >
             Especialista em <span className="text-white border-b border-neon-green/30">React</span>, <span className="text-white border-b border-neon-green/30">TypeScript</span> e experiências <span className="text-white border-b border-neon-green/30">3D interativas</span> com mais de 3 anos de estrada.
-          </p>
+          </motion.p>
           
           {/* Botões de Ação */}
           <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
