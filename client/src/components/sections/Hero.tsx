@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ChevronDown, Sparkles } from "lucide-react";
+import { ChevronDown, Sparkles, Star, Rocket, ShieldCheck, Play, ArrowRight } from "lucide-react";
 import Typewriter from "typewriter-effect";
 
 const Hero = () => {
@@ -9,7 +9,7 @@ const Hero = () => {
   const rotate = useTransform(scrollY, [0, 500], [0, 45]);
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center relative px-4 sm:px-6 lg:px-8 overflow-hidden py-32">
+    <section id="hero" className="min-h-screen flex items-center justify-center relative px-4 sm:px-6 lg:px-8 overflow-hidden py-20 lg:py-32">
       {/* Decorative 3D-like elements */}
       <motion.div 
         style={{ y: y1, rotate }}
@@ -20,176 +20,165 @@ const Hero = () => {
         className="absolute bottom-20 right-[10%] w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl -z-10"
       />
 
-      <div className="z-20 max-w-6xl mx-auto relative grid md:grid-cols-2 gap-6 sm:gap-10 md:gap-16 items-center">
-        {/* Informações - Coluna Esquerda */}
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          className="order-2 md:order-1 text-center md:text-left space-y-8"
-        >
-          {/* Nome Principal */}
-          <div className="space-y-6">
-            <motion.div 
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="text-neon-green font-orbitron text-sm sm:text-base tracking-[0.4em] uppercase font-bold"
-            >
-              Full Stack Developer
-            </motion.div>
-            
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-orbitron font-black leading-[0.9] tracking-tighter">
-              <motion.span
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.6 }}
-                className="block text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]"
-              >
-                KENYLSON
-              </motion.span>
-              <motion.span 
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.8 }}
-                className="block text-neon-green filter brightness-125 mt-2 drop-shadow-[0_0_20px_rgba(57,255,20,0.5)]"
-              >
-                LOURENÇO
-              </motion.span>
-            </h1>
-
-            <div className="h-8 text-xl md:text-2xl font-orbitron text-cyan-400 font-bold">
-              <Typewriter
-                options={{
-                  strings: [
-                    'Transformando ideias em código.',
-                    'Criando experiências 3D.',
-                    'Desenvolvendo o futuro da web.',
-                    'Especialista em React & Node.'
-                  ],
-                  autoStart: true,
-                  loop: true,
-                  deleteSpeed: 50,
-                  delay: 80
-                }}
-              />
-            </div>
-          </div>
+      <div className="max-w-7xl mx-auto relative z-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           
-          {/* Descrição Simplificada */}
-          <motion.p 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.2 }}
-            className="text-lg sm:text-xl text-slate-200 font-medium max-w-lg mx-auto md:mx-0 leading-relaxed drop-shadow-sm"
+          {/* Content Card - Left Column */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="order-2 lg:order-1"
           >
-            Especialista em <span className="text-white border-b border-neon-green/30">React</span>, <span className="text-white border-b border-neon-green/30">TypeScript</span> e experiências <span className="text-white border-b border-neon-green/30">3D interativas</span> com mais de 3 anos de estrada.
-          </motion.p>
-          
-          {/* Botões de Ação */}
-          <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
-            <button 
-              onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-8 py-3 bg-neon-green text-black font-orbitron font-bold rounded-lg hover:bg-neon-green/90 transition-all hover:scale-105 active:scale-95 glow-box w-full sm:w-auto"
-            >
-              Ver Projetos
-            </button>
-            <button 
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-8 py-3 border border-neon-green/30 text-neon-green font-orbitron font-bold rounded-lg hover:bg-neon-green/10 transition-all w-full sm:w-auto"
-            >
-              Contactar
-            </button>
-          </div>
-
-          {/* Status Discreto */}
-          <div className="flex items-center justify-center md:justify-start gap-3 text-sm text-white/50 font-orbitron">
-            <div className="flex items-center gap-2 px-3 py-1 bg-green-500/10 border border-green-500/20 rounded-full">
-              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-              <span className="text-green-400 text-xs uppercase tracking-wider">Disponível</span>
-            </div>
-            <span>•</span>
-            <span>Luanda, Angola</span>
-          </div>
-        </motion.div>
-
-        {/* Fotografia - Coluna Direita */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
-          animate={{ opacity: 1, scale: 1, rotate: 0 }}
-          transition={{ 
-            duration: 1.5, 
-            delay: 0.2,
-            type: "spring",
-            stiffness: 100
-          }}
-          className="order-1 md:order-2 flex justify-center md:justify-end"
-        >
-          <div className="relative group cursor-none">
-            {/* Interactive Glow following mouse */}
-            <motion.div 
-              className="absolute -inset-10 bg-neon-green/20 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-              animate={{
-                scale: [1, 1.2, 1],
-              }}
-              transition={{ duration: 4, repeat: Infinity }}
-            />
-            
-            <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 transform transition-transform duration-700 group-hover:scale-105 group-hover:rotate-3">
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-neon-green via-cyan-400 to-purple-500 p-1.5 glow-strong animate-pulse shadow-[0_0_50px_rgba(57,255,20,0.3)]">
-                <img 
-                  src="/images/profile.png" 
-                  alt="Kenylson Lourenço - Desenvolvedor Full Stack"
-                  className="w-full h-full rounded-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-500"
-                />
+            <div className="p-8 lg:p-12 shadow-2xl border border-white/10 rounded-3xl bg-white/[0.03] backdrop-blur-[40px] relative overflow-hidden group">
+              {/* Subtle background glow */}
+              <div className="absolute -top-24 -left-24 w-48 h-48 bg-neon-green/10 rounded-full blur-3xl group-hover:bg-neon-green/20 transition-colors duration-700" />
+              
+              <div className="flex items-center gap-3 mb-8">
+                <div className="flex items-center gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                  ))}
+                </div>
+                <span className="text-xs font-medium text-white/50 font-orbitron">5.0 • Desenvolvedor Full Stack Sênior</span>
               </div>
-              
-              {/* Floating tech rings */}
-              <div className="absolute -inset-4 border border-neon-green/20 rounded-full animate-[spin_10s_linear_infinite]" />
-              <div className="absolute -inset-8 border border-cyan-400/10 rounded-full animate-[spin_15s_linear_infinite_reverse]" />
-              
-              {/* Floating particles around photo */}
-              <div className="absolute -inset-4">
-                {[...Array(8)].map((_, i) => (
-                  <motion.div
-                    key={i}
-                    animate={{
-                      y: [0, -20, 0],
-                      opacity: [0.4, 1, 0.4],
-                    }}
-                    transition={{
-                      duration: 3 + i,
-                      repeat: Infinity,
-                      delay: i * 0.4,
-                    }}
-                    className="absolute w-2 h-2 bg-neon-green rounded-full shadow-[0_0_10px_#39ff14]"
-                    style={{
-                      left: `${Math.sin(i) * 50 + 50}%`,
-                      top: `${Math.cos(i) * 50 + 50}%`,
+
+              <div className="space-y-4 mb-8">
+                <motion.div 
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5 }}
+                  className="text-neon-green font-orbitron text-sm sm:text-base tracking-[0.4em] uppercase font-bold"
+                >
+                  Kenylson Lourenço
+                </motion.div>
+                
+                <h1 className="text-4xl sm:text-5xl lg:text-7xl font-orbitron font-black leading-[1.1] tracking-tight text-white">
+                  <motion.span
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.6 }}
+                    className="block"
+                  >
+                    EXPERIENCE THE
+                  </motion.span>
+                  <motion.span 
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.8 }}
+                    className="block text-neon-green filter brightness-125 drop-shadow-[0_0_20px_rgba(57,255,20,0.4)]"
+                  >
+                    FUTURE
+                  </motion.span>
+                </h1>
+
+                <div className="h-8 text-lg md:text-xl font-orbitron text-cyan-400 font-bold">
+                  <Typewriter
+                    options={{
+                      strings: [
+                        'Transformando ideias em código.',
+                        'Criando experiências 3D.',
+                        'Desenvolvendo o futuro da web.',
+                        'Especialista em React & Node.'
+                      ],
+                      autoStart: true,
+                      loop: true,
+                      deleteSpeed: 50,
+                      delay: 80
                     }}
                   />
-                ))}
+                </div>
+              </div>
+
+              <motion.p 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.2 }}
+                className="text-lg text-slate-300 leading-relaxed mb-12 font-sans max-w-lg"
+              >
+                Especialista em construir aplicações web modernas, seguras e altamente interativas. Foco em <span className="text-white font-bold">performance</span> e <span className="text-white font-bold">experiência do usuário</span>.
+              </motion.p>
+
+              <div className="flex flex-col sm:flex-row gap-4 mb-16">
+                <button 
+                  onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-neon-green/10 text-white text-sm font-bold font-orbitron border border-neon-green/20 transition-all duration-300 hover:bg-neon-green/20 hover:border-neon-green/40 hover:scale-105"
+                >
+                  <span>Ver Projetos</span>
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </button>
+                <button 
+                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-white/[0.03] text-white/80 text-sm font-bold font-orbitron border border-white/10 transition-all duration-300 hover:bg-white/5 hover:border-white/20"
+                >
+                  <Play className="w-4 h-4 mr-2 fill-current" />
+                  <span>Contato</span>
+                </button>
+              </div>
+
+              <div className="grid grid-cols-3 gap-4 sm:gap-8">
+                <div className="text-center group/item">
+                  <div className="w-10 h-10 flex border-white/10 border rounded-xl mx-auto mb-3 items-center justify-center bg-white/[0.03] group-hover/item:border-neon-green/40 transition-colors">
+                    <Rocket className="w-4 h-4 text-white group-hover/item:text-neon-green transition-colors" />
+                  </div>
+                  <div className="text-[10px] sm:text-xs font-medium text-white/70 font-orbitron uppercase tracking-tighter">Fast Delivery</div>
+                </div>
+                <div className="text-center group/item">
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center mx-auto mb-3 border border-white/10 bg-white/[0.03] group-hover/item:border-cyan-400/40 transition-colors">
+                    <Star className="w-4 h-4 text-white group-hover/item:text-cyan-400 transition-colors" />
+                  </div>
+                  <div className="text-[10px] sm:text-xs font-medium text-white/70 font-orbitron uppercase tracking-tighter">High Quality</div>
+                </div>
+                <div className="text-center group/item">
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center mx-auto mb-3 border border-white/10 bg-white/[0.03] group-hover/item:border-purple-400/40 transition-colors">
+                    <ShieldCheck className="w-4 h-4 text-white group-hover/item:text-purple-400 transition-colors" />
+                  </div>
+                  <div className="text-[10px] sm:text-xs font-medium text-white/70 font-orbitron uppercase tracking-tighter">Secure Code</div>
+                </div>
               </div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
 
-        <motion.button
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1 }}
-          onClick={() => {
-            document.getElementById('about')?.scrollIntoView({
-              behavior: 'smooth'
-            });
-          }}
-          aria-label="Rolar para a seção Sobre"
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 bg-transparent border-none cursor-pointer"
-        >
-          <ChevronDown 
-            className="w-8 h-8 text-neon-green animate-bounce"
-          />
-        </motion.button>
+          {/* Visual Side - Right Column */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+            className="relative order-1 lg:order-2"
+          >
+            <div className="overflow-hidden border border-white/10 rounded-3xl shadow-2xl bg-white/[0.03] relative group">
+              <div className="absolute top-8 left-8 flex items-center gap-2 rounded-full px-5 py-3 text-sm font-medium border border-neon-green/20 z-10 bg-neon-green/10 backdrop-blur-[40px]">
+                <div className="w-2 h-2 bg-neon-green rounded-full animate-pulse shadow-[0_0_8px_#39ff14]"></div>
+                <span className="text-white font-orbitron text-xs tracking-wider">STATUS: DISPONÍVEL</span>
+              </div>
+              
+              <div className="relative aspect-[4/5] lg:aspect-auto lg:h-[700px]">
+                <img 
+                  src="/images/profile.png" 
+                  alt="Kenylson Lourenço" 
+                  className="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
+              </div>
+
+              <div className="absolute bottom-8 left-8 right-8 grid grid-cols-2 gap-6">
+                <div className="border-white/10 border rounded-2xl p-6 bg-white/[0.15] backdrop-blur-[40px] hover:border-neon-green/30 transition-colors group/stat">
+                  <div className="text-2xl text-white font-orbitron font-bold group-hover/stat:text-neon-green transition-colors">3+ Anos</div>
+                  <div className="text-xs text-white/60 mt-1 font-orbitron uppercase tracking-widest">Experiência</div>
+                </div>
+                <div className="rounded-2xl p-6 border border-white/10 bg-white/[0.15] backdrop-blur-[40px] hover:border-cyan-400/30 transition-colors group/stat">
+                  <div className="text-2xl text-white font-orbitron font-bold group-hover/stat:text-cyan-400 transition-colors">100%</div>
+                  <div className="text-xs text-white/60 mt-1 font-orbitron uppercase tracking-widest">Comprometimento</div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Decorative elements behind image */}
+            <div className="absolute -z-10 -bottom-10 -right-10 w-40 h-40 bg-purple-500/10 rounded-full blur-3xl animate-pulse" />
+            <div className="absolute -z-10 -top-10 -left-10 w-40 h-40 bg-cyan-500/10 rounded-full blur-3xl animate-pulse delay-700" />
+          </motion.div>
+
+        </div>
       </div>
     </section>
   );
