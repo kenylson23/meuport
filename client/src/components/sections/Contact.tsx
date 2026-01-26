@@ -89,7 +89,7 @@ const Contact = () => {
             <GlowCard className="p-8">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-neon-green font-orbitron text-sm font-semibold mb-2">
+                  <label htmlFor="name" className="block text-neon-green text-sm font-bold mb-2 uppercase tracking-wider">
                     Nome
                   </label>
                   <input
@@ -99,7 +99,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-black/50 border border-neon-green/30 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-neon-green focus:glow-input transition-all duration-300"
+                    className="w-full px-4 py-3 bg-black/50 border border-neon-green/30 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-neon-green focus:glow-input transition-all duration-300 font-sans"
                     placeholder="Seu nome"
                   />
                 </div>

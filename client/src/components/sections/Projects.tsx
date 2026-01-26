@@ -71,7 +71,7 @@ const ProjectCard = ({ project, index, onViewDetails }: ProjectCardProps) => {
 
         {/* Content */}
         <div className="p-6">
-          <h3 className="text-xl font-orbitron font-bold text-white mb-3 group-hover:text-neon-green transition-colors duration-300">
+          <h3 className="text-xl font-bold text-white mb-3 group-hover:text-neon-green transition-colors duration-300">
             {project.title}
           </h3>
           
@@ -84,7 +84,7 @@ const ProjectCard = ({ project, index, onViewDetails }: ProjectCardProps) => {
             {project.tech.map((tech, techIndex) => (
               <span
                 key={techIndex}
-                className="px-2 py-1 bg-neon-green/10 border border-neon-green/30 rounded text-neon-green text-xs font-orbitron"
+                className="px-2 py-1 bg-neon-green/10 border border-neon-green/30 rounded text-neon-green text-xs font-mono font-bold"
               >
                 {tech}
               </span>

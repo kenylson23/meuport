@@ -66,7 +66,7 @@ export function AnimeNavBar({ items, className, defaultActive = "hero", currentS
                 onMouseEnter={() => setHoveredTab(item.name)}
                 onMouseLeave={() => setHoveredTab(null)}
                 className={cn(
-                  "relative cursor-pointer text-xs sm:text-sm font-orbitron font-bold px-3 sm:px-6 py-2 sm:py-3 rounded-full transition-all duration-300",
+                  "relative cursor-pointer text-xs sm:text-sm font-bold px-3 sm:px-6 py-2 sm:py-3 rounded-full transition-all duration-300",
                   "text-white/60 hover:text-neon-green",
                   isActive && "text-neon-green"
                 )}

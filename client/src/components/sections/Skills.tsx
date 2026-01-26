@@ -37,10 +37,10 @@ const SkillCard = ({ skill, index }: SkillCardProps) => {
         {/* Content */}
         <div className="relative z-10">
           <div className="flex items-center justify-between mb-3">
-            <h3 className="text-white font-orbitron text-lg font-bold tracking-wider">
+            <h3 className="text-white text-lg font-bold tracking-tight">
               {skill.name}
             </h3>
-            <span className="text-neon-green text-sm font-black">
+            <span className="text-neon-green text-sm font-black font-mono">
               {skill.level}%
             </span>
           </div>

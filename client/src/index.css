@@ -3,30 +3,38 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --font-primary: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
   * {
     border-color: rgba(255, 255, 255, 0.1);
   }
 
   body {
-    @apply font-sans antialiased;
+    @apply antialiased;
+    font-family: var(--font-primary);
     margin: 0;
     padding: 0;
     background: #000000;
     color: #ffffff;
     width: 100vw;
     height: 100vh;
-    line-height: 1.6;
-    letter-spacing: 0.01em;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
   }
 
-  h1, h2, h3, h4, .font-orbitron {
-    letter-spacing: 0.05em;
+  h1, h2, h3, h4 {
+    @apply tracking-tight font-bold;
+    line-height: 1.1;
     text-rendering: optimizeLegibility;
   }
 
   p {
-    @apply text-slate-300;
-    font-weight: 400;
+    @apply text-slate-400;
+    font-weight: 450;
+    line-height: 1.7;
   }
 }
 

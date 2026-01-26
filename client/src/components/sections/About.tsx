@@ -36,7 +36,7 @@ const About = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-orbitron font-bold text-white mb-6">
+          <h2 className="text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight">
             Sobre <span className="text-neon-green glow-text">Mim</span>
           </h2>
           <div className="w-24 h-1 bg-neon-green mx-auto mb-8 glow-box"></div>
@@ -68,7 +68,7 @@ const About = () => {
               </div>
             </motion.div>
 
-            <h3 className="text-3xl font-orbitron text-neon-green mb-6 drop-shadow-[0_0_8px_rgba(57,255,20,0.3)]">
+            <h3 className="text-3xl font-bold text-neon-green mb-6 drop-shadow-[0_0_8px_rgba(57,255,20,0.3)] tracking-tight">
               Desenvolvedor Apaixonado
             </h3>
             <div className="space-y-6 text-slate-200 text-lg leading-relaxed font-normal">
@@ -115,14 +115,14 @@ const About = () => {
             
             <div className="grid grid-cols-2 gap-4">
             {features.map((feature, index) => (
-              <GlowCard key={index} className="p-6 text-center">
-                <div className="text-neon-green mb-4 flex justify-center">
+              <GlowCard key={index} className="p-6 text-center group">
+                <div className="text-neon-green mb-4 flex justify-center group-hover:scale-110 transition-transform duration-300">
                   {feature.icon}
                 </div>
-                <h4 className="text-white font-orbitron text-sm font-semibold mb-2">
+                <h4 className="text-white text-sm font-bold mb-2 uppercase tracking-widest">
                   {feature.title}
                 </h4>
-                <p className="text-white/60 text-xs">
+                <p className="text-white/60 text-xs font-medium">
                   {feature.description}
                 </p>
               </GlowCard>

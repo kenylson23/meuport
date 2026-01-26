@@ -48,12 +48,12 @@ const Hero = () => {
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5 }}
-                  className="text-neon-green font-orbitron text-sm sm:text-base tracking-[0.4em] uppercase font-bold"
+                  className="text-neon-green font-mono text-sm sm:text-base tracking-[0.2em] uppercase font-bold"
                 >
                   Kenylson Lourenço
                 </motion.div>
                 
-                <h1 className="text-4xl sm:text-5xl lg:text-7xl font-orbitron font-black leading-[1.1] tracking-tight text-white">
+                <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold leading-[1.1] tracking-tight text-white">
                   <motion.span
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -72,7 +72,7 @@ const Hero = () => {
                   </motion.span>
                 </h1>
 
-                <div className="h-8 text-lg md:text-xl font-orbitron text-cyan-400 font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">
+                <div className="h-8 text-lg md:text-xl font-mono text-cyan-400 font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">
                   <Typewriter
                     options={{
                       strings: [
@@ -102,14 +102,14 @@ const Hero = () => {
               <div className="flex flex-col sm:flex-row gap-4 mb-16">
                 <button 
                   onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-neon-green/20 text-white text-sm font-bold font-orbitron border border-neon-green/40 transition-all duration-300 hover:bg-neon-green/30 hover:border-neon-green/60 hover:scale-105 shadow-[0_0_15px_rgba(57,255,20,0.2)]"
+                  className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-neon-green/20 text-white text-sm font-bold border border-neon-green/40 transition-all duration-300 hover:bg-neon-green/30 hover:border-neon-green/60 hover:scale-105 shadow-[0_0_15px_rgba(57,255,20,0.2)]"
                 >
                   <span>Ver Projetos</span>
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </button>
                 <button 
                   onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-white/[0.05] text-white/90 text-sm font-bold font-orbitron border border-white/20 transition-all duration-300 hover:bg-white/10 hover:border-white/30"
+                  className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-white/[0.05] text-white/90 text-sm font-bold border border-white/20 transition-all duration-300 hover:bg-white/10 hover:border-white/30"
                 >
                   <Play className="w-4 h-4 mr-2 fill-current" />
                   <span>Contato</span>
@@ -121,19 +121,19 @@ const Hero = () => {
                   <div className="w-12 h-12 flex border-white/30 border rounded-xl mx-auto mb-3 items-center justify-center bg-white/[0.08] group-hover/item:border-neon-green/60 transition-colors shadow-lg">
                     <Rocket className="w-5 h-5 text-white group-hover/item:text-neon-green transition-colors" />
                   </div>
-                  <div className="text-[10px] sm:text-xs font-bold text-white font-orbitron uppercase tracking-widest drop-shadow-md">Entrega Rápida</div>
+                  <div className="text-[10px] sm:text-xs font-bold text-white uppercase tracking-widest drop-shadow-md">Entrega Rápida</div>
                 </div>
                 <div className="text-center group/item">
                   <div className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-3 border border-white/30 bg-white/[0.08] group-hover/item:border-cyan-400/60 transition-colors shadow-lg">
                     <Star className="w-5 h-5 text-white group-hover/item:text-cyan-400 transition-colors" />
                   </div>
-                  <div className="text-[10px] sm:text-xs font-bold text-white font-orbitron uppercase tracking-widest drop-shadow-md">Alta Qualidade</div>
+                  <div className="text-[10px] sm:text-xs font-bold text-white uppercase tracking-widest drop-shadow-md">Alta Qualidade</div>
                 </div>
                 <div className="text-center group/item">
                   <div className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-3 border border-white/30 bg-white/[0.08] group-hover/item:border-purple-400/60 transition-colors shadow-lg">
                     <ShieldCheck className="w-5 h-5 text-white group-hover/item:text-purple-400 transition-colors" />
                   </div>
-                  <div className="text-[10px] sm:text-xs font-bold text-white font-orbitron uppercase tracking-widest drop-shadow-md">Código Seguro</div>
+                  <div className="text-[10px] sm:text-xs font-bold text-white uppercase tracking-widest drop-shadow-md">Código Seguro</div>
                 </div>
               </div>
             </div>
