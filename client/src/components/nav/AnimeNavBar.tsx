@@ -39,8 +39,8 @@ export function AnimeNavBar({ items, className, defaultActive = "hero", currentS
   if (!mounted) return null
 
   return (
-    <div className={cn("fixed top-5 left-0 right-0 z-[9999]", className)}>
-      <div className="flex justify-center pt-6">
+    <div className={cn("fixed top-0 left-0 right-0 z-[9999]", className)}>
+      <div className="flex justify-center pt-2 sm:pt-4">
         <motion.div 
           className="flex items-center gap-1 sm:gap-3 bg-black/50 border border-neon-green/20 backdrop-blur-lg py-2 px-2 rounded-full shadow-[0_0_20px_rgba(57,255,20,0.1)] relative"
           initial={{ y: -20, opacity: 0 }}
