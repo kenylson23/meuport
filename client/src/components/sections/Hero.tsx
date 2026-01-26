@@ -116,24 +116,24 @@ const Hero = () => {
                 </button>
               </div>
 
-              <div className="grid grid-cols-3 gap-4 sm:gap-8">
+              <div className="grid grid-cols-3 gap-3 sm:gap-6">
                 <div className="text-center group/item">
-                  <div className="w-10 h-10 flex border-white/20 border rounded-xl mx-auto mb-3 items-center justify-center bg-white/[0.05] group-hover/item:border-neon-green/40 transition-colors">
-                    <Rocket className="w-4 h-4 text-white group-hover/item:text-neon-green transition-colors" />
+                  <div className="w-12 h-12 flex border-white/30 border rounded-xl mx-auto mb-3 items-center justify-center bg-white/[0.08] group-hover/item:border-neon-green/60 transition-colors shadow-lg">
+                    <Rocket className="w-5 h-5 text-white group-hover/item:text-neon-green transition-colors" />
                   </div>
-                  <div className="text-[10px] sm:text-xs font-medium text-white/80 font-orbitron uppercase tracking-tighter">Entrega Rápida</div>
+                  <div className="text-[10px] sm:text-xs font-bold text-white font-orbitron uppercase tracking-widest drop-shadow-md">Entrega Rápida</div>
                 </div>
                 <div className="text-center group/item">
-                  <div className="w-10 h-10 rounded-xl flex items-center justify-center mx-auto mb-3 border border-white/20 bg-white/[0.05] group-hover/item:border-cyan-400/40 transition-colors">
-                    <Star className="w-4 h-4 text-white group-hover/item:text-cyan-400 transition-colors" />
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-3 border border-white/30 bg-white/[0.08] group-hover/item:border-cyan-400/60 transition-colors shadow-lg">
+                    <Star className="w-5 h-5 text-white group-hover/item:text-cyan-400 transition-colors" />
                   </div>
-                  <div className="text-[10px] sm:text-xs font-medium text-white/80 font-orbitron uppercase tracking-tighter">Alta Qualidade</div>
+                  <div className="text-[10px] sm:text-xs font-bold text-white font-orbitron uppercase tracking-widest drop-shadow-md">Alta Qualidade</div>
                 </div>
                 <div className="text-center group/item">
-                  <div className="w-10 h-10 rounded-xl flex items-center justify-center mx-auto mb-3 border border-white/20 bg-white/[0.05] group-hover/item:border-purple-400/40 transition-colors">
-                    <ShieldCheck className="w-4 h-4 text-white group-hover/item:text-purple-400 transition-colors" />
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-3 border border-white/30 bg-white/[0.08] group-hover/item:border-purple-400/60 transition-colors shadow-lg">
+                    <ShieldCheck className="w-5 h-5 text-white group-hover/item:text-purple-400 transition-colors" />
                   </div>
-                  <div className="text-[10px] sm:text-xs font-medium text-white/80 font-orbitron uppercase tracking-tighter">Código Seguro</div>
+                  <div className="text-[10px] sm:text-xs font-bold text-white font-orbitron uppercase tracking-widest drop-shadow-md">Código Seguro</div>
                 </div>
               </div>
             </div>
