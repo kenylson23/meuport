@@ -7,71 +7,56 @@ const Hero = () => {
       <div className="z-20 max-w-6xl mx-auto relative grid md:grid-cols-2 gap-6 sm:gap-10 md:gap-16 items-center">
         {/* Informações - Coluna Esquerda */}
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, delay: 0.3 }}
-          className="order-2 md:order-1 text-center md:text-left space-y-6"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="order-2 md:order-1 text-center md:text-left space-y-8"
         >
           {/* Nome Principal */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-orbitron font-black text-white">
-            KENYLSON
-            <span className="block text-neon-green glow-text">LOURENÇO</span>
-          </h1>
-          
-          {/* Título e Experiência */}
           <div className="space-y-2">
-            <div className="text-lg sm:text-xl md:text-2xl text-white/90 font-orbitron">
-              Desenvolvedor Full Stack • <span className="text-neon-green">3+ Anos</span>
-            </div>
-            
-            {/* Localização e Status */}
-            <div className="flex flex-col md:flex-row items-center md:items-start gap-2 text-sm sm:text-base text-white/70 font-orbitron">
-              <span>Luanda, Angola</span>
-              <span className="hidden md:block">|</span>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                <span className="text-green-400">Disponível para Projetos</span>
-              </div>
-            </div>
+            <motion.span 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+              className="text-neon-green font-orbitron text-sm tracking-[0.3em] uppercase"
+            >
+              Full Stack Developer
+            </motion.span>
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-orbitron font-black text-white leading-tight">
+              KENYLSON
+              <span className="block text-neon-green glow-text">LOURENÇO</span>
+            </h1>
           </div>
           
-          {/* Descrição */}
-          <div className="space-y-2">
-            <div className="text-base sm:text-lg md:text-xl text-white/80 font-orbitron">
-              Especialista em React, TypeScript e Experiências 3D
-            </div>
-            <div className="text-neon-green text-sm sm:text-base md:text-lg font-orbitron">
-              Transformando ideias complexas em soluções digitais elegantes
-            </div>
-          </div>
+          {/* Descrição Simplificada */}
+          <p className="text-lg sm:text-xl text-white/70 font-orbitron max-w-lg mx-auto md:mx-0 leading-relaxed">
+            Especialista em <span className="text-white">React</span>, <span className="text-white">TypeScript</span> e experiências <span className="text-white">3D interativas</span> com mais de 3 anos de estrada.
+          </p>
           
-          {/* Tecnologias Principais */}
-          <div className="flex flex-wrap justify-center md:justify-start gap-2">
-            {['React', 'TypeScript', 'Node.js', 'Python', 'PostgreSQL'].map((tech) => (
-              <motion.span
-                key={tech}
-                whileHover={{ scale: 1.05 }}
-                className="px-3 py-1 bg-black/30 border border-neon-green/30 rounded-full text-neon-green text-sm font-orbitron glow-text-subtle"
-              >
-                {tech}
-              </motion.span>
-            ))}
+          {/* Botões de Ação */}
+          <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
+            <button 
+              onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+              className="px-8 py-3 bg-neon-green text-black font-orbitron font-bold rounded-lg hover:bg-neon-green/90 transition-all hover:scale-105 active:scale-95 glow-box w-full sm:w-auto"
+            >
+              Ver Projetos
+            </button>
+            <button 
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              className="px-8 py-3 border border-neon-green/30 text-neon-green font-orbitron font-bold rounded-lg hover:bg-neon-green/10 transition-all w-full sm:w-auto"
+            >
+              Contactar
+            </button>
           </div>
-          
-          {/* Mini Contadores */}
-          <div className="flex justify-center md:justify-start gap-4 sm:gap-6 text-sm">
-            <div className="text-center">
-              <div className="text-xl sm:text-2xl font-orbitron font-bold text-neon-green">30+</div>
-              <div className="text-xs sm:text-sm text-white/60 font-orbitron">Projetos</div>
+
+          {/* Status Discreto */}
+          <div className="flex items-center justify-center md:justify-start gap-3 text-sm text-white/50 font-orbitron">
+            <div className="flex items-center gap-2 px-3 py-1 bg-green-500/10 border border-green-500/20 rounded-full">
+              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+              <span className="text-green-400 text-xs uppercase tracking-wider">Disponível</span>
             </div>
-            <div className="text-center">
-              <div className="text-xl sm:text-2xl font-orbitron font-bold text-neon-green">10+</div>
-              <div className="text-xs sm:text-sm text-white/60 font-orbitron">Clientes</div>
-            </div>
-            <div className="text-center">
-              <div className="text-xl sm:text-2xl font-orbitron font-bold text-neon-green">3+</div>
-              <div className="text-xs sm:text-sm text-white/60 font-orbitron">Anos</div>
-            </div>
+            <span>•</span>
+            <span>Luanda, Angola</span>
           </div>
         </motion.div>
 
