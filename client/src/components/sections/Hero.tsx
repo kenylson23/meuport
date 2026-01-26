@@ -29,31 +29,30 @@ const Hero = () => {
           className="order-2 md:order-1 text-center md:text-left space-y-8"
         >
           {/* Nome Principal */}
-          <div className="space-y-4">
+          <div className="space-y-6">
             <motion.div 
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="flex items-center justify-center md:justify-start gap-2 text-neon-green font-orbitron text-sm tracking-[0.4em] uppercase"
+              className="text-neon-green font-orbitron text-sm sm:text-base tracking-[0.4em] uppercase font-bold"
             >
-              <Sparkles className="w-4 h-4 animate-pulse" />
-              <span>Full Stack Developer</span>
+              Full Stack Developer
             </motion.div>
             
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-orbitron font-black text-white leading-tight tracking-tighter">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-orbitron font-black text-white leading-[0.9] tracking-tighter">
               <motion.span
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.6 }}
                 className="block"
               >
                 KENYLSON
               </motion.span>
               <motion.span 
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.8, type: "spring" }}
-                className="block text-neon-green glow-text filter brightness-110"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.8 }}
+                className="block text-neon-green glow-text filter brightness-110 mt-2"
               >
                 LOURENÇO
               </motion.span>
