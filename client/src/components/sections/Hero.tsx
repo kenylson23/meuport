@@ -30,9 +30,9 @@ const Hero = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="order-2 lg:order-1 h-full flex flex-col justify-center"
           >
-            <div className="p-6 sm:p-8 lg:p-10 shadow-2xl border border-white/10 rounded-3xl bg-white/[0.03] backdrop-blur-[40px] relative overflow-hidden group h-fit">
+            <div className="p-6 sm:p-8 lg:p-10 shadow-2xl border border-white/10 rounded-3xl bg-black/40 backdrop-blur-[40px] relative overflow-hidden group h-fit">
               {/* Subtle background glow */}
-              <div className="absolute -top-24 -left-24 w-48 h-48 bg-neon-green/10 rounded-full blur-3xl group-hover:bg-neon-green/20 transition-colors duration-700" />
+              <div className="absolute -top-24 -left-24 w-48 h-48 bg-neon-green/20 rounded-full blur-3xl group-hover:bg-neon-green/30 transition-colors duration-700" />
               
               <div className="flex items-center gap-3 mb-8">
                 <div className="flex items-center gap-0.5">
@@ -40,7 +40,7 @@ const Hero = () => {
                     <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
                   ))}
                 </div>
-                <span className="text-xs font-medium text-white/50 font-orbitron">5.0 • Desenvolvedor Full Stack Sênior</span>
+                <span className="text-xs font-medium text-white/70 font-orbitron uppercase tracking-wider">Desenvolvedor Full Stack Sênior</span>
               </div>
 
               <div className="space-y-4 mb-8">
@@ -58,21 +58,21 @@ const Hero = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.6 }}
-                    className="block"
+                    className="block drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]"
                   >
-                    EXPERIENCE THE
+                    VIVA O
                   </motion.span>
                   <motion.span 
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.8 }}
-                    className="block text-neon-green filter brightness-125 drop-shadow-[0_0_20px_rgba(57,255,20,0.4)]"
+                    className="block text-neon-green filter brightness-125 drop-shadow-[0_0_25px_rgba(57,255,20,0.6)]"
                   >
-                    FUTURE
+                    FUTURO
                   </motion.span>
                 </h1>
 
-                <div className="h-8 text-lg md:text-xl font-orbitron text-cyan-400 font-bold">
+                <div className="h-8 text-lg md:text-xl font-orbitron text-cyan-400 font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">
                   <Typewriter
                     options={{
                       strings: [
@@ -94,7 +94,7 @@ const Hero = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.2 }}
-                className="text-lg text-slate-300 leading-relaxed mb-12 font-sans max-w-lg"
+                className="text-lg text-slate-200 leading-relaxed mb-12 font-sans max-w-lg drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]"
               >
                 Especialista em construir aplicações web modernas, seguras e altamente interativas. Foco em <span className="text-white font-bold">performance</span> e <span className="text-white font-bold">experiência do usuário</span>.
               </motion.p>
@@ -102,14 +102,14 @@ const Hero = () => {
               <div className="flex flex-col sm:flex-row gap-4 mb-16">
                 <button 
                   onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-neon-green/10 text-white text-sm font-bold font-orbitron border border-neon-green/20 transition-all duration-300 hover:bg-neon-green/20 hover:border-neon-green/40 hover:scale-105"
+                  className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-neon-green/20 text-white text-sm font-bold font-orbitron border border-neon-green/40 transition-all duration-300 hover:bg-neon-green/30 hover:border-neon-green/60 hover:scale-105 shadow-[0_0_15px_rgba(57,255,20,0.2)]"
                 >
                   <span>Ver Projetos</span>
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </button>
                 <button 
                   onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-white/[0.03] text-white/80 text-sm font-bold font-orbitron border border-white/10 transition-all duration-300 hover:bg-white/5 hover:border-white/20"
+                  className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-white/[0.05] text-white/90 text-sm font-bold font-orbitron border border-white/20 transition-all duration-300 hover:bg-white/10 hover:border-white/30"
                 >
                   <Play className="w-4 h-4 mr-2 fill-current" />
                   <span>Contato</span>
@@ -118,22 +118,22 @@ const Hero = () => {
 
               <div className="grid grid-cols-3 gap-4 sm:gap-8">
                 <div className="text-center group/item">
-                  <div className="w-10 h-10 flex border-white/10 border rounded-xl mx-auto mb-3 items-center justify-center bg-white/[0.03] group-hover/item:border-neon-green/40 transition-colors">
+                  <div className="w-10 h-10 flex border-white/20 border rounded-xl mx-auto mb-3 items-center justify-center bg-white/[0.05] group-hover/item:border-neon-green/40 transition-colors">
                     <Rocket className="w-4 h-4 text-white group-hover/item:text-neon-green transition-colors" />
                   </div>
-                  <div className="text-[10px] sm:text-xs font-medium text-white/70 font-orbitron uppercase tracking-tighter">Fast Delivery</div>
+                  <div className="text-[10px] sm:text-xs font-medium text-white/80 font-orbitron uppercase tracking-tighter">Entrega Rápida</div>
                 </div>
                 <div className="text-center group/item">
-                  <div className="w-10 h-10 rounded-xl flex items-center justify-center mx-auto mb-3 border border-white/10 bg-white/[0.03] group-hover/item:border-cyan-400/40 transition-colors">
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center mx-auto mb-3 border border-white/20 bg-white/[0.05] group-hover/item:border-cyan-400/40 transition-colors">
                     <Star className="w-4 h-4 text-white group-hover/item:text-cyan-400 transition-colors" />
                   </div>
-                  <div className="text-[10px] sm:text-xs font-medium text-white/70 font-orbitron uppercase tracking-tighter">High Quality</div>
+                  <div className="text-[10px] sm:text-xs font-medium text-white/80 font-orbitron uppercase tracking-tighter">Alta Qualidade</div>
                 </div>
                 <div className="text-center group/item">
-                  <div className="w-10 h-10 rounded-xl flex items-center justify-center mx-auto mb-3 border border-white/10 bg-white/[0.03] group-hover/item:border-purple-400/40 transition-colors">
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center mx-auto mb-3 border border-white/20 bg-white/[0.05] group-hover/item:border-purple-400/40 transition-colors">
                     <ShieldCheck className="w-4 h-4 text-white group-hover/item:text-purple-400 transition-colors" />
                   </div>
-                  <div className="text-[10px] sm:text-xs font-medium text-white/70 font-orbitron uppercase tracking-tighter">Secure Code</div>
+                  <div className="text-[10px] sm:text-xs font-medium text-white/80 font-orbitron uppercase tracking-tighter">Código Seguro</div>
                 </div>
               </div>
             </div>
