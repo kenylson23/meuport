@@ -39,12 +39,12 @@ const Hero = () => {
               Full Stack Developer
             </motion.div>
             
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-orbitron font-black text-white leading-[0.9] tracking-tighter">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-orbitron font-black leading-[0.9] tracking-tighter">
               <motion.span
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.6 }}
-                className="block"
+                className="block text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]"
               >
                 KENYLSON
               </motion.span>
@@ -52,7 +52,7 @@ const Hero = () => {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.8 }}
-                className="block text-neon-green glow-text filter brightness-110 mt-2"
+                className="block text-neon-green filter brightness-125 mt-2 drop-shadow-[0_0_20px_rgba(57,255,20,0.5)]"
               >
                 LOURENÇO
               </motion.span>
