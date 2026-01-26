@@ -116,33 +116,61 @@ const Hero = () => {
 
         {/* Fotografia - Coluna Direita */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2, delay: 0.2 }}
+          initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
+          animate={{ opacity: 1, scale: 1, rotate: 0 }}
+          transition={{ 
+            duration: 1.5, 
+            delay: 0.2,
+            type: "spring",
+            stiffness: 100
+          }}
           className="order-1 md:order-2 flex justify-center md:justify-end"
         >
-          <div className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-56 md:h-56 lg:w-64 lg:h-64">
-            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-neon-green to-cyan-400 p-1 glow-strong animate-pulse">
-              <img 
-                src="/images/profile.png" 
-                alt="Kenylson Lourenço - Desenvolvedor Full Stack"
-                className="w-full h-full rounded-full object-cover"
-              />
-            </div>
-            {/* Floating particles around photo */}
-            <div className="absolute -inset-4">
-              {[...Array(6)].map((_, i) => (
-                <div
-                  key={i}
-                  className="absolute w-2 h-2 bg-neon-green rounded-full opacity-60 animate-ping"
-                  style={{
-                    left: `${20 + (i * 15)}%`,
-                    top: `${10 + (i % 3) * 30}%`,
-                    animationDelay: `${i * 0.5}s`,
-                    animationDuration: '2s'
-                  }}
+          <div className="relative group cursor-none">
+            {/* Interactive Glow following mouse */}
+            <motion.div 
+              className="absolute -inset-10 bg-neon-green/20 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+              animate={{
+                scale: [1, 1.2, 1],
+              }}
+              transition={{ duration: 4, repeat: Infinity }}
+            />
+            
+            <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 transform transition-transform duration-700 group-hover:scale-105 group-hover:rotate-3">
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-neon-green via-cyan-400 to-purple-500 p-1.5 glow-strong animate-pulse shadow-[0_0_50px_rgba(57,255,20,0.3)]">
+                <img 
+                  src="/images/profile.png" 
+                  alt="Kenylson Lourenço - Desenvolvedor Full Stack"
+                  className="w-full h-full rounded-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-500"
                 />
-              ))}
+              </div>
+              
+              {/* Floating tech rings */}
+              <div className="absolute -inset-4 border border-neon-green/20 rounded-full animate-[spin_10s_linear_infinite]" />
+              <div className="absolute -inset-8 border border-cyan-400/10 rounded-full animate-[spin_15s_linear_infinite_reverse]" />
+              
+              {/* Floating particles around photo */}
+              <div className="absolute -inset-4">
+                {[...Array(8)].map((_, i) => (
+                  <motion.div
+                    key={i}
+                    animate={{
+                      y: [0, -20, 0],
+                      opacity: [0.4, 1, 0.4],
+                    }}
+                    transition={{
+                      duration: 3 + i,
+                      repeat: Infinity,
+                      delay: i * 0.4,
+                    }}
+                    className="absolute w-2 h-2 bg-neon-green rounded-full shadow-[0_0_10px_#39ff14]"
+                    style={{
+                      left: `${Math.sin(i) * 50 + 50}%`,
+                      top: `${Math.cos(i) * 50 + 50}%`,
+                    }}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </motion.div>
