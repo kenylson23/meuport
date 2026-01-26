@@ -9,7 +9,7 @@ const Hero = () => {
   const rotate = useTransform(scrollY, [0, 500], [0, 45]);
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center relative px-4 sm:px-6 lg:px-8 overflow-hidden pt-24 pb-12 lg:pt-32 lg:pb-20">
+    <section id="hero" className="min-h-screen flex items-center justify-center relative px-4 sm:px-6 lg:px-8 overflow-hidden pt-32 pb-12 lg:pt-40 lg:pb-20">
       {/* Decorative 3D-like elements */}
       <motion.div 
         style={{ y: y1, rotate }}
