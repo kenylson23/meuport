@@ -78,21 +78,27 @@ const Skills = () => {
   const [viewMode, setViewMode] = useState<'grid' | 'tree' | 'quiz'>('grid');
   const { playHover, playHit } = useAudio();
   
-  const skills = [
-    { name: "JavaScript", level: 95, color: "#f7df1e" },
-    { name: "TypeScript", level: 90, color: "#3178c6" },
-    { name: "React", level: 95, color: "#61dafb" },
-    { name: "Vue.js", level: 85, color: "#4fc08d" },
-    { name: "Node.js", level: 90, color: "#339933" },
-    { name: "Python", level: 85, color: "#3776ab" },
-    { name: "Angular", level: 80, color: "#dd0031" },
-    { name: "Svelte", level: 75, color: "#ff3e00" },
-    { name: "PostgreSQL", level: 80, color: "#336791" },
-    { name: "Rust", level: 70, color: "#000000" },
-    { name: "Go", level: 75, color: "#00add8" },
-    { name: "Java", level: 80, color: "#ed8b00" },
-    { name: "C++", level: 75, color: "#00599c" }
-  ];
+  const skillsByCategory = {
+    "Frontend": [
+      { name: "React", level: 95, color: "#61dafb" },
+      { name: "TypeScript", level: 90, color: "#3178c6" },
+      { name: "JavaScript", level: 95, color: "#f7df1e" },
+      { name: "Vue.js", level: 85, color: "#4fc08d" },
+      { name: "Angular", level: 80, color: "#dd0031" },
+      { name: "Svelte", level: 75, color: "#ff3e00" }
+    ],
+    "Backend & Data": [
+      { name: "Node.js", level: 90, color: "#339933" },
+      { name: "Python", level: 85, color: "#3776ab" },
+      { name: "PostgreSQL", level: 80, color: "#336791" },
+      { name: "Java", level: 80, color: "#ed8b00" }
+    ],
+    "Sistemas & Low-level": [
+      { name: "Rust", level: 70, color: "#000000" },
+      { name: "Go", level: 75, color: "#00add8" },
+      { name: "C++", level: 75, color: "#00599c" }
+    ]
+  };
 
   return (
     <section id="skills" className="min-h-screen py-20 relative">
@@ -109,7 +115,7 @@ const Skills = () => {
           </h2>
           <div className="w-24 h-1 bg-neon-green mx-auto mb-8 glow-box"></div>
           <p className="text-white/70 text-base sm:text-lg md:text-xl max-w-2xl mx-auto px-4">
-            Um conjunto abrangente de ferramentas para construir aplicações web modernas
+            Um conjunto abrangente de ferramentas categorizadas para construir o futuro da web
           </p>
           
           {/* View Mode Toggle */}
@@ -168,26 +174,27 @@ const Skills = () => {
 
         {/* Dynamic Content Based on View Mode */}
         {viewMode === 'grid' ? (
-          <motion.div
-            key="grid-view"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.9 }}
-            transition={{ duration: 0.5 }}
-            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6"
-          >
-            {skills.map((skill, index) => (
-              <motion.div
-                key={skill.name}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <SkillCard skill={skill} index={index} />
-              </motion.div>
+          <div className="space-y-12">
+            {Object.entries(skillsByCategory).map(([category, items]) => (
+              <div key={category}>
+                <h3 className="text-xl font-orbitron text-neon-green mb-6 border-l-4 border-neon-green pl-4">
+                  {category}
+                </h3>
+                <motion.div
+                  key={`${category}-grid`}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  viewport={{ once: true }}
+                  className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6"
+                >
+                  {items.map((skill, index) => (
+                    <SkillCard key={skill.name} skill={skill} index={index} />
+                  ))}
+                </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         ) : viewMode === 'tree' ? (
           <motion.div
             key="tree-view"

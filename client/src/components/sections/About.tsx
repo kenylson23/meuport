@@ -71,18 +71,17 @@ const About = () => {
             <h3 className="text-3xl font-orbitron text-neon-green mb-6">
               Desenvolvedor Apaixonado
             </h3>
-            <p className="text-white/80 text-lg leading-relaxed mb-6">
-              Sou Kenylson Lourenço, um desenvolvedor full-stack apaixonado que adora criar 
-              experiências digitais imersivas. Com expertise em múltiplas linguagens de programação 
-              e frameworks, me especializo em construir aplicações web modernas 
-              que combinam funcionalidade com apelo visual impressionante.
-            </p>
-            <p className="text-white/80 text-lg leading-relaxed">
-              Minha jornada na tecnologia vai desde o desenvolvimento web tradicional até 
-              experiências 3D interativas de ponta. Acredito em expandir os limites do que é 
-              possível na web, criando soluções que não apenas funcionam perfeitamente, mas 
-              também inspiram e engajam usuários.
-            </p>
+            <div className="space-y-6 text-white/80 text-lg leading-relaxed">
+              <p>
+                Sou <span className="text-neon-green font-semibold">Kenylson Lourenço</span>, um desenvolvedor full-stack apaixonado por criar 
+                experiências digitais <span className="text-white font-semibold italic">immersivas</span>. Com expertise em tecnologias modernas, 
+                me especializo em construir aplicações web que combinam <span className="text-cyan-400 font-semibold">funcionalidade robusta</span> com um apelo visual impactante.
+              </p>
+              <p>
+                Minha jornada vai do desenvolvimento web tradicional até experiências <span className="text-purple-400 font-semibold">3D interativas</span>. 
+                Acredito em expandir os limites da web, criando soluções que não apenas funcionam perfeitamente, mas também <span className="text-neon-green font-semibold">inspiram e engajam</span> usuários em cada interação.
+              </p>
+            </div>
           </motion.div>
 
           <motion.div
