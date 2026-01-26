@@ -37,18 +37,18 @@ const SkillCard = ({ skill, index }: SkillCardProps) => {
         {/* Content */}
         <div className="relative z-10">
           <div className="flex items-center justify-between mb-3">
-            <h3 className="text-white font-orbitron text-lg font-semibold">
+            <h3 className="text-white font-orbitron text-lg font-bold tracking-wider">
               {skill.name}
             </h3>
-            <span className="text-neon-green text-sm font-bold">
+            <span className="text-neon-green text-sm font-black">
               {skill.level}%
             </span>
           </div>
           
           {/* Progress bar */}
-          <div className="w-full bg-black/50 rounded-full h-2 mb-2">
+          <div className="w-full bg-black/60 rounded-full h-2.5 mb-2 border border-white/5">
             <motion.div
-              className="h-2 rounded-full"
+              className="h-full rounded-full shadow-[0_0_10px_rgba(255,255,255,0.1)]"
               style={{ backgroundColor: skill.color }}
               initial={{ width: 0 }}
               whileInView={{ width: `${skill.level}%` }}

@@ -68,18 +68,18 @@ const About = () => {
               </div>
             </motion.div>
 
-            <h3 className="text-3xl font-orbitron text-neon-green mb-6">
+            <h3 className="text-3xl font-orbitron text-neon-green mb-6 drop-shadow-[0_0_8px_rgba(57,255,20,0.3)]">
               Desenvolvedor Apaixonado
             </h3>
-            <div className="space-y-6 text-white/80 text-lg leading-relaxed">
+            <div className="space-y-6 text-slate-200 text-lg leading-relaxed font-normal">
               <p>
-                Sou <span className="text-neon-green font-semibold">Kenylson Lourenço</span>, um desenvolvedor full-stack apaixonado por criar 
-                experiências digitais <span className="text-white font-semibold italic">immersivas</span>. Com expertise em tecnologias modernas, 
-                me especializo em construir aplicações web que combinam <span className="text-cyan-400 font-semibold">funcionalidade robusta</span> com um apelo visual impactante.
+                Sou <span className="text-neon-green font-bold">Kenylson Lourenço</span>, um desenvolvedor full-stack apaixonado por criar 
+                experiências digitais <span className="text-white font-bold italic">imersivas</span>. Com expertise em tecnologias modernas, 
+                me especializo em construir aplicações web que combinam <span className="text-cyan-300 font-bold">funcionalidade robusta</span> com um apelo visual impactante.
               </p>
               <p>
-                Minha jornada vai do desenvolvimento web tradicional até experiências <span className="text-purple-400 font-semibold">3D interativas</span>. 
-                Acredito em expandir os limites da web, criando soluções que não apenas funcionam perfeitamente, mas também <span className="text-neon-green font-semibold">inspiram e engajam</span> usuários em cada interação.
+                Minha jornada vai do desenvolvimento web tradicional até experiências <span className="text-purple-300 font-bold">3D interativas</span>. 
+                Acredito em expandir os limites da web, criando soluções que não apenas funcionam perfeitamente, mas também <span className="text-neon-green font-bold">inspiram e engajam</span> usuários em cada interação.
               </p>
             </div>
           </motion.div>

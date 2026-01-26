@@ -73,15 +73,15 @@ const Portfolio = () => {
       <div className="fixed inset-0 z-0">
         <div className="w-full h-full bg-gradient-to-br from-black via-gray-900 to-black">
           {/* Shader-like Wave Background */}
-          <div className="shader-background"></div>
+          <div className="shader-background opacity-30"></div>
           
           {/* CSS Neon Grid Effect */}
-          <div className="absolute inset-0 opacity-20">
+          <div className="absolute inset-0 opacity-10">
             <div className="grid-background"></div>
           </div>
           
           {/* Matrix Rain Effect */}
-          <div className="matrix-container">
+          <div className="matrix-container opacity-20">
             {matrixData.map((column, i) => (
               <div
                 key={i}

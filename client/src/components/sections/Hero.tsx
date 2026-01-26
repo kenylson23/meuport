@@ -22,15 +22,15 @@ const Hero = () => {
             >
               Full Stack Developer
             </motion.span>
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-orbitron font-black text-white leading-tight">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-orbitron font-black text-white leading-tight tracking-tighter">
               KENYLSON
-              <span className="block text-neon-green glow-text">LOURENÇO</span>
+              <span className="block text-neon-green glow-text filter brightness-110">LOURENÇO</span>
             </h1>
           </div>
           
           {/* Descrição Simplificada */}
-          <p className="text-lg sm:text-xl text-white/70 font-orbitron max-w-lg mx-auto md:mx-0 leading-relaxed">
-            Especialista em <span className="text-white">React</span>, <span className="text-white">TypeScript</span> e experiências <span className="text-white">3D interativas</span> com mais de 3 anos de estrada.
+          <p className="text-lg sm:text-xl text-slate-200 font-medium max-w-lg mx-auto md:mx-0 leading-relaxed drop-shadow-sm">
+            Especialista em <span className="text-white border-b border-neon-green/30">React</span>, <span className="text-white border-b border-neon-green/30">TypeScript</span> e experiências <span className="text-white border-b border-neon-green/30">3D interativas</span> com mais de 3 anos de estrada.
           </p>
           
           {/* Botões de Ação */}
