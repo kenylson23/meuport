@@ -6,12 +6,30 @@ import LanguageShowcase from "./sections/LanguageShowcase";
 import Projects from "./sections/Projects";
 import Contact from "./sections/Contact";
 import AudioControls from "./ui/AudioControls";
+import { AnimeNavBar } from "./nav/AnimeNavBar";
+import { Home, User, Cpu, Globe, FolderCode, Mail } from "lucide-react";
 import { usePortfolio } from "../lib/stores/usePortfolio";
 import { useAudio } from "../lib/stores/useAudio";
 
 const Portfolio = () => {
   const { currentSection, setCurrentSection } = usePortfolio();
-  const { playHover } = useAudio();
+  const { playHover, playHit } = useAudio();
+
+  const navItems = [
+    { name: 'Início', url: 'hero', icon: Home },
+    { name: 'Sobre', url: 'about', icon: User },
+    { name: 'Habilidades', url: 'skills', icon: Cpu },
+    { name: 'Linguagens', url: 'languages', icon: Globe },
+    { name: 'Projetos', url: 'projects', icon: FolderCode },
+    { name: 'Contato', url: 'contact', icon: Mail }
+  ];
+
+  const handleNavClick = (id: string) => {
+    playHit();
+    document.getElementById(id)?.scrollIntoView({
+      behavior: 'smooth'
+    });
+  };
 
   // Pre-compute random values for consistent renders
   const matrixData = useMemo(() => 
@@ -147,53 +165,11 @@ const Portfolio = () => {
       </div>
 
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 w-full z-50 bg-black/10 backdrop-blur-md border-b border-neon-green/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <div className="flex items-center space-x-3">
-              <div className="relative w-10 h-10">
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-neon-green to-cyan-400 p-0.5">
-                  <img 
-                    src="/images/profile.png" 
-                    alt="KL"
-                    className="w-full h-full rounded-full object-cover"
-                  />
-                </div>
-              </div>
-              <div className="text-neon-green font-orbitron text-xl font-bold" translate="no">
-                KL
-              </div>
-            </div>
-            <div className="hidden md:flex space-x-8">
-              {[
-                { label: 'Início', id: 'hero' },
-                { label: 'Sobre', id: 'about' },
-                { label: 'Habilidades', id: 'skills' },
-                { label: 'Linguagens', id: 'languages' },
-                { label: 'Projetos', id: 'projects' },
-                { label: 'Contato', id: 'contact' }
-              ].map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => {
-                    document.getElementById(item.id)?.scrollIntoView({
-                      behavior: 'smooth'
-                    });
-                  }}
-                  onMouseEnter={() => playHover()}
-                  className={`nav-link font-orbitron ${
-                    currentSection === item.id 
-                      ? 'text-neon-green' 
-                      : 'text-white/70 hover:text-neon-green'
-                  } transition-colors duration-300`}
-                >
-                  {item.label}
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
-      </nav>
+      <AnimeNavBar 
+        items={navItems} 
+        currentSection={currentSection} 
+        onItemClick={handleNavClick} 
+      />
 
       {/* Main Content */}
       <main className="relative z-10">
