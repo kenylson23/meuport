@@ -1,135 +1,209 @@
+import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Code, Database, Globe, Zap } from "lucide-react";
-import GlowCard from "../ui/GlowCard";
 
-const About = () => {
-  const features = [
-    {
-      icon: <Code className="w-8 h-8" />,
-      title: "Desenvolvimento Frontend",
-      description: "React, Vue, Angular, Three.js"
-    },
-    {
-      icon: <Database className="w-8 h-8" />,
-      title: "Desenvolvimento Backend",
-      description: "Node.js, Python, PHP, Bancos de Dados"
-    },
-    {
-      icon: <Globe className="w-8 h-8" />,
-      title: "Soluções Full Stack",
-      description: "Aplicações web completas"
-    },
-    {
-      icon: <Zap className="w-8 h-8" />,
-      title: "3D e Interativo",
-      description: "WebGL, Three.js, Animações"
-    }
-  ];
+interface About3Props {
+  title?: string;
+  description?: string;
+  mainImage?: {
+    src: string;
+    alt: string;
+  };
+  secondaryImage?: {
+    src: string;
+    alt: string;
+  };
+  breakout?: {
+    src: string;
+    alt: string;
+    title?: string;
+    description?: string;
+    buttonText?: string;
+    buttonUrl?: string;
+  };
+  companiesTitle?: string;
+  companies?: Array<{
+    src: string;
+    alt: string;
+  }>;
+  achievementsTitle?: string;
+  achievementsDescription?: string;
+  achievements?: Array<{
+    label: string;
+    value: string;
+  }>;
+}
 
+const defaultCompanies = [
+  {
+    src: "https://shadcnblocks.com/images/block/logos/company/fictional-company-logo-1.svg",
+    alt: "Arc",
+  },
+  {
+    src: "https://shadcnblocks.com/images/block/logos/company/fictional-company-logo-2.svg",
+    alt: "Descript",
+  },
+  {
+    src: "https://shadcnblocks.com/images/block/logos/company/fictional-company-logo-3.svg",
+    alt: "Mercury",
+  },
+  {
+    src: "https://shadcnblocks.com/images/block/logos/company/fictional-company-logo-4.svg",
+    alt: "Ramp",
+  },
+  {
+    src: "https://shadcnblocks.com/images/block/logos/company/fictional-company-logo-5.svg",
+    alt: "Retool",
+  },
+  {
+    src: "https://shadcnblocks.com/images/block/logos/company/fictional-company-logo-6.svg",
+    alt: "Watershed",
+  },
+];
+
+const defaultAchievements = [
+  { label: "Projetos Finalizados", value: "50+" },
+  { label: "Anos de Experiência", value: "5+" },
+  { label: "Clientes Satisfeitos", value: "100%" },
+  { label: "Tecnologias Dominadas", value: "15+" },
+];
+
+export const About = ({
+  title = "Sobre Mim",
+  description = "Sou Kenylson Lourenço, um desenvolvedor full-stack apaixonado por criar experiências digitais imersivas. Com expertise em tecnologias modernas, me especializo em construir aplicações web que combinam funcionalidade robusta com um apelo visual impactante.",
+  mainImage = {
+    src: "/images/profile.png",
+    alt: "Kenylson Lourenço - Desenvolvedor Full Stack",
+  },
+  secondaryImage = {
+    src: "https://shadcnblocks.com/images/block/placeholder-2.svg",
+    alt: "placeholder",
+  },
+  breakout = {
+    src: "https://shadcnblocks.com/images/block/block-1.svg",
+    alt: "logo",
+    title: "Desenvolvedor Apaixonado",
+    description:
+      "Minha jornada vai do desenvolvimento web tradicional até experiências 3D interativas. Acredito em expandir os limites da web.",
+    buttonText: "Ver Projetos",
+    buttonUrl: "#projects",
+  },
+  companiesTitle = "Tecnologias e ferramentas que utilizo",
+  companies = defaultCompanies,
+  achievementsTitle = "Minha Jornada em Números",
+  achievementsDescription = "Transformando ideias complexas em soluções digitais elegantes e eficientes.",
+  achievements = defaultAchievements,
+}: About3Props = {}) => {
   return (
-    <section id="about" className="min-h-screen py-32 relative flex items-center">
-      <div className="max-w-6xl mx-auto px-4 z-20 relative">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
+    <section id="about" className="py-32 relative overflow-hidden">
+      <div className="container mx-auto px-4 z-20 relative">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="mb-14 grid gap-5 text-center md:grid-cols-2 md:text-left"
         >
-          <h2 className="text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+          <h2 className="text-5xl md:text-6xl font-bold text-white tracking-tight">
             Sobre <span className="text-neon-green glow-text">Mim</span>
           </h2>
-          <div className="w-24 h-1 bg-neon-green mx-auto mb-8 glow-box"></div>
+          <p className="text-slate-200 text-lg leading-relaxed">{description}</p>
         </motion.div>
-
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
+        
+        <div className="grid gap-7 lg:grid-cols-3">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
+            className="lg:col-span-2"
           >
-            {/* Profile Photo for About Section */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              viewport={{ once: true }}
-              className="mb-8 md:hidden"
-            >
-              <div className="relative w-40 h-40 mx-auto">
-                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-neon-green/50 to-cyan-400/50 p-1">
-                  <img 
-                    src="/images/profile.png" 
-                    alt="Kenylson Lourenço"
-                    className="w-full h-full rounded-full object-cover border-2 border-neon-green/30"
-                  />
-                </div>
-              </div>
-            </motion.div>
-
-            <h3 className="text-3xl font-bold text-neon-green mb-6 drop-shadow-[0_0_8px_rgba(57,255,20,0.3)] tracking-tight">
-              Desenvolvedor Apaixonado
-            </h3>
-            <div className="space-y-6 text-slate-200 text-lg leading-relaxed font-normal">
-              <p>
-                Sou <span className="text-neon-green font-bold">Kenylson Lourenço</span>, um desenvolvedor full-stack apaixonado por criar 
-                experiências digitais <span className="text-white font-bold italic">imersivas</span>. Com expertise em tecnologias modernas, 
-                me especializo em construir aplicações web que combinam <span className="text-cyan-300 font-bold">funcionalidade robusta</span> com um apelo visual impactante.
-              </p>
-              <p>
-                Minha jornada vai do desenvolvimento web tradicional até experiências <span className="text-purple-300 font-bold">3D interativas</span>. 
-                Acredito em expandir os limites da web, criando soluções que não apenas funcionam perfeitamente, mas também <span className="text-neon-green font-bold">inspiram e engajam</span> usuários em cada interação.
-              </p>
-            </div>
+            <img
+              src={mainImage.src}
+              alt={mainImage.alt}
+              className="size-full max-h-[620px] rounded-xl object-cover border border-white/10"
+            />
           </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="space-y-8"
-          >
-            {/* Profile Photo for Desktop */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
+          
+          <div className="flex flex-col gap-7 md:flex-row lg:flex-col">
+            <motion.div 
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
-              className="hidden md:block"
+              className="flex flex-col justify-between gap-6 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 p-7 md:w-1/2 lg:w-auto"
             >
-              <div className="relative w-64 h-64 mx-auto">
-                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-neon-green/30 via-cyan-400/20 to-purple-500/20 p-2 backdrop-blur-sm border border-neon-green/30">
-                  <img 
-                    src="/images/profile.png" 
-                    alt="Kenylson Lourenço - Desenvolvedor Full Stack"
-                    className="w-full h-full rounded-2xl object-cover"
-                  />
-                </div>
-                {/* Decorative elements */}
-                <div className="absolute -top-2 -right-2 w-6 h-6 bg-neon-green rounded-full animate-pulse" />
-                <div className="absolute -bottom-2 -left-2 w-4 h-4 bg-cyan-400 rounded-full animate-ping" />
+              <img
+                src={breakout.src}
+                alt={breakout.alt}
+                className="mr-auto h-12 invert opacity-50"
+              />
+              <div>
+                <p className="mb-2 text-lg font-semibold text-neon-green">{breakout.title}</p>
+                <p className="text-slate-300">{breakout.description}</p>
               </div>
+              <Button variant="outline" className="mr-auto border-neon-green text-neon-green hover:bg-neon-green hover:text-black transition-colors" asChild>
+                <a href={breakout.buttonUrl}>
+                  {breakout.buttonText}
+                </a>
+              </Button>
             </motion.div>
             
-            <div className="grid grid-cols-2 gap-4">
-            {features.map((feature, index) => (
-              <GlowCard key={index} className="p-6 text-center group">
-                <div className="text-neon-green mb-4 flex justify-center group-hover:scale-110 transition-transform duration-300">
-                  {feature.icon}
-                </div>
-                <h4 className="text-white text-sm font-bold mb-2 uppercase tracking-widest">
-                  {feature.title}
-                </h4>
-                <p className="text-white/60 text-xs font-medium">
-                  {feature.description}
-                </p>
-              </GlowCard>
-            ))}
-            </div>
-          </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="grow basis-0 md:w-1/2 lg:w-auto"
+            >
+              <img
+                src={secondaryImage.src}
+                alt={secondaryImage.alt}
+                className="size-full rounded-xl object-cover lg:min-h-0 border border-white/10"
+              />
+            </motion.div>
+          </div>
         </div>
+
+        <div className="py-32">
+          <p className="text-center text-slate-400 uppercase tracking-widest text-sm">{companiesTitle}</p>
+          <div className="mt-8 flex flex-wrap justify-center gap-8 opacity-50 hover:opacity-100 transition-opacity duration-500">
+            {companies.map((company, idx) => (
+              <div className="flex items-center gap-3" key={company.src + idx}>
+                <img
+                  src={company.src}
+                  alt={company.alt}
+                  className="h-6 w-auto md:h-8 filter grayscale invert"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="relative overflow-hidden rounded-xl bg-white/5 backdrop-blur-md border border-white/10 p-10 md:p-16"
+        >
+          <div className="flex flex-col gap-4 text-center md:text-left relative z-20">
+            <h2 className="text-4xl font-semibold text-white">{achievementsTitle}</h2>
+            <p className="max-w-screen-sm text-slate-300">
+              {achievementsDescription}
+            </p>
+          </div>
+          <div className="mt-10 flex flex-wrap justify-between gap-10 text-center relative z-20">
+            {achievements.map((item, idx) => (
+              <div className="flex flex-col gap-4" key={item.label + idx}>
+                <p className="text-slate-400 text-sm uppercase tracking-wider">{item.label}</p>
+                <span className="text-4xl font-bold text-neon-green glow-text md:text-5xl">
+                  {item.value}
+                </span>
+              </div>
+            ))}
+          </div>
+          <div className="pointer-events-none absolute -top-1 right-1 z-10 hidden h-full w-full bg-[linear-gradient(to_right,rgba(57,255,20,0.1)_1px,transparent_1px),linear-gradient(to_bottom,rgba(57,255,20,0.1)_1px,transparent_1px)] bg-[size:80px_80px] [mask-image:linear-gradient(to_bottom_right,#000,transparent,transparent)] md:block"></div>
+        </motion.div>
       </div>
     </section>
   );
