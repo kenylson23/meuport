@@ -18,7 +18,7 @@ const LanguageShowcase = () => {
   ];
 
   return (
-    <section id="languages" className="py-20 relative">
+    <section id="languages" className="min-h-screen py-32 relative flex items-center">
       <div className="max-w-7xl mx-auto px-4 z-20 relative">
         <motion.div
           initial={{ opacity: 0, y: 50 }}

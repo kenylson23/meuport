@@ -27,7 +27,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="min-h-screen py-20 relative">
+    <section id="about" className="min-h-screen py-32 relative flex items-center">
       <div className="max-w-6xl mx-auto px-4 z-20 relative">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
