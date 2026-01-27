@@ -23,7 +23,6 @@
     overflow-x: hidden;
     line-height: 1.5;
     letter-spacing: -0.01em;
-    scroll-behavior: smooth;
   }
 
   h1, h2, h3, h4 {

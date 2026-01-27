@@ -26,9 +26,14 @@ const Portfolio = () => {
 
   const handleNavClick = (id: string) => {
     playHit();
-    document.getElementById(id)?.scrollIntoView({
-      behavior: 'smooth'
-    });
+    const element = document.getElementById(id);
+    if (element) {
+      const offset = element.offsetTop;
+      window.scrollTo({
+        top: offset,
+        behavior: 'auto'
+      });
+    }
   };
 
   // Pre-compute random values for consistent renders
