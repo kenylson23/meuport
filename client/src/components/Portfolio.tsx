@@ -82,7 +82,7 @@ const Portfolio = () => {
 
   return (
     <div className="relative min-h-screen bg-black overflow-x-hidden text-white selection:bg-neon-green selection:text-black">
-      <DottedSurface />
+      <DottedSurface className="opacity-100 z-10" />
       
       {/* Background dinâmico e elegante */}
       <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
@@ -149,7 +149,7 @@ const Portfolio = () => {
       />
 
       {/* Main Content */}
-      <main className="relative z-10">
+      <main className="relative z-20">
         <Hero />
         <Projects />
         <About />
