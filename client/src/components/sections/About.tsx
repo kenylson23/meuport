@@ -92,13 +92,16 @@ export const About = ({
   return (
     <section id="about" className="py-20 relative">
       <div className="max-w-5xl mx-auto px-4 z-20 relative">
-        <div 
-          className="mb-8 grid gap-4 text-center md:grid-cols-2 md:text-left"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-            Sobre <span className="text-neon-green/90 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Mim</span>
-          </h2>
-          <p className="text-slate-200 text-sm leading-relaxed">{description}</p>
+        <div className="grid gap-6 lg:grid-cols-12 items-center mb-10">
+          <div className="lg:col-span-4 text-center md:text-left">
+            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] mb-4">
+              Sobre <span className="text-neon-green/90 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Mim</span>
+            </h2>
+            <div className="w-12 h-1 bg-neon-green mx-auto md:mx-0 mb-6 glow-box"></div>
+          </div>
+          <div className="lg:col-span-8">
+            <p className="text-slate-200 text-sm leading-relaxed border-l-2 border-neon-green/30 pl-6 italic">{description}</p>
+          </div>
         </div>
         
         <div className="grid gap-6 lg:grid-cols-12 max-w-5xl mx-auto">
