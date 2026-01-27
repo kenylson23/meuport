@@ -31,7 +31,7 @@ const SkillCard = ({ skill, index }: SkillCardProps) => {
         {/* Content */}
         <div className="relative z-10">
           <div className="flex items-center justify-between mb-3">
-            <h3 className="text-white text-lg font-bold tracking-tight">
+            <h3 className="text-white text-lg font-bold tracking-tight font-orbitron">
               {skill.name}
             </h3>
             <span className="text-neon-green text-sm font-black font-mono">
@@ -99,7 +99,7 @@ const Skills = () => {
             Arsenal <span className="text-neon-green/90 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Tecnológico</span>
           </h2>
           <div className="w-16 h-1 bg-neon-green mx-auto mb-6 glow-box"></div>
-          <p className="text-white/70 text-sm sm:text-base max-w-2xl mx-auto px-4">
+          <p className="text-white/70 text-sm sm:text-base max-w-2xl mx-auto px-4 font-sans">
             Utilizo as tecnologias mais modernas do mercado para garantir que seu projeto seja rápido, seguro e escalável.
           </p>
           
