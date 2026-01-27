@@ -90,21 +90,49 @@ const Portfolio = () => {
   }
 
   return (
-    <div className="relative min-h-screen bg-black overflow-x-hidden">
-      {/* Background simplificado e profissional */}
+    <div className="relative min-h-screen bg-black overflow-x-hidden text-white selection:bg-neon-green selection:text-black">
+      {/* Background dinâmico e elegante */}
       <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
         <div className="absolute inset-0 bg-black">
-          {/* Sutil gradiente de profundidade */}
-          <div className="absolute inset-0 bg-gradient-to-b from-gray-900/20 via-black to-black"></div>
+          {/* Gradiente de profundidade sutil */}
+          <div className="absolute inset-0 bg-gradient-to-b from-gray-900/40 via-black to-black"></div>
           
-          {/* Grade sutil */}
-          <div className="absolute inset-0 opacity-[0.03]" 
-               style={{ backgroundImage: 'linear-gradient(to right, #39ff14 1px, transparent 1px), linear-gradient(to bottom, #39ff14 1px, transparent 1px)', bgSize: '40px 40px' }}>
+          {/* Grade Cyberpunk Sutil */}
+          <div className="absolute inset-0 opacity-[0.05]" 
+               style={{ 
+                 backgroundImage: 'linear-gradient(to right, #39ff14 1px, transparent 1px), linear-gradient(to bottom, #39ff14 1px, transparent 1px)', 
+                 backgroundSize: '50px 50px' 
+               }}>
           </div>
           
-          {/* Brilhos atmosféricos fixos */}
-          <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] bg-neon-green/5 rounded-full blur-[120px]"></div>
-          <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-cyan-500/5 rounded-full blur-[120px]"></div>
+          {/* Elementos Dinâmicos de Fundo */}
+          <div className="absolute inset-0">
+            {/* Brilhos animados */}
+            <div className="absolute top-[-10%] left-[-10%] w-[70%] h-[70%] bg-neon-green/10 rounded-full blur-[120px] animate-pulse"></div>
+            <div className="absolute bottom-[-10%] right-[-10%] w-[70%] h-[70%] bg-cyan-500/10 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '2s' }}></div>
+            
+            {/* Linhas de Varredura (Scanlines) */}
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_4px,3px_100%] pointer-events-none opacity-20"></div>
+            
+            {/* Partículas flutuantes sutis */}
+            <div className="absolute inset-0">
+              {particleData.slice(0, 30).map((particle, i) => (
+                <div
+                  key={i}
+                  className="absolute w-1 h-1 bg-neon-green/40 rounded-full animate-float"
+                  style={{
+                    left: `${particle.left}%`,
+                    top: `${particle.top}%`,
+                    animationDelay: `${particle.animationDelay}s`,
+                    animationDuration: `${10 + Math.random() * 20}s`
+                  }}
+                />
+              ))}
+            </div>
+            
+            {/* Vinheta */}
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.4)_100%)]"></div>
+          </div>
         </div>
       </div>
 
