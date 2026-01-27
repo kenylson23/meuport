@@ -35,28 +35,24 @@ interface About3Props {
 
 const defaultCompanies = [
   {
-    src: "https://shadcnblocks.com/images/block/logos/company/fictional-company-logo-1.svg",
-    alt: "Arc",
+    src: "https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/javascript.svg",
+    alt: "JavaScript",
   },
   {
-    src: "https://shadcnblocks.com/images/block/logos/company/fictional-company-logo-2.svg",
-    alt: "Descript",
+    src: "https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/git-icon.svg",
+    alt: "Git",
   },
   {
-    src: "https://shadcnblocks.com/images/block/logos/company/fictional-company-logo-3.svg",
-    alt: "Mercury",
+    src: "https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/github-icon.svg",
+    alt: "GitHub",
   },
   {
-    src: "https://shadcnblocks.com/images/block/logos/company/fictional-company-logo-4.svg",
-    alt: "Ramp",
+    src: "https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/nodejs-icon.svg",
+    alt: "Node.js",
   },
   {
-    src: "https://shadcnblocks.com/images/block/logos/company/fictional-company-logo-5.svg",
-    alt: "Retool",
-  },
-  {
-    src: "https://shadcnblocks.com/images/block/logos/company/fictional-company-logo-6.svg",
-    alt: "Watershed",
+    src: "https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/react.svg",
+    alt: "React",
   },
 ];
 
@@ -166,13 +162,13 @@ export const About = ({
 
         <div className="py-32">
           <p className="text-center text-slate-400 uppercase tracking-widest text-sm">{companiesTitle}</p>
-          <div className="mt-8 flex flex-wrap justify-center gap-8 opacity-50 hover:opacity-100 transition-opacity duration-500">
+          <div className="mt-8 flex flex-wrap justify-center gap-12 opacity-80 hover:opacity-100 transition-opacity duration-500">
             {companies.map((company, idx) => (
-              <div className="flex items-center gap-3" key={company.src + idx}>
+              <div className="flex items-center gap-3 grayscale hover:grayscale-0 transition-all duration-300" key={company.src + idx}>
                 <img
                   src={company.src}
                   alt={company.alt}
-                  className="h-6 w-auto md:h-8 filter grayscale invert"
+                  className="h-10 w-auto md:h-12"
                 />
               </div>
             ))}
