@@ -82,16 +82,16 @@ const Portfolio = () => {
 
   return (
     <div className="relative min-h-screen bg-black overflow-x-hidden text-white selection:bg-neon-green selection:text-black">
-      <DottedSurface className="opacity-100 z-10" />
+      <DottedSurface className="opacity-100 z-0" />
       
       {/* Background dinâmico e elegante */}
       <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="absolute inset-0 bg-black">
+        <div className="absolute inset-0 bg-black/60">
           {/* Gradiente de profundidade sutil */}
-          <div className="absolute inset-0 bg-gradient-to-b from-gray-900/40 via-black to-black"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-gray-900/20 via-black/40 to-black/80"></div>
           
           {/* Grade Cyberpunk Sutil */}
-          <div className="absolute inset-0 opacity-[0.05]" 
+          <div className="absolute inset-0 opacity-[0.03]" 
                style={{ 
                  backgroundImage: 'linear-gradient(to right, #39ff14 1px, transparent 1px), linear-gradient(to bottom, #39ff14 1px, transparent 1px)', 
                  backgroundSize: '50px 50px' 
@@ -101,22 +101,22 @@ const Portfolio = () => {
           {/* Elementos Dinâmicos de Fundo */}
           <div className="absolute inset-0">
             {/* Brilhos animados */}
-            <div className="absolute top-[-10%] left-[-10%] w-[70%] h-[70%] bg-neon-green/10 rounded-full blur-[120px] animate-pulse"></div>
-            <div className="absolute bottom-[-10%] right-[-10%] w-[70%] h-[70%] bg-cyan-500/10 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '2s' }}></div>
+            <div className="absolute top-[-10%] left-[-10%] w-[70%] h-[70%] bg-neon-green/5 rounded-full blur-[120px] animate-pulse"></div>
+            <div className="absolute bottom-[-10%] right-[-10%] w-[70%] h-[70%] bg-cyan-500/5 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '2s' }}></div>
             
             {/* Linhas de Varredura (Scanlines) */}
-            <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_4px,3px_100%] pointer-events-none opacity-20"></div>
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.03),rgba(0,255,0,0.01),rgba(0,0,255,0.03))] bg-[length:100%_4px,3px_100%] pointer-events-none opacity-10"></div>
             
             {/* Scanning Laser Line */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-              <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-neon-green/40 to-transparent animate-scan"></div>
+              <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-neon-green/20 to-transparent animate-scan"></div>
             </div>
 
             {/* Glowing Orbs */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-              <div className="absolute top-[20%] left-[15%] w-[300px] h-[300px] bg-neon-green/5 rounded-full blur-[100px] animate-pulse"></div>
-              <div className="absolute bottom-[25%] right-[10%] w-[400px] h-[400px] bg-cyan-500/5 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '3s' }}></div>
-              <div className="absolute top-[60%] left-[60%] w-[250px] h-[250px] bg-purple-500/5 rounded-full blur-[80px] animate-pulse" style={{ animationDelay: '5s' }}></div>
+              <div className="absolute top-[20%] left-[15%] w-[300px] h-[300px] bg-neon-green/3 rounded-full blur-[100px] animate-pulse"></div>
+              <div className="absolute bottom-[25%] right-[10%] w-[400px] h-[400px] bg-cyan-500/3 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '3s' }}></div>
+              <div className="absolute top-[60%] left-[60%] w-[250px] h-[250px] bg-purple-500/3 rounded-full blur-[80px] animate-pulse" style={{ animationDelay: '5s' }}></div>
             </div>
 
             {/* Partículas flutuantes sutis */}
@@ -124,7 +124,7 @@ const Portfolio = () => {
               {particleData.slice(0, 30).map((particle, i) => (
                 <div
                   key={i}
-                  className="absolute w-1 h-1 bg-neon-green/40 rounded-full animate-float"
+                  className="absolute w-1 h-1 bg-neon-green/20 rounded-full animate-float"
                   style={{
                     left: `${particle.left}%`,
                     top: `${particle.top}%`,
@@ -136,7 +136,7 @@ const Portfolio = () => {
             </div>
             
             {/* Vinheta */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.4)_100%)]"></div>
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.3)_100%)]"></div>
           </div>
         </div>
       </div>
@@ -149,7 +149,7 @@ const Portfolio = () => {
       />
 
       {/* Main Content */}
-      <main className="relative z-20">
+      <main className="relative z-10">
         <Hero />
         <Projects />
         <About />

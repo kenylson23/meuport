@@ -65,7 +65,8 @@ export function DottedSurface({ className, ...props }: DottedSurfaceProps) {
 					const z = iy * SEPARATION - (AMOUNTY * SEPARATION) / 2;
 
 					positions.push(x, y, z);
-					colors.push(0.22, 1, 0.08); // #39ff14
+					// Usando um verde neon mais brilhante e saturado
+					colors.push(0, 1, 0); // Verde puro brilhante
 				}
 			}
 
@@ -76,10 +77,10 @@ export function DottedSurface({ className, ...props }: DottedSurfaceProps) {
 			geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
 
 			const material = new THREE.PointsMaterial({
-				size: 8,
+				size: 12, // Aumentado significativamente para visibilidade extrema
 				vertexColors: true,
 				transparent: true,
-				opacity: 0.8,
+				opacity: 0.9,
 				sizeAttenuation: true,
 			});
 
@@ -160,7 +161,7 @@ export function DottedSurface({ className, ...props }: DottedSurfaceProps) {
 	return (
 		<div
 			ref={containerRef}
-			className={cn('pointer-events-none fixed inset-0 z-[5]', className)}
+			className={cn('pointer-events-none fixed inset-0 z-[1]', className)}
 			{...props}
 		/>
 	);
