@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, MapPin, Send, MessageCircle } from "lucide-react";
-import NeonButton from "../ui/NeonButton";
-import GlowCard from "../ui/GlowCard";
+import { Mail, Send, Calendar, Instagram, Linkedin, MessageCircle, Twitter } from "lucide-react";
 import { useAudio } from "../../lib/stores/useAudio";
 
 const Contact = () => {
@@ -10,218 +8,213 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    message: ""
+    message: "",
+    budget: "$5k - $10k"
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Formulário estático - redireciona para email
     const subject = `Mensagem de ${formData.name}`;
-    const body = `Nome: ${formData.name}\nEmail: ${formData.email}\n\nMensagem:\n${formData.message}`;
+    const body = `Nome: ${formData.name}\nEmail: ${formData.email}\nOrçamento: ${formData.budget}\n\nMensagem:\n${formData.message}`;
     const mailtoLink = `mailto:kenylsonlourenco0@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     
     window.location.href = mailtoLink;
-    
-    // Play success sound
     playSuccess();
-    // Clear form
-    setFormData({ name: "", email: "", message: "" });
+    setFormData({ name: "", email: "", message: "", budget: "$5k - $10k" });
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
   };
 
-  const contactInfo = [
-    {
-      icon: <Mail className="w-6 h-6" />,
-      title: "E-mail",
-      value: "kenylsonlourenco0@gmail.com",
-      link: "mailto:kenylsonlourenco0@gmail.com",
-      isWhatsApp: false
-    },
-    {
-      icon: <MessageCircle className="w-6 h-6" />,
-      title: "WhatsApp",
-      value: "+244 949 639 932",
-      link: "https://wa.me/244949639932?text=Ol%C3%A1%20Kenylson%2C%20vim%20do%20seu%20portf%C3%B3lio!",
-      isWhatsApp: true
-    },
-    {
-      icon: <MapPin className="w-6 h-6" />,
-      title: "Localização",
-      value: "Disponível Mundialmente",
-      link: "#",
-      isWhatsApp: false
-    }
-  ];
-
   return (
-    <section id="contact" className="min-h-screen py-32 relative flex items-center">
-      <div className="max-w-6xl mx-auto px-4 z-20 relative">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-orbitron font-bold text-white mb-6 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-            Entre em <span className="text-neon-green/90 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Contato</span>
-          </h2>
-          <div className="w-24 h-1 bg-neon-green mx-auto mb-8 glow-box"></div>
-          <p className="text-white/70 text-base sm:text-lg md:text-xl max-w-2xl mx-auto px-4">
-            Pronto para dar vida às suas ideias? Vamos criar algo incrível juntos.
-          </p>
-        </motion.div>
+    <section
+      className="md:pt-40 bg-center z-[70] bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/77f55872-adf5-4910-9a7c-d21c0041bbe1_3840w.webp)] bg-cover pt-40 pb-40 relative"
+      style={{
+        maskImage: "linear-gradient(90deg, transparent, black 55%, black 60%, transparent)",
+        WebkitMaskImage: "linear-gradient(90deg, transparent, black 55%, black 60%, transparent)"
+      }}
+      id="contact"
+    >
+      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+        <div className="absolute -left-40 top-10 h-[70vh] w-[60vh] rounded-full blur-3xl opacity-25"
+          style={{ background: "radial-gradient(closest-side, rgba(255,255,255,0.15), rgba(0,0,0,0))" }}></div>
+      </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-          {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+      <div className="max-w-4xl mx-auto px-6">
+        <div className="text-center">
+          <motion.span 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-neutral-100"
           >
-            <GlowCard className="p-8">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-neon-green text-sm font-bold mb-2 uppercase tracking-wider">
-                    Nome
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
+            <Mail className="h-4 w-4" />
+            Let's Work Together
+          </motion.span>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            viewport={{ once: true }}
+            className="mt-4 text-4xl sm:text-6xl tracking-tight font-semibold text-white"
+          >
+            Ready to <span className="italic font-serif font-medium text-neutral-200">collaborate?</span>
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            viewport={{ once: true }}
+            className="mt-4 text-neutral-400 text-lg max-w-2xl mx-auto"
+          >
+            Whether you need help with product design, strategy, or education, I'm here to help bring your vision to life.
+          </motion.p>
+        </div>
+
+        <div className="mt-12 grid md:grid-cols-2 gap-8">
+          {/* Contact Form */}
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.3 }}
+            viewport={{ once: true }}
+            className="relative rounded-2xl border border-white/10 bg-white/5 p-8 shadow-2xl backdrop-blur"
+          >
+            <h3 className="text-xl font-semibold text-white mb-6">Send a Message</h3>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="">
+                  <label className="block text-sm font-medium text-neutral-300 mb-2">Name</label>
+                  <input 
+                    type="text" 
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-black/50 border border-neon-green/30 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-neon-green focus:glow-input transition-all duration-300 font-sans"
-                    placeholder="Seu nome"
+                    className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-neutral-100 placeholder-neutral-400 focus:border-white/20 focus:outline-none focus:ring-1 focus:ring-white/20" 
+                    placeholder="Your name" 
                   />
                 </div>
-
-                <div>
-                  <label htmlFor="email" className="block text-neon-green font-orbitron text-sm font-semibold mb-2">
-                    E-mail
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
+                <div className="">
+                  <label className="block text-sm font-medium text-neutral-300 mb-2">Email</label>
+                  <input 
+                    type="email" 
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-black/50 border border-neon-green/30 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-neon-green focus:glow-input transition-all duration-300"
-                    placeholder="seu.email@exemplo.com"
+                    className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-neutral-100 placeholder-neutral-400 focus:border-white/20 focus:outline-none focus:ring-1 focus:ring-white/20" 
+                    placeholder="your@email.com" 
                   />
                 </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-neon-green font-orbitron text-sm font-semibold mb-2">
-                    Mensagem
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={5}
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 bg-black/50 border border-neon-green/30 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-neon-green focus:glow-input transition-all duration-300 resize-none"
-                    placeholder="Conte-me sobre seu projeto..."
-                  />
-                </div>
-
-                <NeonButton type="submit" className="w-full">
-                  <Send className="w-4 h-4 mr-2" />
-                  Enviar Mensagem
-                </NeonButton>
-              </form>
-            </GlowCard>
+              </div>
+              <div className="">
+                <label className="block text-sm font-medium text-neutral-300 mb-2">Project Budget</label>
+                <select 
+                  name="budget"
+                  value={formData.budget}
+                  onChange={handleChange}
+                  className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-neutral-100 focus:border-white/20 focus:outline-none focus:ring-1 focus:ring-white/20"
+                >
+                  <option>$5k - $10k</option>
+                  <option>$10k - $25k</option>
+                  <option>$25k - $50k</option>
+                  <option>$50k+</option>
+                </select>
+              </div>
+              <div className="">
+                <label className="block text-sm font-medium text-neutral-300 mb-2">Message</label>
+                <textarea 
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  rows={4} 
+                  className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-neutral-100 placeholder-neutral-400 focus:border-white/20 focus:outline-none focus:ring-1 focus:ring-white/20" 
+                  placeholder="Tell me about your project..."
+                ></textarea>
+              </div>
+              <button type="submit" className="w-full inline-flex items-center justify-center gap-2 rounded-lg bg-white/10 border border-white/20 px-6 py-3 text-neutral-100 hover:bg-white/15 transition">
+                <span className="font-medium">Send Message</span>
+                <Send className="h-4 w-4" />
+              </button>
+            </form>
           </motion.div>
 
           {/* Contact Info */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="space-y-6"
-          >
-            <div className="mb-8">
-              <h3 className="text-3xl font-orbitron text-white mb-4">
-                Vamos Criar Algo <span className="text-neon-green">Incrível</span>
-              </h3>
-              <p className="text-white/70 text-lg leading-relaxed">
-                Estou sempre animado para trabalhar em novos projetos e colaborar com mentes criativas. 
-                Seja para uma ideia específica ou consultoria, estou aqui para ajudar a tornar 
-                sua visão realidade.
-              </p>
-            </div>
-
-            {contactInfo.map((info, index) => (
-              <motion.a
-                key={info.title}
-                href={info.link}
-                target={info.isWhatsApp ? '_blank' : undefined}
-                rel={info.isWhatsApp ? 'noopener noreferrer' : undefined}
-                aria-label={
-                  info.title === 'WhatsApp' ? 'Abrir conversa no WhatsApp' :
-                  info.title === 'E-mail' ? 'Enviar e-mail para kenylsonlourenco0@gmail.com' :
-                  'Informação de localização'
-                }
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="block"
-              >
-                <GlowCard className="p-6 hover:border-neon-green transition-colors duration-300">
-                  <div className="flex items-center space-x-4">
-                    <div className="text-neon-green">
-                      {info.icon}
-                    </div>
-                    <div>
-                      <h4 className="text-white font-orbitron font-semibold">
-                        {info.title}
-                      </h4>
-                      <p className="text-white/70">
-                        {info.value}
-                      </p>
-                    </div>
-                  </div>
-                </GlowCard>
-              </motion.a>
-            ))}
-          </motion.div>
-        </div>
-
-        {/* Footer */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="text-center mt-16 pt-8 border-t border-neon-green/20"
-        >
-          <p className="text-white/60 font-orbitron">
-            © 2025{" "}
-            <a 
-              href="https://www.instagram.com/kenylson_lourenco/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              aria-label="Visitar perfil de Kenylson Lourenço no Instagram"
-              className="text-neon-green hover:text-white transition-colors duration-300 cursor-pointer"
+          <div className="space-y-8">
+            <motion.div 
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.4 }}
+              viewport={{ once: true }}
+              className="relative rounded-2xl border border-white/10 bg-white/5 p-6 shadow-xl backdrop-blur"
             >
-              Kenylson Lourenço
-            </a>
-            . Construído com paixão e código.
-          </p>
-        </motion.div>
+              <div className="flex items-center gap-4">
+                <div className="h-12 w-12 rounded-xl bg-white/10 border-white/10 p-3 shadow-lg">
+                  <Mail className="h-6 w-6 text-white" />
+                </div>
+                <div className="">
+                  <h3 className="text-lg font-semibold text-white">Email</h3>
+                  <p className="text-neutral-400">kenylsonlourenco0@gmail.com</p>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div 
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.5 }}
+              viewport={{ once: true }}
+              className="relative rounded-2xl border border-white/10 bg-white/5 p-6 shadow-xl backdrop-blur"
+            >
+              <div className="flex items-center gap-4">
+                <div className="h-12 w-12 rounded-xl bg-white/10 border-white/10 p-3 shadow-lg">
+                  <Calendar className="h-6 w-6 text-white" />
+                </div>
+                <div className="">
+                  <h3 className="text-lg font-semibold text-white">Schedule a Call</h3>
+                  <p className="text-neutral-400">Book a free consultation</p>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div 
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.6 }}
+              viewport={{ once: true }}
+              className="relative rounded-2xl border border-white/10 bg-white/5 p-6 shadow-xl backdrop-blur"
+            >
+              <h3 className="text-lg font-semibold text-white mb-4">Follow Me</h3>
+              <div className="flex items-center gap-4">
+                <a href="#" className="flex items-center justify-center w-10 h-10 rounded-lg bg-white/10 text-neutral-400 hover:text-white hover:bg-white/15 transition">
+                  <Twitter className="w-5 h-5" />
+                </a>
+                <a href="https://www.instagram.com/kenylson_lourenco/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-10 h-10 rounded-lg bg-white/10 text-neutral-400 hover:text-white hover:bg-white/15 transition">
+                  <Instagram className="w-5 h-5" />
+                </a>
+                <a href="#" className="flex items-center justify-center w-10 h-10 rounded-lg bg-white/10 text-neutral-400 hover:text-white hover:bg-white/15 transition">
+                  <Linkedin className="w-5 h-5" />
+                </a>
+                <a href="https://wa.me/244949639932" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-10 h-10 rounded-lg bg-white/10 text-neutral-400 hover:text-white hover:bg-white/15 transition">
+                  <MessageCircle className="w-5 h-5" />
+                </a>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+
+      <div className="absolute bottom-0 left-0 right-0 pointer-events-none">
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 opacity-25 w-[60%] h-8"
+          style={{ background: "radial-gradient(ellipse 80% 100% at 50% 100%, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.2) 30%, transparent 70%)" }}>
+        </div>
+        <div className="h-px bg-white/10 w-full"></div>
       </div>
     </section>
   );
