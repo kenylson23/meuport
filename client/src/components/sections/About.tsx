@@ -180,25 +180,25 @@ export const About = ({
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="relative overflow-hidden rounded-xl bg-white/5 backdrop-blur-md border border-white/10 p-10 md:p-16"
+          className="relative overflow-hidden rounded-xl bg-white/5 backdrop-blur-md border border-white/10 p-8 md:p-12 max-w-4xl mx-auto"
         >
-          <div className="flex flex-col gap-4 text-center md:text-left relative z-20">
-            <h2 className="text-4xl font-semibold text-white">{achievementsTitle}</h2>
-            <p className="max-w-screen-sm text-slate-300">
+          <div className="flex flex-col gap-4 text-center md:text-left relative z-20 mb-10">
+            <h2 className="text-3xl font-bold text-white tracking-tight">{achievementsTitle}</h2>
+            <p className="max-w-xl text-slate-300 text-sm">
               {achievementsDescription}
             </p>
           </div>
-          <div className="mt-10 flex flex-wrap justify-between gap-10 text-center relative z-20">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center relative z-20">
             {achievements.map((item, idx) => (
-              <div className="flex flex-col gap-4" key={item.label + idx}>
-                <p className="text-slate-400 text-sm uppercase tracking-wider">{item.label}</p>
-                <span className="text-4xl font-bold text-neon-green glow-text md:text-5xl">
+              <div className="flex flex-col gap-2 p-4 rounded-lg bg-white/5 border border-white/5 hover:border-neon-green/30 transition-colors" key={item.label + idx}>
+                <span className="text-3xl font-bold text-neon-green glow-text">
                   {item.value}
                 </span>
+                <p className="text-slate-400 text-xs uppercase tracking-wider font-medium">{item.label}</p>
               </div>
             ))}
           </div>
-          <div className="pointer-events-none absolute -top-1 right-1 z-10 hidden h-full w-full bg-[linear-gradient(to_right,rgba(57,255,20,0.1)_1px,transparent_1px),linear-gradient(to_bottom,rgba(57,255,20,0.1)_1px,transparent_1px)] bg-[size:80px_80px] [mask-image:linear-gradient(to_bottom_right,#000,transparent,transparent)] md:block"></div>
+          <div className="pointer-events-none absolute -top-1 right-1 z-10 hidden h-full w-full bg-[linear-gradient(to_right,rgba(57,255,20,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(57,255,20,0.05)_1px,transparent_1px)] bg-[size:60px_60px] [mask-image:linear-gradient(to_bottom_right,#000,transparent,transparent)] md:block"></div>
         </motion.div>
       </div>
     </section>
