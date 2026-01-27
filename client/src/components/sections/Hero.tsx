@@ -117,7 +117,7 @@ const Hero = () => {
               
               <div className="relative aspect-[4/5] lg:aspect-[3/4] lg:h-[500px]">
                 <img 
-                  src="/images/profile.png" 
+                  src="/images/profile_new.png" 
                   alt="Kenylson Lourenço" 
                   className="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
                 />
