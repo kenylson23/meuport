@@ -229,27 +229,27 @@ const SkillTreeVisualization = () => {
             if (!node) return null;
             
             return (
-              <>
-                <h3 className="text-neon-green font-orbitron font-semibold mb-1 sm:mb-2 text-sm sm:text-base">
+              <div className="font-sans">
+                <h3 className="text-neon-green font-bold mb-1 sm:mb-2 text-sm sm:text-base tracking-tight uppercase">
                   {node.name}
                 </h3>
-                <p className="text-white/80 text-xs sm:text-sm mb-2 sm:mb-3">
+                <p className="text-white/90 text-xs sm:text-sm mb-2 sm:mb-3 leading-relaxed">
                   {node.description}
                 </p>
-                <div className="flex justify-between items-center">
-                  <span className="text-white/60 text-xs">Proficiência</span>
+                <div className="flex justify-between items-center mb-1">
+                  <span className="text-white/60 text-[10px] sm:text-xs uppercase font-medium">Proficiência</span>
                   <span className="text-neon-green font-bold text-xs sm:text-sm">{node.level}%</span>
                 </div>
-                <div className="w-full bg-gray-700 rounded-full h-1.5 sm:h-2 mt-1 sm:mt-2">
+                <div className="w-full bg-gray-800 rounded-full h-1.5 sm:h-2">
                   <motion.div
-                    className="h-1.5 sm:h-2 rounded-full"
+                    className="h-1.5 sm:h-2 rounded-full shadow-[0_0_10px_rgba(57,255,20,0.3)]"
                     style={{ backgroundColor: node.color }}
                     initial={{ width: 0 }}
                     animate={{ width: `${node.level}%` }}
                     transition={{ duration: 0.5 }}
                   />
                 </div>
-              </>
+              </div>
             );
           })()}
         </motion.div>
