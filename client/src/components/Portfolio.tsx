@@ -52,7 +52,7 @@ const Portfolio = () => {
   }, []);
 
   const handleScroll = () => {
-    const sections = ['hero', 'about', 'skills', 'languages', 'projects', 'contact'];
+    const sections = ['hero', 'projects', 'about', 'skills', 'languages', 'contact'];
     const scrollPosition = window.scrollY + window.innerHeight / 2;
     
     for (let i = 0; i < sections.length; i++) {
