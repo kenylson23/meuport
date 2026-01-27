@@ -134,7 +134,6 @@ const Quiz = ({ onComplete }: QuizProps) => {
     if (selectedAnswer !== null) return;
     
     setSelectedAnswer(answerIndex);
-    setShowExplanation(true);
     
     const newAnswers = [...answers, answerIndex];
     setAnswers(newAnswers);
@@ -142,14 +141,19 @@ const Quiz = ({ onComplete }: QuizProps) => {
     if (answerIndex === question.correctAnswer) {
       setScore(score + 1);
       playSuccess();
+      // Auto-advance on correct answer after a short delay
+      setTimeout(() => {
+        handleNextQuestion();
+      }, 1500);
     } else {
       playHit();
+      setShowExplanation(true);
     }
   };
 
   const handleNextQuestion = () => {
     if (currentQuestion < totalQuestions - 1) {
-      setCurrentQuestion(currentQuestion + 1);
+      setCurrentQuestion(prev => prev + 1);
       setSelectedAnswer(null);
       setShowExplanation(false);
     } else {
