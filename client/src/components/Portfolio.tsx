@@ -49,11 +49,22 @@ const Portfolio = () => {
     setIsLoaded(true);
   }, []);
 
+  const [isScrollingUp, setIsScrollingUp] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
   useEffect(() => {
     const handleScroll = () => {
       const sections = ['hero', 'projects', 'about', 'skills', 'languages', 'contact'];
       const scrollPosition = window.scrollY + window.innerHeight / 3;
       
+      // Lógica de esconder/mostrar nav
+      if (window.scrollY > lastScrollY && window.scrollY > 100) {
+        setIsScrollingUp(false);
+      } else {
+        setIsScrollingUp(true);
+      }
+      setLastScrollY(window.scrollY);
+
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
@@ -68,7 +79,7 @@ const Portfolio = () => {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [setCurrentSection]);
+  }, [setCurrentSection, lastScrollY]);
 
   if (!isLoaded) {
     return (
@@ -123,11 +134,13 @@ const Portfolio = () => {
         </div>
       </div>
 
-      <AnimeNavBar 
-        items={navItems} 
-        currentSection={currentSection} 
-        onItemClick={handleNavClick} 
-      />
+      <div className={`fixed top-0 left-0 right-0 z-[100] transition-transform duration-300 ${isScrollingUp ? 'translate-y-0' : '-translate-y-full'}`}>
+        <AnimeNavBar 
+          items={navItems} 
+          currentSection={currentSection} 
+          onItemClick={handleNavClick} 
+        />
+      </div>
 
       <main className="relative z-10">
         <Hero />
