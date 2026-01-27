@@ -20,15 +20,7 @@ interface SkillCardProps {
 
 const SkillCard = ({ skill, index }: SkillCardProps) => {
   return (
-    <motion.div
-      whileHover={{ 
-        scale: 1.05,
-        rotateY: 10,
-        rotateX: 5
-      }}
-      transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      style={{ perspective: "1000px" }}
-    >
+    <div>
       <GlowCard className="p-6 h-32 relative overflow-hidden">
         {/* Background glow effect */}
         <div 
@@ -49,13 +41,9 @@ const SkillCard = ({ skill, index }: SkillCardProps) => {
           
           {/* Progress bar */}
           <div className="w-full bg-black/60 rounded-full h-2.5 mb-2 border border-white/5">
-            <motion.div
+            <div
               className="h-full rounded-full shadow-[0_0_10px_rgba(255,255,255,0.1)]"
-              style={{ backgroundColor: skill.color }}
-              initial={{ width: 0 }}
-              whileInView={{ width: `${skill.level}%` }}
-              transition={{ duration: 1, delay: index * 0.1 }}
-              viewport={{ once: true }}
+              style={{ backgroundColor: skill.color, width: `${skill.level}%` }}
             />
           </div>
           
@@ -72,7 +60,7 @@ const SkillCard = ({ skill, index }: SkillCardProps) => {
           style={{ backgroundColor: skill.color, boxShadow: `0 0 10px ${skill.color}` }}
         />
       </GlowCard>
-    </motion.div>
+    </div>
   );
 };
 
@@ -102,13 +90,7 @@ const Skills = () => {
   return (
     <section id="skills" className="min-h-screen py-32 relative flex items-center">
       <div className="max-w-7xl mx-auto px-4 z-20 relative">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-8"
-        >
+        <div className="text-center mb-8">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-orbitron font-bold text-white mb-6 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
             Habilidades <span className="text-neon-green/90 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Técnicas</span>
           </h2>
@@ -118,12 +100,7 @@ const Skills = () => {
           </p>
           
           {/* View Mode Toggle */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-            className="flex justify-center mt-8"
-          >
+          <div className="flex justify-center mt-8">
             <SkillsNav 
               items={navItems}
               activeItem={viewMode}
@@ -132,8 +109,8 @@ const Skills = () => {
                 playHit();
               }}
             />
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
 
         {/* Dynamic Content Based on View Mode */}
         {viewMode === 'grid' ? (
@@ -143,18 +120,11 @@ const Skills = () => {
                 <h3 className="text-xl font-orbitron text-neon-green mb-6 border-l-4 border-neon-green pl-4">
                   {category}
                 </h3>
-                <motion.div
-                  key={`${category}-grid`}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5 }}
-                  viewport={{ once: true }}
-                  className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6"
-                >
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
                   {items.map((skill, index) => (
                     <SkillCard key={skill.name} skill={skill} index={index} />
                   ))}
-                </motion.div>
+                </div>
               </div>
             ))}
           </div>
@@ -169,13 +139,7 @@ const Skills = () => {
           >
             <SkillTreeVisualization />
             
-            {/* Instructions Overlay */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1 }}
-              className="absolute top-2 sm:top-4 right-2 sm:right-4 bg-black/80 backdrop-blur-md border border-neon-green/30 rounded-lg p-2 sm:p-3 max-w-xs sm:max-w-sm hidden sm:block"
-            >
+            <div className="absolute top-2 sm:top-4 right-2 sm:right-4 bg-black/80 backdrop-blur-md border border-neon-green/30 rounded-lg p-2 sm:p-3 max-w-xs sm:max-w-sm hidden sm:block">
               <h4 className="text-neon-green font-orbitron font-semibold text-xs sm:text-sm mb-1 sm:mb-2">
                 Árvore Interativa
               </h4>
@@ -184,19 +148,13 @@ const Skills = () => {
                 <li>• Conexões mostram relações</li>
                 <li>• Habilidades bloqueadas</li>
               </ul>
-            </motion.div>
+            </div>
             
-            {/* Mobile Instructions - Bottom positioned */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1 }}
-              className="absolute bottom-2 left-2 right-2 bg-black/80 backdrop-blur-md border border-neon-green/30 rounded-lg p-2 sm:hidden"
-            >
+            <div className="absolute bottom-2 left-2 right-2 bg-black/80 backdrop-blur-md border border-neon-green/30 rounded-lg p-2 sm:hidden">
               <p className="text-neon-green font-orbitron font-semibold text-xs text-center">
                 Toque nos nós para ver detalhes das habilidades
               </p>
-            </motion.div>
+            </div>
           </motion.div>
         ) : viewMode === 'quiz' ? (
           <motion.div
@@ -211,17 +169,11 @@ const Skills = () => {
           </motion.div>
         ) : null}
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          viewport={{ once: true }}
-          className="text-center mt-16"
-        >
+        <div className="text-center mt-16">
           <p className="text-white/60 text-lg font-orbitron">
             Sempre aprendendo, sempre evoluindo
           </p>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

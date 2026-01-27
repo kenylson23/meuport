@@ -123,34 +123,13 @@ const Portfolio = () => {
           </div>
           
           {/* Enhanced Floating Particles */}
+          {/* Particles removidos para performance */}
           <div className="particles-container">
-            {particleData.map((particle, i) => (
-              <div
-                key={i}
-                className="particle"
-                style={{
-                  left: `${particle.left}%`,
-                  top: `${particle.top}%`,
-                  animationDelay: `${particle.animationDelay}s`,
-                }}
-              />
-            ))}
           </div>
           
           {/* Morphing Shapes */}
+          {/* Morphing shapes removidos para performance */}
           <div className="absolute inset-0">
-            {Array.from({ length: 8 }, (_, i) => (
-              <div
-                key={i}
-                className="morphing-shape"
-                style={{
-                  position: 'absolute',
-                  left: `${10 + (i * 12)}%`,
-                  top: `${20 + (i % 3) * 30}%`,
-                  animationDelay: `${i * 1.5}s`,
-                }}
-              />
-            ))}
           </div>
           
           {/* Energy Waves */}

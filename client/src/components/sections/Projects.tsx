@@ -26,17 +26,8 @@ interface ProjectCardProps {
 
 const ProjectCard = ({ project, index, onViewDetails }: ProjectCardProps) => {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      whileHover={{ 
-        scale: 1.02,
-        rotateY: 5,
-        rotateX: 2
-      }}
-      transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      viewport={{ once: true }}
-      style={{ perspective: "1000px" }}
+    <div
+      className="h-full"
     >
       <GlowCard className="h-full overflow-hidden group">
         {/* Project Image */}
@@ -52,20 +43,18 @@ const ProjectCard = ({ project, index, onViewDetails }: ProjectCardProps) => {
           
           {/* Overlay content */}
           <div className="absolute top-4 right-4 flex space-x-2">
-            <motion.a
+            <a
               href={project.github}
-              whileHover={{ scale: 1.1 }}
               className="p-2 bg-black/50 rounded-lg text-neon-green hover:text-white transition-colors"
             >
               <Github className="w-4 h-4" />
-            </motion.a>
-            <motion.a
+            </a>
+            <a
               href={project.live}
-              whileHover={{ scale: 1.1 }}
               className="p-2 bg-black/50 rounded-lg text-neon-green hover:text-white transition-colors"
             >
               <ExternalLink className="w-4 h-4" />
-            </motion.a>
+            </a>
           </div>
         </div>
 
@@ -122,7 +111,7 @@ const ProjectCard = ({ project, index, onViewDetails }: ProjectCardProps) => {
         {/* 3D border effect */}
         <div className="absolute inset-0 border border-neon-green/20 group-hover:border-neon-green/50 transition-colors duration-300 pointer-events-none" />
       </GlowCard>
-    </motion.div>
+    </div>
   );
 };
 

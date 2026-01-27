@@ -90,27 +90,19 @@ export const About = ({
   achievements = defaultAchievements,
 }: About3Props = {}) => {
   return (
-    <section id="about" className="py-32 relative overflow-hidden">
+    <section id="about" className="py-32 relative">
       <div className="container mx-auto px-4 z-20 relative">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+        <div 
           className="mb-14 grid gap-5 text-center md:grid-cols-2 md:text-left"
         >
           <h2 className="text-5xl md:text-6xl font-bold text-white tracking-tight drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
             Sobre <span className="text-neon-green/90 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Mim</span>
           </h2>
           <p className="text-slate-200 text-lg leading-relaxed">{description}</p>
-        </motion.div>
+        </div>
         
         <div className="grid gap-7 lg:grid-cols-3">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+          <div
             className="lg:col-span-2"
           >
             <img
@@ -118,14 +110,10 @@ export const About = ({
               alt={mainImage.alt}
               className="size-full max-h-[620px] rounded-xl object-cover border border-white/10"
             />
-          </motion.div>
+          </div>
           
           <div className="flex flex-col gap-7 md:flex-row lg:flex-col">
-            <motion.div 
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
+            <div 
               className="flex flex-col justify-between gap-6 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 p-7 md:w-1/2 lg:w-auto"
             >
               <img
@@ -142,13 +130,9 @@ export const About = ({
                   {breakout.buttonText}
                 </a>
               </Button>
-            </motion.div>
+            </div>
             
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              viewport={{ once: true }}
+            <div
               className="grow basis-0 md:w-1/2 lg:w-auto"
             >
               <img
@@ -156,7 +140,7 @@ export const About = ({
                 alt={secondaryImage.alt}
                 className="size-full rounded-xl object-cover lg:min-h-0 border border-white/10"
               />
-            </motion.div>
+            </div>
           </div>
         </div>
 
@@ -175,11 +159,7 @@ export const About = ({
           </div>
         </div>
 
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+        <div 
           className="relative overflow-hidden rounded-xl bg-white/5 backdrop-blur-md border border-white/10 p-8 md:p-12 max-w-4xl mx-auto"
         >
           <div className="flex flex-col gap-4 text-center md:text-left relative z-20 mb-10">
@@ -199,7 +179,7 @@ export const About = ({
             ))}
           </div>
           <div className="pointer-events-none absolute -top-1 right-1 z-10 hidden h-full w-full bg-[linear-gradient(to_right,rgba(57,255,20,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(57,255,20,0.05)_1px,transparent_1px)] bg-[size:60px_60px] [mask-image:linear-gradient(to_bottom_right,#000,transparent,transparent)] md:block"></div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

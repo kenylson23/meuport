@@ -13,11 +13,7 @@ const LanguageShowcase = () => {
   return (
     <section id="languages" className="min-h-screen py-32 relative flex items-center">
       <div className="max-w-7xl mx-auto px-4 z-20 relative">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+        <div
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-orbitron font-bold text-white mb-6 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
@@ -28,7 +24,7 @@ const LanguageShowcase = () => {
             Explore minha expertise em programação através de representações 3D interativas de linguagens. 
             Passe o mouse e clique para ver as tecnologias que domino.
           </p>
-        </motion.div>
+        </div>
 
         {/* 3D Language Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6 md:gap-8 place-items-center">
@@ -42,11 +38,7 @@ const LanguageShowcase = () => {
         </div>
 
         {/* Stats Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          viewport={{ once: true }}
+        <div
           className="mt-12 sm:mt-16 md:mt-20 grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 text-center"
         >
           <div className="space-y-2">
@@ -67,20 +59,16 @@ const LanguageShowcase = () => {
             </div>
             <div className="text-sm sm:text-base text-white/70">Anos de Experiência</div>
           </div>
-        </motion.div>
+        </div>
 
         {/* Interactive Hint */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1 }}
-          viewport={{ once: true }}
+        <div
           className="text-center mt-12"
         >
           <p className="text-neon-green/60 text-sm font-orbitron animate-pulse">
             ← Passe o mouse e clique nos modelos 3D para interagir →
           </p>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
