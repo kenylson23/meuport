@@ -34,12 +34,12 @@ export const SkillsNav = ({
           className={cn(
             "relative items-center flex space-x-1 transition-colors duration-200 px-3 py-1.5 rounded-full text-xs sm:text-sm font-orbitron",
             activeItem === item.id 
-              ? "text-black bg-neon-green font-bold" 
-              : "text-white/70 hover:text-neon-green"
+              ? "text-white bg-neon-green/90 font-bold shadow-[0_0_15px_rgba(57,255,20,0.5)]" 
+              : "text-white/70 hover:text-white hover:bg-white/10"
           )}
         >
           <span className="block sm:hidden">{item.icon}</span>
-          <span className="hidden sm:block">{item.name}</span>
+          <span className="hidden sm:block drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">{item.name}</span>
           {activeItem === item.id && (
             <motion.span
               layoutId="activeTab"
