@@ -99,8 +99,8 @@ export const About = ({
           viewport={{ once: true }}
           className="mb-14 grid gap-5 text-center md:grid-cols-2 md:text-left"
         >
-          <h2 className="text-5xl md:text-6xl font-bold text-white tracking-tight">
-            Sobre <span className="text-neon-green glow-text">Mim</span>
+          <h2 className="text-5xl md:text-6xl font-bold text-white tracking-tight drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+            Sobre <span className="text-neon-green/90 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Mim</span>
           </h2>
           <p className="text-slate-200 text-lg leading-relaxed">{description}</p>
         </motion.div>
@@ -191,7 +191,7 @@ export const About = ({
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center relative z-20">
             {achievements.map((item, idx) => (
               <div className="flex flex-col gap-2 p-4 rounded-lg bg-white/5 border border-white/5 hover:border-neon-green/30 transition-colors" key={item.label + idx}>
-                <span className="text-3xl font-bold text-neon-green glow-text">
+                <span className="text-3xl font-bold text-neon-green/90">
                   {item.value}
                 </span>
                 <p className="text-slate-400 text-xs uppercase tracking-wider font-medium">{item.label}</p>
