@@ -10,6 +10,7 @@ import { AnimeNavBar } from "./nav/AnimeNavBar";
 import { Home, User, Cpu, Globe, FolderCode, Mail } from "lucide-react";
 import { usePortfolio } from "../lib/stores/usePortfolio";
 import { useAudio } from "../lib/stores/useAudio";
+import { DottedSurface } from "./3d/DottedSurface";
 
 const Portfolio = () => {
   const { currentSection, setCurrentSection } = usePortfolio();
@@ -36,17 +37,6 @@ const Portfolio = () => {
     }
   };
 
-  const matrixData = useMemo(() => 
-    Array.from({ length: 20 }, (_, i) => ({
-      left: i * 5,
-      animationDelay: Math.random() * 5,
-      animationDuration: 10 + Math.random() * 10,
-      characters: Array.from({ length: 20 }, () => 
-        String.fromCharCode(0x30A0 + Math.random() * 96)
-      )
-    })), []
-  );
-
   const particleData = useMemo(() => 
     Array.from({ length: 80 }, () => ({
       left: Math.random() * 100,
@@ -54,6 +44,7 @@ const Portfolio = () => {
       animationDelay: Math.random() * 15
     })), []
   );
+  
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -91,6 +82,8 @@ const Portfolio = () => {
 
   return (
     <div className="relative min-h-screen bg-black overflow-x-hidden text-white selection:bg-neon-green selection:text-black">
+      <DottedSurface />
+      
       {/* Background dinâmico e elegante */}
       <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
         <div className="absolute inset-0 bg-black">
@@ -119,7 +112,7 @@ const Portfolio = () => {
               <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-neon-green/40 to-transparent animate-scan"></div>
             </div>
 
-            {/* Glowing Orbs - Adição interessante e dinâmica */}
+            {/* Glowing Orbs */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
               <div className="absolute top-[20%] left-[15%] w-[300px] h-[300px] bg-neon-green/5 rounded-full blur-[100px] animate-pulse"></div>
               <div className="absolute bottom-[25%] right-[10%] w-[400px] h-[400px] bg-cyan-500/5 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '3s' }}></div>
