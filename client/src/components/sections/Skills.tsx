@@ -88,14 +88,14 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="min-h-screen py-32 relative flex items-center">
-      <div className="max-w-7xl mx-auto px-4 z-20 relative">
+    <section id="skills" className="min-h-screen py-24 relative flex items-center">
+      <div className="max-w-6xl mx-auto px-4 z-20 relative">
         <div className="text-center mb-8">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-orbitron font-bold text-white mb-6 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-orbitron font-bold text-white mb-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
             Habilidades <span className="text-neon-green/90 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Técnicas</span>
           </h2>
-          <div className="w-24 h-1 bg-neon-green mx-auto mb-8 glow-box"></div>
-          <p className="text-white/70 text-base sm:text-lg md:text-xl max-w-2xl mx-auto px-4">
+          <div className="w-16 h-1 bg-neon-green mx-auto mb-6 glow-box"></div>
+          <p className="text-white/70 text-sm sm:text-base max-w-2xl mx-auto px-4">
             Um conjunto abrangente de ferramentas categorizadas para construir o futuro da web
           </p>
           

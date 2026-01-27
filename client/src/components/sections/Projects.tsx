@@ -209,7 +209,7 @@ const Projects = () => {
   const duplicatedProjects = [...projects, ...projects];
 
   return (
-    <section id="projects" className="min-h-screen py-32 relative flex flex-col items-center justify-center overflow-hidden">
+    <section id="projects" className="min-h-screen py-24 relative flex flex-col items-center justify-center overflow-hidden">
       <style>{`
         @keyframes scroll-projects {
           0% { transform: translateX(0); }
@@ -227,19 +227,19 @@ const Projects = () => {
         }
       `}</style>
 
-      <div className="max-w-7xl mx-auto px-4 z-20 relative w-full">
+      <div className="max-w-6xl mx-auto px-4 z-20 relative w-full">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-orbitron font-bold text-white mb-6 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-orbitron font-bold text-white mb-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
             Projetos em <span className="text-neon-green/90 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Destaque</span>
           </h2>
-          <div className="w-24 h-1 bg-neon-green mx-auto mb-8 glow-box"></div>
-          <p className="text-white/70 text-base sm:text-lg md:text-xl max-w-3xl mx-auto px-4">
+          <div className="w-16 h-1 bg-neon-green mx-auto mb-6 glow-box"></div>
+          <p className="text-white/70 text-sm sm:text-base max-w-2xl mx-auto px-4">
             Uma vitrine do meu trabalho recente em diferentes tecnologias e domínios
           </p>
         </motion.div>
