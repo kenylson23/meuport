@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { LayoutGrid, Network, HelpCircle } from "lucide-react";
 import GlowCard from "../ui/GlowCard";
 import SkillTreeVisualization from "../3d/SkillTreeVisualization";
 import Quiz from "./Quiz";
 import { useAudio } from "../../lib/stores/useAudio";
+import { SkillsNav } from "../ui/SkillsNav";
 
 interface Skill {
   name: string;
@@ -100,6 +102,12 @@ const Skills = () => {
     ]
   };
 
+  const navItems = [
+    { id: 'grid', name: 'Visão em Grade', icon: <LayoutGrid className="w-4 h-4" /> },
+    { id: 'tree', name: 'Árvore de Habilidades', icon: <Network className="w-4 h-4" /> },
+    { id: 'quiz', name: 'Quiz Básico', icon: <HelpCircle className="w-4 h-4" /> },
+  ];
+
   return (
     <section id="skills" className="min-h-screen py-32 relative flex items-center">
       <div className="max-w-7xl mx-auto px-4 z-20 relative">
@@ -108,7 +116,7 @@ const Skills = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-8"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-orbitron font-bold text-white mb-6 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
             Habilidades <span className="text-neon-green/90 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Técnicas</span>
@@ -123,52 +131,16 @@ const Skills = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            className="flex justify-center mt-6 sm:mt-8"
+            className="flex justify-center mt-8"
           >
-            <div className="flex bg-black/50 backdrop-blur-md border border-neon-green/20 rounded-lg p-1">
-              <button
-                onClick={() => {
-                  setViewMode('grid');
-                  playHit();
-                }}
-                onMouseEnter={() => playHover()}
-                className={`px-2 sm:px-4 py-2 rounded-md transition-all duration-300 font-orbitron text-xs sm:text-sm ${
-                  viewMode === 'grid'
-                    ? 'bg-neon-green text-black font-bold'
-                    : 'text-white/70 hover:text-neon-green'
-                }`}
-              >
-                <span className="hidden sm:inline">Visão em </span>Grade
-              </button>
-              <button
-                onClick={() => {
-                  setViewMode('tree');
-                  playHit();
-                }}
-                onMouseEnter={() => playHover()}
-                className={`px-2 sm:px-4 py-2 rounded-md transition-all duration-300 font-orbitron text-xs sm:text-sm ${
-                  viewMode === 'tree'
-                    ? 'bg-neon-green text-black font-bold'
-                    : 'text-white/70 hover:text-neon-green'
-                }`}
-              >
-                <span className="hidden sm:inline">Árvore de </span>Habilidades
-              </button>
-              <button
-                onClick={() => {
-                  setViewMode('quiz');
-                  playHit();
-                }}
-                onMouseEnter={() => playHover()}
-                className={`px-2 sm:px-3 py-2 rounded-md transition-all duration-300 font-orbitron text-xs sm:text-sm ${
-                  viewMode === 'quiz'
-                    ? 'bg-neon-green text-black font-bold'
-                    : 'text-white/70 hover:text-neon-green'
-                }`}
-              >
-                Quiz<span className="hidden sm:inline"> Básico</span>
-              </button>
-            </div>
+            <SkillsNav 
+              items={navItems}
+              activeItem={viewMode}
+              onItemClick={(id) => {
+                setViewMode(id as 'grid' | 'tree' | 'quiz');
+                playHit();
+              }}
+            />
           </motion.div>
         </motion.div>
 
