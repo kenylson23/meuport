@@ -36,7 +36,6 @@ const Portfolio = () => {
     }
   };
 
-  // Pre-compute random values for consistent renders
   const matrixData = useMemo(() => 
     Array.from({ length: 20 }, (_, i) => ({
       left: i * 5,
@@ -92,59 +91,20 @@ const Portfolio = () => {
 
   return (
     <div className="relative min-h-screen bg-black overflow-x-hidden">
-      {/* Advanced Animated CSS Background */}
-      <div className="fixed inset-0 z-0">
-        <div className="w-full h-full bg-gradient-to-br from-black via-gray-900 to-black">
-          {/* Shader-like Wave Background */}
-          <div className="shader-background opacity-30"></div>
+      {/* Background simplificado e profissional */}
+      <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+        <div className="absolute inset-0 bg-black">
+          {/* Sutil gradiente de profundidade */}
+          <div className="absolute inset-0 bg-gradient-to-b from-gray-900/20 via-black to-black"></div>
           
-          {/* CSS Neon Grid Effect */}
-          <div className="absolute inset-0 opacity-10">
-            <div className="grid-background"></div>
+          {/* Grade sutil */}
+          <div className="absolute inset-0 opacity-[0.03]" 
+               style={{ backgroundImage: 'linear-gradient(to right, #39ff14 1px, transparent 1px), linear-gradient(to bottom, #39ff14 1px, transparent 1px)', bgSize: '40px 40px' }}>
           </div>
           
-          {/* Matrix Rain Effect */}
-          <div className="matrix-container opacity-20">
-            {matrixData.map((column, i) => (
-              <div
-                key={i}
-                className="matrix-column"
-                style={{
-                  left: `${column.left}%`,
-                  animationDelay: `${column.animationDelay}s`,
-                  animationDuration: `${column.animationDuration}s`
-                }}
-              >
-                {column.characters.map((char, j) => (
-                  <div key={j}>{char}</div>
-                ))}
-              </div>
-            ))}
-          </div>
-          
-          {/* Enhanced Floating Particles */}
-          {/* Particles removidos para performance */}
-          <div className="particles-container">
-          </div>
-          
-          {/* Morphing Shapes */}
-          {/* Morphing shapes removidos para performance */}
-          <div className="absolute inset-0">
-          </div>
-          
-          {/* Energy Waves */}
-          <div className="absolute inset-0">
-            {Array.from({ length: 5 }, (_, i) => (
-              <div
-                key={i}
-                className="energy-wave"
-                style={{
-                  top: `${20 * i}%`,
-                  animationDelay: `${i * 2}s`,
-                }}
-              />
-            ))}
-          </div>
+          {/* Brilhos atmosféricos fixos */}
+          <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] bg-neon-green/5 rounded-full blur-[120px]"></div>
+          <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-cyan-500/5 rounded-full blur-[120px]"></div>
         </div>
       </div>
 
