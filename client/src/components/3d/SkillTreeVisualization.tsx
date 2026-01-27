@@ -41,45 +41,16 @@ const SkillTreeVisualization = () => {
   // Skill tree data with interconnected nodes
   const skillNodes: SkillNode[] = useMemo(() => [
     // Frontend Foundation
-    { id: "html", name: "HTML", level: 95, category: "frontend", color: "#e34f26", x: 20, y: 60, connections: ["css", "js"], description: "Semantic markup and accessibility", isUnlocked: true },
-    { id: "css", name: "CSS", level: 90, category: "frontend", color: "#1572b6", x: 35, y: 45, connections: ["sass", "tailwind"], description: "Styling and responsive design", isUnlocked: true },
-    { id: "js", name: "JavaScript", level: 95, category: "frontend", color: "#f7df1e", x: 35, y: 75, connections: ["ts", "react", "vue"], description: "Core programming language", isUnlocked: true },
+    { id: "js", name: "JavaScript", level: 95, category: "frontend", color: "#f7df1e", x: 30, y: 50, connections: ["ts", "react", "vue", "node"], description: "Linguagem principal de programação", isUnlocked: true },
+    { id: "ts", name: "TypeScript", level: 90, category: "frontend", color: "#3178c6", x: 50, y: 30, connections: ["react"], description: "JavaScript com tipagem estática", isUnlocked: true },
     
-    // Advanced Frontend
-    { id: "ts", name: "TypeScript", level: 90, category: "frontend", color: "#3178c6", x: 50, y: 65, connections: ["react", "angular"], description: "Type-safe JavaScript", isUnlocked: true },
-    { id: "react", name: "React", level: 95, category: "frontend", color: "#61dafb", x: 65, y: 55, connections: ["next", "redux"], description: "Component-based UI library", isUnlocked: true },
-    { id: "vue", name: "Vue.js", level: 85, category: "frontend", color: "#4fc08d", x: 65, y: 85, connections: ["nuxt"], description: "Progressive framework", isUnlocked: true },
-    { id: "angular", name: "Angular", level: 80, category: "frontend", color: "#dd0031", x: 50, y: 35, connections: ["rxjs"], description: "Full-featured framework", isUnlocked: true },
+    // Frameworks
+    { id: "react", name: "React", level: 95, category: "frontend", color: "#61dafb", x: 70, y: 50, connections: ["ts"], description: "Biblioteca UI baseada em componentes", isUnlocked: true },
+    { id: "vue", name: "Vue.js", level: 85, category: "frontend", color: "#4fc08d", x: 50, y: 70, connections: ["js"], description: "Framework progressivo", isUnlocked: true },
     
-    // Styling & Preprocessing
-    { id: "sass", name: "Sass", level: 85, category: "styling", color: "#cc6699", x: 20, y: 30, connections: ["css"], description: "CSS preprocessor", isUnlocked: true },
-    { id: "tailwind", name: "Tailwind", level: 90, category: "styling", color: "#06b6d4", x: 20, y: 45, connections: ["css"], description: "Utility-first CSS", isUnlocked: true },
-    
-    // Backend Foundation
-    { id: "node", name: "Node.js", level: 90, category: "backend", color: "#339933", x: 50, y: 85, connections: ["express", "nest"], description: "Server-side JavaScript", isUnlocked: true },
-    { id: "python", name: "Python", level: 85, category: "backend", color: "#3776ab", x: 80, y: 70, connections: ["django", "flask"], description: "Versatile programming language", isUnlocked: true },
-    
-    // Backend Frameworks
-    { id: "express", name: "Express", level: 85, category: "backend", color: "#68a063", x: 35, y: 90, connections: ["node"], description: "Minimal web framework", isUnlocked: true },
-    { id: "nest", name: "NestJS", level: 75, category: "backend", color: "#e0234e", x: 65, y: 95, connections: ["node", "ts"], description: "Enterprise Node.js framework", isUnlocked: false },
-    { id: "django", name: "Django", level: 70, category: "backend", color: "#092e20", x: 90, y: 75, connections: ["python"], description: "High-level Python framework", isUnlocked: false },
-    { id: "flask", name: "Flask", level: 75, category: "backend", color: "#000000", x: 90, y: 65, connections: ["python"], description: "Micro web framework", isUnlocked: true },
-    
-    // Database
-    { id: "mysql", name: "MySQL", level: 80, category: "database", color: "#4479a1", x: 80, y: 30, connections: [], description: "Relational database", isUnlocked: true },
-    { id: "postgres", name: "PostgreSQL", level: 80, category: "database", color: "#336791", x: 50, y: 20, connections: [], description: "Advanced relational DB", isUnlocked: true },
-    
-    // Advanced Frameworks
-    { id: "next", name: "Next.js", level: 85, category: "fullstack", color: "#000000", x: 80, y: 40, connections: ["react"], description: "React production framework", isUnlocked: true },
-    { id: "nuxt", name: "Nuxt.js", level: 75, category: "fullstack", color: "#00dc82", x: 80, y: 90, connections: ["vue"], description: "Vue.js framework", isUnlocked: false },
-    
-    // Tools & Libraries
-    { id: "redux", name: "Redux", level: 75, category: "state", color: "#764abc", x: 35, y: 55, connections: ["react"], description: "State management", isUnlocked: true },
-    { id: "rxjs", name: "RxJS", level: 65, category: "reactive", color: "#b7178c", x: 35, y: 25, connections: ["angular"], description: "Reactive programming", isUnlocked: false },
-    
-    // Mobile & Desktop
-    { id: "reactnative", name: "React Native", level: 70, category: "mobile", color: "#61dafb", x: 95, y: 55, connections: ["react"], description: "Cross-platform mobile", isUnlocked: false },
-    { id: "electron", name: "Electron", level: 65, category: "desktop", color: "#47848f", x: 95, y: 35, connections: ["js"], description: "Desktop applications", isUnlocked: false },
+    // Backend & Database
+    { id: "node", name: "Node.js", level: 90, category: "backend", color: "#339933", x: 20, y: 80, connections: ["js", "postgres"], description: "Ambiente de execução JavaScript no servidor", isUnlocked: true },
+    { id: "postgres", name: "PostgreSQL", level: 80, category: "database", color: "#336791", x: 80, y: 80, connections: ["node"], description: "Banco de dados relacional avançado", isUnlocked: true },
   ], []);
 
   const connections = useMemo(() => {
