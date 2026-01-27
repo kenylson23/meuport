@@ -15,7 +15,7 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const subject = `Mensagem de ${formData.name}`;
-    const body = `Nome: ${formData.name}\nEmail: ${formData.email}\nOrçamento: ${formData.budget}\n\nMensagem:\n${formData.message}`;
+    const body = `Nome: ${formData.name}\nEmail: ${formData.email}\n\nMensagem:\n${formData.message}`;
     const mailtoLink = `mailto:kenylsonlourenco0@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     
     window.location.href = mailtoLink;
@@ -113,20 +113,6 @@ const Contact = () => {
                 </div>
               </div>
               <div className="">
-                <label className="block text-sm font-medium text-neutral-300 mb-2">Orçamento do Projeto</label>
-                <select 
-                  name="budget"
-                  value={formData.budget}
-                  onChange={handleChange}
-                  className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-neutral-100 focus:border-white/20 focus:outline-none focus:ring-1 focus:ring-white/20"
-                >
-                  <option>$5k - $10k</option>
-                  <option>$10k - $25k</option>
-                  <option>$25k - $50k</option>
-                  <option>$50k+</option>
-                </select>
-              </div>
-              <div className="">
                 <label className="block text-sm font-medium text-neutral-300 mb-2">Mensagem</label>
                 <textarea 
                   name="message"
@@ -160,7 +146,7 @@ const Contact = () => {
                 </div>
                 <div className="">
                   <h3 className="text-lg font-semibold text-white">Email</h3>
-                  <p className="text-neutral-400">kenylsonlourenco0@gmail.com</p>
+                  <p className="text-neutral-100 font-medium">kenylsonlourenco0@gmail.com</p>
                 </div>
               </a>
             </motion.div>
