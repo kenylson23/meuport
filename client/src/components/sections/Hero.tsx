@@ -69,14 +69,14 @@ const Hero = () => {
 
               <div className="flex flex-col sm:flex-row gap-3 mb-12">
                 <button 
-                  onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'auto' })}
+                  onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'instant' })}
                   className="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-neon-green/20 text-white text-xs font-bold border border-neon-green/40 transition-all duration-300 hover:bg-neon-green/30 hover:border-neon-green/60 hover:scale-105 shadow-[0_0_15px_rgba(57,255,20,0.2)]"
                 >
                   <span>Ver Projetos</span>
                   <ArrowRight className="w-3.5 h-3.5 ml-2" />
                 </button>
                 <button 
-                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'auto' })}
+                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'instant' })}
                   className="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-white/[0.05] text-white/90 text-xs font-bold border border-white/20 transition-all duration-300 hover:bg-white/10 hover:border-white/30"
                 >
                   <Play className="w-3.5 h-3.5 mr-2 fill-current" />

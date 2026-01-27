@@ -31,7 +31,7 @@ const Portfolio = () => {
       const offset = element.offsetTop;
       window.scrollTo({
         top: offset,
-        behavior: 'auto'
+        behavior: 'instant'
       });
     }
   };
