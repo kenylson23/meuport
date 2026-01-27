@@ -65,25 +65,25 @@ const defaultAchievements = [
 
 export const About = ({
   title = "Sobre Mim",
-  description = "Sou Kenylson Lourenço, um desenvolvedor full-stack apaixonado por criar experiências digitais imersivas. Com expertise em tecnologias modernas, me especializo em construir aplicações web que combinam funcionalidade robusta com um apelo visual impactante.",
+  description = "Desenvolvedor Full Stack especializado em transformar desafios técnicos em soluções de alto impacto. Meu foco é criar sistemas escaláveis e experiências digitais imersivas que impulsionam o crescimento de empresas através de tecnologia moderna e design focado no usuário.",
   mainImage = {
     src: "/images/profile.png",
     alt: "Kenylson Lourenço - Desenvolvedor Full Stack",
   },
   secondaryImage = {
-    src: "https://shadcnblocks.com/images/block/placeholder-2.svg",
-    alt: "placeholder",
+    src: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
+    alt: "Resultados e Tecnologia",
   },
   breakout = {
     src: "https://shadcnblocks.com/images/block/block-1.svg",
     alt: "logo",
-    title: "Desenvolvedor Apaixonado",
+    title: "Foco em Resultados",
     description:
-      "Minha jornada vai do desenvolvimento web tradicional até experiências 3D interativas. Acredito em expandir os limites da web.",
+      "Combinando arquitetura robusta de backend com interfaces frontend de última geração para entregar performance e conversão.",
     buttonText: "Ver Projetos",
     buttonUrl: "#projects",
   },
-  companiesTitle = "Tecnologias e ferramentas que utilizo",
+  companiesTitle = "Tecnologias que utilizo para escalar negócios",
   companies = defaultCompanies,
   achievementsTitle = "Minha Jornada em Números",
   achievementsDescription = "Transformando ideias complexas em soluções digitais elegantes e eficientes.",
