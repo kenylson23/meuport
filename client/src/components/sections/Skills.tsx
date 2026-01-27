@@ -85,20 +85,11 @@ const Skills = () => {
       { name: "React", level: 95, color: "#61dafb" },
       { name: "TypeScript", level: 90, color: "#3178c6" },
       { name: "JavaScript", level: 95, color: "#f7df1e" },
-      { name: "Vue.js", level: 85, color: "#4fc08d" },
-      { name: "Angular", level: 80, color: "#dd0031" },
-      { name: "Svelte", level: 75, color: "#ff3e00" }
+      { name: "Vue.js", level: 85, color: "#4fc08d" }
     ],
     "Backend & Data": [
       { name: "Node.js", level: 90, color: "#339933" },
-      { name: "Python", level: 85, color: "#3776ab" },
-      { name: "PostgreSQL", level: 80, color: "#336791" },
-      { name: "Java", level: 80, color: "#ed8b00" }
-    ],
-    "Sistemas & Low-level": [
-      { name: "Rust", level: 70, color: "#000000" },
-      { name: "Go", level: 75, color: "#00add8" },
-      { name: "C++", level: 75, color: "#00599c" }
+      { name: "PostgreSQL", level: 80, color: "#336791" }
     ]
   };
 

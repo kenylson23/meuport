@@ -7,14 +7,7 @@ const LanguageShowcase = () => {
     { name: "TypeScript", level: 90, color: "#3178c6", icon: "TS" },
     { name: "React", level: 95, color: "#61dafb", icon: "⚛" },
     { name: "Vue.js", level: 85, color: "#4fc08d", icon: "V" },
-    { name: "Node.js", level: 90, color: "#339933", icon: "N" },
-    { name: "Python", level: 85, color: "#3776ab", icon: "🐍" },
-    { name: "Angular", level: 80, color: "#dd0031", icon: "A" },
-    { name: "Svelte", level: 75, color: "#ff3e00", icon: "S" },
-    { name: "Go", level: 75, color: "#00add8", icon: "G" },
-    { name: "Rust", level: 70, color: "#000000", icon: "R" },
-    { name: "Java", level: 80, color: "#ed8b00", icon: "J" },
-    { name: "C++", level: 75, color: "#00599c", icon: "C" }
+    { name: "Node.js", level: 90, color: "#339933", icon: "N" }
   ];
 
   return (
