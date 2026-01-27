@@ -62,7 +62,7 @@ const Contact = () => {
             viewport={{ once: true }}
             className="mt-4 text-4xl sm:text-6xl tracking-tight font-semibold text-white"
           >
-            Pronto para <span className="italic font-serif font-medium text-neutral-200">colaborar?</span>
+            Vamos escalar seu <span className="italic font-serif font-medium text-neon-green">negócio?</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -71,7 +71,7 @@ const Contact = () => {
             viewport={{ once: true }}
             className="mt-4 text-neutral-400 text-lg max-w-2xl mx-auto"
           >
-            Estou sempre animado para trabalhar em novos projetos e colaborar com mentes criativas. Seja para uma ideia específica ou consultoria, estou aqui para ajudar a tornar sua visão realidade.
+            Se você busca um site que não apenas seja bonito, mas que venda e atraia os clientes certos, você está no lugar certo. Entre em contato e peça um orçamento sem compromisso.
           </motion.p>
         </div>
 

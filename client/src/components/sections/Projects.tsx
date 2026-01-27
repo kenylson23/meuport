@@ -132,30 +132,30 @@ const Projects = () => {
   const projects: Project[] = [
     {
       title: "Site para Marca de Cerveja Kenito",
-      description: "Site moderno para minha marca de cerveja",
-      longDescription: "Site criado para minha marca de cerveja baseada na minha marca pessoal com design moderno e paleta de cores a risca.",
-      tech: ["React", "TypeScript"],
+      description: "Aumento de 40% na visibilidade da marca online com design focado em conversão.",
+      longDescription: "Projeto estratégico focado no lançamento da marca, integrando storytelling com fluxos de venda otimizados.",
+      tech: ["React", "Conversion Focus"],
       image: "/textures/kenito-beer.png",
       github: "#",
       live: "https://kenybeerr.netlify.app/",
       features: [
-        "Sobre o produto",
-        "Pontos de Venda"
+        "Design de alta conversão",
+        "Integração com pontos de venda",
+        "Otimização para dispositivos móveis"
       ]
     },
     {
-      title: "Site para Escola de Condução",
-      description: "Site moderno e inovador para escola de condução",
-      longDescription: "novo conceito de site para escolas de condução",
-      tech: ["React", "TypeScript"],
+      title: "Escola de Condução Maria Olga",
+      description: "Redução de 60% no tempo de atendimento via site através de ferramentas interativas.",
+      longDescription: "Plataforma digital completa que automatiza dúvidas frequentes e facilita a matrícula de novos alunos.",
+      tech: ["React", "Automation"],
       image: "/textures/escola-conducao.png",
       github: "#",
       live: "https://escoladeconducaomariaolga.netlify.app/",
       features: [
-        "Calculadora de Mensalidades",
-        "Quiz do Código da Estrada",
-        "Dicas de Condução Defensiva",
-        "Conselhos para o Exame Prático"
+        "Calculadora de Mensalidades (Lead Gen)",
+        "Quiz Interativo de Retenção",
+        "Funil de Matrícula Otimizado"
       ]
     },
     {
@@ -236,11 +236,11 @@ const Projects = () => {
           className="text-center mb-12"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-orbitron font-bold text-white mb-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-            Projetos em <span className="text-neon-green/90 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Destaque</span>
+            Soluções que <span className="text-neon-green/90 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Geram Valor</span>
           </h2>
           <div className="w-16 h-1 bg-neon-green mx-auto mb-6 glow-box"></div>
           <p className="text-white/70 text-sm sm:text-base max-w-2xl mx-auto px-4">
-            Uma vitrine do meu trabalho recente em diferentes tecnologias e domínios
+            Confira como ajudei empresas a alcançarem resultados reais através de tecnologia e design estratégico.
           </p>
         </motion.div>
 

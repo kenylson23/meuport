@@ -41,18 +41,18 @@ const Hero = () => {
                 </div>
                 
                 <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold leading-[1.1] tracking-tight text-white">
-                  <span className="block drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]">VIVA O</span>
-                  <span className="block text-neon-green filter brightness-125 drop-shadow-[0_0_25px_rgba(57,255,20,0.6)]">FUTURO</span>
+                  <span className="block drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]">TRANSFORME IDEIAS EM</span>
+                  <span className="block text-neon-green filter brightness-125 drop-shadow-[0_0_25px_rgba(57,255,20,0.6)]">RESULTADOS</span>
                 </h1>
 
                 <div className="h-6 text-base md:text-lg font-mono text-cyan-400 font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">
                   <Typewriter
                     options={{
                       strings: [
-                        'Transformando ideias em código.',
-                        'Criando experiências 3D.',
-                        'Desenvolvendo o futuro da web.',
-                        'Especialista em React & Node.'
+                        'Sites que convertem visitantes em clientes.',
+                        'Experiências digitais de alto impacto.',
+                        'Soluções robustas para o seu negócio.',
+                        'Tecnologia focada em crescimento.'
                       ],
                       autoStart: true,
                       loop: true,
@@ -64,23 +64,23 @@ const Hero = () => {
               </div>
 
               <p className="text-base text-slate-200 leading-relaxed mb-8 font-sans max-w-md drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">
-                Especialista em construir aplicações web modernas, seguras e altamente interativas. Foco em <span className="text-white font-bold">performance</span> e <span className="text-white font-bold">experiência do usuário</span>.
+                Desenvolvedor Full Stack focado em criar <span className="text-white font-bold">estratégias digitais</span> que atraem e retêm clientes. Foco total em <span className="text-white font-bold">conversão</span> e <span className="text-white font-bold">ROI</span>.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 mb-12">
                 <button 
-                  onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'instant' })}
-                  className="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-neon-green/20 text-white text-xs font-bold border border-neon-green/40 transition-all duration-300 hover:bg-neon-green/30 hover:border-neon-green/60 hover:scale-105 shadow-[0_0_15px_rgba(57,255,20,0.2)]"
+                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'instant' })}
+                  className="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-neon-green text-black text-xs font-bold border border-neon-green transition-all duration-300 hover:bg-neon-green/80 hover:scale-105 shadow-[0_0_20px_rgba(57,255,20,0.4)]"
                 >
-                  <span>Ver Projetos</span>
-                  <ArrowRight className="w-3.5 h-3.5 ml-2" />
+                  <span>Iniciar Projeto Agora</span>
+                  <Rocket className="w-3.5 h-3.5 ml-2" />
                 </button>
                 <button 
-                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'instant' })}
+                  onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'instant' })}
                   className="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-white/[0.05] text-white/90 text-xs font-bold border border-white/20 transition-all duration-300 hover:bg-white/10 hover:border-white/30"
                 >
-                  <Play className="w-3.5 h-3.5 mr-2 fill-current" />
-                  <span>Contato</span>
+                  <Eye className="w-3.5 h-3.5 mr-2" />
+                  <span>Ver Case Studies</span>
                 </button>
               </div>
 
