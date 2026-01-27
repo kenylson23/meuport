@@ -41,16 +41,19 @@ const SkillTreeVisualization = () => {
   // Skill tree data with interconnected nodes
   const skillNodes: SkillNode[] = useMemo(() => [
     // Frontend Foundation
-    { id: "js", name: "JavaScript", level: 95, category: "frontend", color: "#f7df1e", x: 30, y: 50, connections: ["ts", "react", "vue", "node"], description: "Linguagem principal de programação", isUnlocked: true },
-    { id: "ts", name: "TypeScript", level: 90, category: "frontend", color: "#3178c6", x: 50, y: 30, connections: ["react"], description: "JavaScript com tipagem estática", isUnlocked: true },
+    { id: "js", name: "JavaScript", level: 95, category: "frontend", color: "#f7df1e", x: 25, y: 50, connections: ["ts", "react", "node"], description: "Linguagem principal de programação e base de todo o ecossistema web.", isUnlocked: true },
+    { id: "ts", name: "TypeScript", level: 90, category: "frontend", color: "#3178c6", x: 45, y: 35, connections: ["react"], description: "Superset tipado de JavaScript que traz segurança e escalabilidade ao desenvolvimento.", isUnlocked: true },
     
     // Frameworks
-    { id: "react", name: "React", level: 95, category: "frontend", color: "#61dafb", x: 70, y: 50, connections: ["ts"], description: "Biblioteca UI baseada em componentes", isUnlocked: true },
-    { id: "vue", name: "Vue.js", level: 85, category: "frontend", color: "#4fc08d", x: 50, y: 70, connections: ["js"], description: "Framework progressivo", isUnlocked: true },
+    { id: "react", name: "React", level: 95, category: "frontend", color: "#61dafb", x: 65, y: 40, connections: ["next"], description: "Biblioteca líder para construção de interfaces modernas e reativas baseadas em componentes.", isUnlocked: true },
+    { id: "next", name: "Next.js", level: 85, category: "frontend", color: "#ffffff", x: 80, y: 30, connections: [], description: "Framework React para produção com SSR, SSG e rotas otimizadas.", isUnlocked: false },
+    { id: "vue", name: "Vue.js", level: 85, category: "frontend", color: "#4fc08d", x: 45, y: 65, connections: [], description: "Framework progressivo focado na simplicidade e performance.", isUnlocked: true },
     
     // Backend & Database
-    { id: "node", name: "Node.js", level: 90, category: "backend", color: "#339933", x: 20, y: 80, connections: ["js", "postgres"], description: "Ambiente de execução JavaScript no servidor", isUnlocked: true },
-    { id: "postgres", name: "PostgreSQL", level: 80, category: "database", color: "#336791", x: 80, y: 80, connections: ["node"], description: "Banco de dados relacional avançado", isUnlocked: true },
+    { id: "node", name: "Node.js", level: 90, category: "backend", color: "#339933", x: 25, y: 75, connections: ["postgres", "express"], description: "Runtime JavaScript de alta performance para construção de serviços escaláveis no servidor.", isUnlocked: true },
+    { id: "express", name: "Express", level: 85, category: "backend", color: "#68a063", x: 40, y: 85, connections: [], description: "Framework minimalista e flexível para APIs robustas em Node.js.", isUnlocked: true },
+    { id: "postgres", name: "PostgreSQL", level: 80, category: "database", color: "#336791", x: 75, y: 75, connections: ["prisma"], description: "O banco de dados relacional mais avançado do mundo para integridade de dados.", isUnlocked: true },
+    { id: "prisma", name: "Prisma", level: 75, category: "backend", color: "#2d3748", x: 90, y: 85, connections: [], description: "ORM moderno para produtividade e segurança de tipos em consultas ao banco.", isUnlocked: false },
   ], []);
 
   const connections = useMemo(() => {
@@ -168,32 +171,50 @@ const SkillTreeVisualization = () => {
       ))}
 
       {/* Legend */}
-      <motion.div
-        initial={{ opacity: 0, x: -50 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 2 }}
-        className="absolute top-2 sm:top-4 left-2 sm:left-4 space-y-1 sm:space-y-2 bg-black/80 backdrop-blur-md border border-neon-green/20 rounded-lg p-2 sm:p-4"
-      >
-        <h3 className="text-neon-green font-orbitron font-semibold text-xs sm:text-sm">Categorias</h3>
-        <div className="space-y-0.5 sm:space-y-1 text-xs">
-          <div className="flex items-center space-x-1 sm:space-x-2">
-            <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full" style={{ backgroundColor: "#61dafb" }}></div>
-            <span className="text-white/70 text-xs">Frontend</span>
+      <div className="absolute top-2 sm:top-4 left-2 sm:left-4 space-y-4">
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 1 }}
+          className="bg-black/80 backdrop-blur-md border border-neon-green/20 rounded-lg p-2 sm:p-4 shadow-[0_0_20px_rgba(0,0,0,0.5)]"
+        >
+          <h3 className="text-neon-green font-orbitron font-semibold text-xs sm:text-sm mb-2 border-b border-neon-green/10 pb-1">Categorias</h3>
+          <div className="space-y-1.5 text-xs">
+            <div className="flex items-center space-x-2">
+              <div className="w-3 h-3 rounded-full border border-white/20 shadow-[0_0_8px_#61dafb]" style={{ backgroundColor: "#61dafb" }}></div>
+              <span className="text-white/80">Frontend</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <div className="w-3 h-3 rounded-full border border-white/20 shadow-[0_0_8px_#339933]" style={{ backgroundColor: "#339933" }}></div>
+              <span className="text-white/80">Backend</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <div className="w-3 h-3 rounded-full border border-white/20 shadow-[0_0_8px_#336791]" style={{ backgroundColor: "#336791" }}></div>
+              <span className="text-white/80">Database</span>
+            </div>
+            <div className="flex items-center space-x-2 opacity-50">
+              <div className="w-3 h-3 rounded-full border border-white/20 bg-gray-600"></div>
+              <span className="text-white/60">Bloqueados</span>
+            </div>
           </div>
-          <div className="flex items-center space-x-1 sm:space-x-2">
-            <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full" style={{ backgroundColor: "#339933" }}></div>
-            <span className="text-white/70 text-xs">Backend</span>
-          </div>
-          <div className="flex items-center space-x-1 sm:space-x-2">
-            <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full" style={{ backgroundColor: "#47a248" }}></div>
-            <span className="text-white/70 text-xs">Database</span>
-          </div>
-          <div className="flex items-center space-x-1 sm:space-x-2">
-            <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full opacity-50"></div>
-            <span className="text-white/50 text-xs">Bloqueados</span>
-          </div>
-        </div>
-      </motion.div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 1.2 }}
+          className="bg-black/80 backdrop-blur-md border border-neon-green/20 rounded-lg p-2 sm:p-4 shadow-[0_0_20px_rgba(0,0,0,0.5)]"
+        >
+          <h4 className="text-neon-green font-orbitron font-semibold text-xs sm:text-sm mb-2 border-b border-neon-green/10 pb-1">
+            Árvore Interativa
+          </h4>
+          <ul className="text-white/70 text-[10px] sm:text-xs space-y-1">
+            <li className="flex items-center gap-1.5">• <span>Toque nos nós para detalhes</span></li>
+            <li className="flex items-center gap-1.5">• <span>Conexões mostram relações</span></li>
+            <li className="flex items-center gap-1.5">• <span>Habilidades bloqueadas</span></li>
+          </ul>
+        </motion.div>
+      </div>
 
       {/* Node Info Panel */}
       {hoveredNode && (
