@@ -20,101 +20,101 @@ interface QuizProps {
 const programmingQuestions: QuizQuestion[] = [
   {
     id: 1,
-    question: "Qual é a diferença principal entre `let` e `var` em JavaScript?",
+    question: "O que acontece quando você tenta acessar uma variável declarada com 'let' antes da sua inicialização?",
     options: [
-      "Não há diferença",
-      "`let` tem escopo de bloco, `var` tem escopo de função",
-      "`var` é mais rápido que `let`",
-      "`let` só funciona em browsers modernos"
+      "Retorna undefined",
+      "Lança um ReferenceError (Temporal Dead Zone)",
+      "Retorna null",
+      "A variável é automaticamente inicializada com 0"
     ],
     correctAnswer: 1,
-    explanation: "`let` tem escopo de bloco e não pode ser redeclarado, enquanto `var` tem escopo de função e pode ser redeclarado.",
-    difficulty: 'fácil',
-    topic: 'JavaScript'
+    explanation: "Diferente de 'var', variáveis 'let' e 'const' entram na TDZ (Temporal Dead Zone) e causam erro se acessadas antes da linha de declaração.",
+    difficulty: 'médio',
+    topic: 'JavaScript Moderno'
   },
   {
     id: 2,
-    question: "O que é TypeScript?",
+    question: "Qual o benefício real do Virtual DOM no React?",
     options: [
-      "Uma linguagem de programação completamente diferente",
-      "Um superset do JavaScript que adiciona tipagem estática",
-      "Um framework para React",
-      "Uma biblioteca de animações"
+      "Ele torna o JavaScript mais rápido",
+      "Ele substitui o navegador",
+      "Minimiza manipulações diretas no DOM real através de algoritmos de diffing",
+      "Ele apaga o cache do navegador automaticamente"
     ],
-    correctAnswer: 1,
-    explanation: "TypeScript é um superset do JavaScript desenvolvido pela Microsoft que adiciona tipagem estática opcional.",
-    difficulty: 'fácil',
-    topic: 'TypeScript'
+    correctAnswer: 2,
+    explanation: "O Virtual DOM permite que o React calcule a forma mais eficiente de atualizar a UI, evitando operações custosas de renderização no DOM real.",
+    difficulty: 'médio',
+    topic: 'Arquitetura React'
   },
   {
     id: 3,
-    question: "Em React, o que são Hooks?",
+    question: "O que é 'Hydration' no contexto de frameworks como Next.js?",
     options: [
-      "Funções que permitem usar estado e outros recursos em componentes funcionais",
-      "Componentes de classe especiais",
-      "Bibliotecas externas",
-      "Métodos para conectar APIs"
+      "Limpar o código de funções inúteis",
+      "Processo de anexar event listeners ao HTML estático vindo do servidor",
+      "Converter código TypeScript para JavaScript",
+      "Reduzir o tamanho das imagens automaticamente"
     ],
-    correctAnswer: 0,
-    explanation: "Hooks são funções que permitem usar estado e outros recursos do React em componentes funcionais.",
-    difficulty: 'médio',
-    topic: 'React'
+    correctAnswer: 1,
+    explanation: "Hydration é o processo onde o React no cliente 'assume' o HTML estático enviado pelo servidor, tornando-o interativo.",
+    difficulty: 'difícil',
+    topic: 'Performance Web'
   },
   {
     id: 4,
-    question: "Qual comando SQL é usado para recuperar dados de uma tabela?",
+    question: "Qual é a principal vantagem de usar TypeScript sobre JavaScript puro em projetos grandes?",
     options: [
-      "INSERT",
-      "UPDATE",
-      "SELECT",
-      "DELETE"
+      "O código roda mais rápido no navegador",
+      "Detecção de erros em tempo de compilação e melhor inteligência da IDE",
+      "TypeScript não precisa de compilador",
+      "Ele remove a necessidade de testar o código"
     ],
-    correctAnswer: 2,
-    explanation: "SELECT é o comando SQL usado para recuperar/consultar dados de uma ou mais tabelas.",
+    correctAnswer: 1,
+    explanation: "A tipagem estática permite identificar bugs antes mesmo de rodar o código, além de facilitar refatorações seguras em larga escala.",
     difficulty: 'fácil',
-    topic: 'SQL'
+    topic: 'Engenharia de Software'
   },
   {
     id: 5,
-    question: "O que é o Virtual DOM no React?",
+    question: "Em bancos de dados SQL, o que garante a propriedade ACID?",
     options: [
-      "Uma cópia do DOM real mantida na memória",
-      "Um servidor virtual",
-      "Uma biblioteca de testes",
-      "Um tipo de componente"
+      "A velocidade das consultas",
+      "A quantidade de dados armazenados",
+      "Atomicidade, Consistência, Isolamento e Durabilidade das transações",
+      "O uso de chaves apenas numéricas"
     ],
-    correctAnswer: 0,
-    explanation: "Virtual DOM é uma representação virtual do DOM real mantida na memória, que permite otimizações de performance.",
-    difficulty: 'médio',
-    topic: 'React'
+    correctAnswer: 2,
+    explanation: "ACID é o conjunto de propriedades que garante que as transações no banco de dados sejam processadas de forma confiável.",
+    difficulty: 'difícil',
+    topic: 'Bancos de Dados'
   },
   {
     id: 6,
-    question: "O que significa 'closure' em JavaScript?",
+    question: "O que define uma API como verdadeiramente RESTful?",
     options: [
-      "Fechamento de um arquivo",
-      "Uma função que tem acesso ao escopo externo mesmo após a função externa ter retornado",
-      "Um tipo de loop",
-      "Um método de array"
+      "Usar apenas JSON",
+      "Ser rápida e ter autenticação",
+      "Seguir restrições como Statefulness e Cache",
+      "Seguir os princípios de interface uniforme, stateless e HATEOAS"
     ],
-    correctAnswer: 1,
-    explanation: "Closure é quando uma função interna tem acesso às variáveis da função externa, mesmo após a função externa ter terminado.",
-    difficulty: 'difícil',
-    topic: 'JavaScript'
+    correctAnswer: 3,
+    explanation: "Uma API REST segue princípios arquiteturais específicos, sendo o 'Stateless' (cada requisição tem tudo que precisa) um dos mais fundamentais.",
+    difficulty: 'médio',
+    topic: 'Arquitetura de Sistemas'
   },
   {
     id: 7,
-    question: "O que é REST API?",
+    question: "Como o Node.js lida com múltiplas requisições simultâneas sendo single-threaded?",
     options: [
-      "Um tipo de banco de dados",
-      "Um padrão arquitetural para APIs web usando HTTP",
-      "Uma linguagem de programação",
-      "Um framework JavaScript"
+      "Ele cria uma nova thread para cada usuário",
+      "Através do Event Loop e operações de I/O não-bloqueantes",
+      "Ele pede para o navegador esperar sua vez",
+      "Ele usa o poder da GPU para processar dados"
     ],
     correctAnswer: 1,
-    explanation: "REST (Representational State Transfer) é um padrão arquitetural para APIs web que usa métodos HTTP padrão.",
-    difficulty: 'médio',
-    topic: 'Web APIs'
+    explanation: "O Event Loop permite que o Node.js delegue tarefas pesadas de I/O para o sistema operacional, mantendo a thread principal livre para outras tarefas.",
+    difficulty: 'difícil',
+    topic: 'Backend Internals'
   }
 ];
 
