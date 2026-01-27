@@ -8,7 +8,6 @@ import { Home, User, Cpu, Globe, FolderCode, Mail } from "lucide-react";
 import { usePortfolio } from "../lib/stores/usePortfolio";
 import { useAudio } from "../lib/stores/useAudio";
 
-// Lazy loading de seções menos críticas e componentes 3D pesados
 const About = lazy(() => import("./sections/About"));
 const Skills = lazy(() => import("./sections/Skills"));
 const LanguageShowcase = lazy(() => import("./sections/LanguageShowcase"));
@@ -17,6 +16,9 @@ const DottedSurface = lazy(() => import("./3d/DottedSurface").then(m => ({ defau
 const Portfolio = () => {
   const { currentSection, setCurrentSection } = usePortfolio();
   const { playHover, playHit } = useAudio();
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   const navItems = useMemo(() => [
     { name: 'Início', url: 'hero', icon: Home },
@@ -36,35 +38,34 @@ const Portfolio = () => {
   };
 
   const particleData = useMemo(() => 
-    Array.from({ length: 40 }, () => ({ // Reduzido de 80 para 40
+    Array.from({ length: 40 }, () => ({
       left: Math.random() * 100,
       top: Math.random() * 100,
       animationDelay: Math.random() * 15
     })), []
   );
-  
-  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     setIsLoaded(true);
   }, []);
 
-  const [isScrollingUp, setIsScrollingUp] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
-
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'projects', 'about', 'skills', 'languages', 'contact'];
-      const scrollPosition = window.scrollY + window.innerHeight / 3;
+      const currentScrollY = window.scrollY;
       
-      // Lógica de esconder/mostrar nav
-      if (window.scrollY > lastScrollY && window.scrollY > 100) {
-        setIsScrollingUp(false);
-      } else {
-        setIsScrollingUp(true);
+      // Mostrar se rolar para cima ou estiver no topo
+      if (currentScrollY < lastScrollY || currentScrollY < 50) {
+        setIsVisible(true);
+      } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setIsVisible(false);
       }
-      setLastScrollY(window.scrollY);
+      
+      setLastScrollY(currentScrollY);
 
+      // Atualizar seção atual
+      const sections = ['hero', 'projects', 'about', 'skills', 'languages', 'contact'];
+      const scrollPosition = currentScrollY + window.innerHeight / 3;
+      
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
@@ -79,7 +80,7 @@ const Portfolio = () => {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [setCurrentSection, lastScrollY]);
+  }, [lastScrollY, setCurrentSection]);
 
   if (!isLoaded) {
     return (
@@ -95,27 +96,21 @@ const Portfolio = () => {
         <DottedSurface className="opacity-60" />
       </Suspense>
       
-      {/* Background simplificado para performance */}
       <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
         <div className="absolute inset-0 bg-black/40">
           <div className="absolute inset-0 bg-gradient-to-b from-gray-900/10 via-black/30 to-black/60"></div>
-          
           <div className="absolute inset-0 opacity-[0.02]" 
                style={{ 
                  backgroundImage: 'linear-gradient(to right, #39ff14 1px, transparent 1px), linear-gradient(to bottom, #39ff14 1px, transparent 1px)', 
                  backgroundSize: '80px 80px' 
                }}>
           </div>
-          
           <div className="absolute inset-0">
             <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] bg-neon-green/5 rounded-full blur-[100px]"></div>
-            
             <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.1)_50%)] bg-[length:100%_8px] pointer-events-none opacity-5"></div>
-            
             <div className="absolute inset-0 overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-neon-green/10 to-transparent animate-scan"></div>
             </div>
-
             <div className="absolute inset-0">
               {particleData.map((particle, i) => (
                 <div
@@ -134,7 +129,12 @@ const Portfolio = () => {
         </div>
       </div>
 
-      <div className={`fixed top-0 left-0 right-0 z-[100] transition-transform duration-300 ${isScrollingUp ? 'translate-y-0' : '-translate-y-full'}`}>
+      {/* Nav Container with fixed positioning and improved visibility */}
+      <div 
+        className={`fixed top-0 left-0 right-0 z-[1000] pt-6 transition-all duration-500 ease-in-out ${
+          isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'
+        }`}
+      >
         <AnimeNavBar 
           items={navItems} 
           currentSection={currentSection} 
@@ -142,7 +142,7 @@ const Portfolio = () => {
         />
       </div>
 
-      <main className="relative z-10">
+      <main className="relative z-10 pt-20">
         <Hero />
         <Projects />
         <Suspense fallback={<div className="h-96 flex items-center justify-center font-orbitron text-white/20">CARREGANDO...</div>}>
