@@ -216,7 +216,7 @@ const Contact = () => {
           className="text-center mt-16 pt-8 border-t border-white/10"
         >
           <p className="text-white/60">
-            © 2025{" "}
+            © 2026{" "}
             <a 
               href="https://www.instagram.com/kenylson_lourenco/" 
               target="_blank" 
