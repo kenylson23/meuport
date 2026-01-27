@@ -90,20 +90,6 @@ const programmingQuestions: QuizQuestion[] = [
   },
   {
     id: 6,
-    question: "Em Python, qual é a diferença entre uma lista e uma tupla?",
-    options: [
-      "Não há diferença",
-      "Listas são mutáveis, tuplas são imutáveis",
-      "Tuplas são mais rápidas para todos os casos",
-      "Listas só podem conter números"
-    ],
-    correctAnswer: 1,
-    explanation: "Listas são mutáveis (podem ser modificadas), enquanto tuplas são imutáveis (não podem ser alteradas após criação).",
-    difficulty: 'médio',
-    topic: 'Python'
-  },
-  {
-    id: 7,
     question: "O que significa 'closure' em JavaScript?",
     options: [
       "Fechamento de um arquivo",
@@ -117,7 +103,7 @@ const programmingQuestions: QuizQuestion[] = [
     topic: 'JavaScript'
   },
   {
-    id: 8,
+    id: 7,
     question: "O que é REST API?",
     options: [
       "Um tipo de banco de dados",
@@ -205,49 +191,49 @@ const Quiz = ({ onComplete }: QuizProps) => {
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="text-center"
+        className="text-center font-sans"
       >
-        <GlowCard className="p-8 max-w-2xl mx-auto">
+        <GlowCard className="p-8 max-w-2xl mx-auto border-neon-green/30">
           <motion.div
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2 }}
           >
-            <h3 className="text-3xl font-orbitron font-bold text-white mb-4">
-              Quiz <span className="text-neon-green">Concluído!</span>
+            <h3 className="text-3xl font-orbitron font-bold text-white mb-4 tracking-tighter uppercase">
+              Quiz <span className="text-neon-green glow-text">Concluído!</span>
             </h3>
             
-            <div className="mb-6">
-              <div className="text-6xl font-bold text-neon-green mb-2">
+            <div className="mb-8">
+              <div className="text-7xl font-bold text-neon-green mb-2 drop-shadow-[0_0_15px_rgba(57,255,20,0.5)]">
                 {percentage}%
               </div>
-              <div className="text-xl text-white mb-4">
+              <div className="text-xl text-white/90 font-medium mb-4">
                 {finalScore} de {totalQuestions} questões corretas
               </div>
-              <p className="text-white/70 text-lg">
+              <p className="text-white/70 text-lg leading-relaxed max-w-md mx-auto">
                 {getScoreMessage(percentage)}
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-              <div className="bg-black/30 rounded-lg p-4">
-                <div className="text-green-400 text-2xl font-bold">{answers.filter((answer, index) => answer === programmingQuestions[index].correctAnswer).length}</div>
-                <div className="text-white/60 text-sm">Corretas</div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+              <div className="bg-black/40 backdrop-blur-md border border-white/5 rounded-xl p-4 shadow-inner">
+                <div className="text-green-400 text-3xl font-bold">{answers.filter((answer, index) => answer === programmingQuestions[index].correctAnswer).length}</div>
+                <div className="text-white/50 text-[10px] uppercase tracking-widest font-bold mt-1">Corretas</div>
               </div>
-              <div className="bg-black/30 rounded-lg p-4">
-                <div className="text-red-400 text-2xl font-bold">{answers.filter((answer, index) => answer !== programmingQuestions[index].correctAnswer).length}</div>
-                <div className="text-white/60 text-sm">Incorretas</div>
+              <div className="bg-black/40 backdrop-blur-md border border-white/5 rounded-xl p-4 shadow-inner">
+                <div className="text-red-400 text-3xl font-bold">{answers.filter((answer, index) => answer !== programmingQuestions[index].correctAnswer).length}</div>
+                <div className="text-white/50 text-[10px] uppercase tracking-widest font-bold mt-1">Incorretas</div>
               </div>
-              <div className="bg-black/30 rounded-lg p-4">
-                <div className="text-neon-green text-2xl font-bold">{percentage}%</div>
-                <div className="text-white/60 text-sm">Aproveitamento</div>
+              <div className="bg-black/40 backdrop-blur-md border border-white/5 rounded-xl p-4 shadow-inner">
+                <div className="text-neon-green text-3xl font-bold">{percentage}%</div>
+                <div className="text-white/50 text-[10px] uppercase tracking-widest font-bold mt-1">Score</div>
               </div>
             </div>
 
             <button
               onClick={resetQuiz}
               onMouseEnter={() => playHover()}
-              className="bg-neon-green text-black px-6 py-3 rounded-lg font-orbitron font-semibold hover:bg-neon-green/80 transition-all duration-300"
+              className="bg-neon-green text-black px-10 py-4 rounded-full font-orbitron font-black uppercase tracking-widest hover:bg-white hover:scale-105 transition-all duration-300 shadow-[0_0_20px_rgba(57,255,20,0.4)]"
             >
               Tentar Novamente
             </button>
@@ -258,48 +244,58 @@ const Quiz = ({ onComplete }: QuizProps) => {
   }
 
   return (
-    <div className="max-w-4xl mx-auto">
-      {/* Progress Bar */}
+    <div className="max-w-4xl mx-auto font-sans">
+      {/* Progress Bar Area */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="mb-8"
+        className="mb-10"
       >
-        <div className="flex justify-between items-center mb-4">
-          <span className="text-white font-orbitron">
-            Pergunta {currentQuestion + 1} de {totalQuestions}
-          </span>
-          <div className="flex items-center gap-2">
-            <span className="text-white/60 text-sm">Tópico:</span>
-            <span className="text-neon-green font-semibold">{question.topic}</span>
+        <div className="flex justify-between items-end mb-4">
+          <div className="space-y-1">
+            <span className="text-neon-green/60 text-[10px] uppercase tracking-[0.2em] font-black">Progresso do Teste</span>
+            <h4 className="text-white font-orbitron text-xl font-bold">
+              Questão <span className="text-neon-green">{currentQuestion + 1}</span><span className="text-white/30"> / {totalQuestions}</span>
+            </h4>
+          </div>
+          <div className="text-right">
+             <span className="text-white/40 text-[10px] uppercase tracking-[0.2em] font-black block">Domínio Técnico</span>
+             <span className="text-neon-green font-bold text-sm tracking-tight">{question.topic}</span>
           </div>
         </div>
         
-        <div className="w-full bg-black/50 rounded-full h-3 mb-2">
+        <div className="w-full bg-white/5 border border-white/10 rounded-full h-2 overflow-hidden backdrop-blur-sm">
           <motion.div
-            className="h-3 bg-gradient-to-r from-neon-green to-green-400 rounded-full"
+            className="h-full bg-gradient-to-r from-neon-green via-green-400 to-neon-green bg-[length:200%_auto] shadow-[0_0_15px_rgba(57,255,20,0.5)]"
             initial={{ width: 0 }}
-            animate={{ width: `${((currentQuestion + 1) / totalQuestions) * 100}%` }}
-            transition={{ duration: 0.5 }}
+            animate={{ 
+              width: `${((currentQuestion + 1) / totalQuestions) * 100}%`,
+              backgroundPosition: ["0% center", "100% center"]
+            }}
+            transition={{ 
+              width: { duration: 0.5 },
+              backgroundPosition: { duration: 3, repeat: Infinity, ease: "linear" }
+            }}
           />
         </div>
         
-        <div className="flex justify-between items-center">
-          <div className="flex items-center gap-2">
-            <span className="text-white/60 text-sm">Dificuldade:</span>
-            <span 
-              className="text-sm font-semibold px-2 py-1 rounded"
+        <div className="flex justify-between items-center mt-4">
+          <div className="flex items-center gap-3">
+            <div 
+              className="text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full border"
               style={{ 
                 color: getDifficultyColor(question.difficulty),
-                backgroundColor: `${getDifficultyColor(question.difficulty)}20`
+                borderColor: `${getDifficultyColor(question.difficulty)}40`,
+                backgroundColor: `${getDifficultyColor(question.difficulty)}10`
               }}
             >
               {question.difficulty}
-            </span>
+            </div>
           </div>
-          <span className="text-neon-green font-semibold">
-            Pontuação: {score}/{currentQuestion + (selectedAnswer !== null ? 1 : 0)}
-          </span>
+          <div className="bg-white/5 backdrop-blur-sm px-4 py-1.5 rounded-full border border-white/10">
+            <span className="text-white/50 text-[10px] uppercase tracking-widest font-black mr-2">Score Atual:</span>
+            <span className="text-neon-green font-black text-sm">{score}</span>
+          </div>
         </div>
       </motion.div>
 
@@ -312,8 +308,8 @@ const Quiz = ({ onComplete }: QuizProps) => {
           exit={{ opacity: 0, x: -50 }}
           transition={{ duration: 0.3 }}
         >
-          <GlowCard className="p-8 mb-6">
-            <h3 className="text-xl md:text-2xl font-orbitron text-white mb-6 leading-relaxed">
+          <GlowCard className="p-8 md:p-12 mb-8 border-neon-green/20">
+            <h3 className="text-2xl md:text-3xl font-orbitron font-bold text-white mb-10 leading-tight tracking-tight">
               {question.question}
             </h3>
             
@@ -324,41 +320,45 @@ const Quiz = ({ onComplete }: QuizProps) => {
                   onClick={() => handleAnswerSelect(index)}
                   onMouseEnter={() => playHover()}
                   disabled={selectedAnswer !== null}
-                  whileHover={{ scale: selectedAnswer === null ? 1.02 : 1 }}
-                  whileTap={{ scale: 0.98 }}
+                  whileHover={{ scale: selectedAnswer === null ? 1.01 : 1, x: selectedAnswer === null ? 5 : 0 }}
+                  whileTap={{ scale: 0.99 }}
                   className={`
-                    p-4 rounded-lg border-2 text-left transition-all duration-300 
+                    p-6 rounded-xl border transition-all duration-300 text-left relative overflow-hidden group
                     ${selectedAnswer === null 
-                      ? 'border-white/20 hover:border-neon-green/50 bg-black/20 hover:bg-black/40' 
+                      ? 'border-white/10 hover:border-neon-green/50 bg-white/[0.03] hover:bg-white/[0.08]' 
                       : selectedAnswer === index
                         ? index === question.correctAnswer
-                          ? 'border-green-500 bg-green-500/20 text-green-300'
-                          : 'border-red-500 bg-red-500/20 text-red-300'
+                          ? 'border-green-500/50 bg-green-500/10 text-green-300 shadow-[0_0_20px_rgba(34,197,94,0.1)]'
+                          : 'border-red-500/50 bg-red-500/10 text-red-300 shadow-[0_0_20px_rgba(239,68,68,0.1)]'
                         : index === question.correctAnswer
-                          ? 'border-green-500 bg-green-500/20 text-green-300'
-                          : 'border-white/10 bg-black/10 text-white/60'
+                          ? 'border-green-500/50 bg-green-500/10 text-green-300'
+                          : 'border-white/5 bg-white/[0.01] text-white/30'
                     }
                     ${selectedAnswer === null ? 'cursor-pointer' : 'cursor-default'}
                   `}
                 >
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-5 relative z-10">
                     <div className={`
-                      w-6 h-6 rounded-full border-2 flex items-center justify-center text-sm font-bold
+                      w-10 h-10 rounded-lg border-2 flex items-center justify-center text-lg font-black font-orbitron transition-all duration-500
                       ${selectedAnswer === null 
-                        ? 'border-white/40 text-white/60' 
+                        ? 'border-white/20 text-white/40 group-hover:border-neon-green group-hover:text-neon-green' 
                         : selectedAnswer === index
                           ? index === question.correctAnswer
                             ? 'border-green-500 bg-green-500 text-white'
                             : 'border-red-500 bg-red-500 text-white'
                           : index === question.correctAnswer
                             ? 'border-green-500 bg-green-500 text-white'
-                            : 'border-white/20 text-white/40'
+                            : 'border-white/10 text-white/20'
                       }
                     `}>
                       {String.fromCharCode(65 + index)}
                     </div>
-                    <span className="flex-1">{option}</span>
+                    <span className="flex-1 text-lg font-medium leading-snug">{option}</span>
                   </div>
+                  {/* Hover effect background */}
+                  {selectedAnswer === null && (
+                    <div className="absolute inset-0 bg-gradient-to-r from-neon-green/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  )}
                 </motion.button>
               ))}
             </div>
@@ -366,43 +366,41 @@ const Quiz = ({ onComplete }: QuizProps) => {
         </motion.div>
       </AnimatePresence>
 
-      {/* Explanation */}
+      {/* Explanation & Next Button */}
       <AnimatePresence>
         {showExplanation && (
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="mb-6"
+            className="space-y-8"
           >
-            <GlowCard className="p-6 border-l-4 border-l-neon-green">
-              <h4 className="text-neon-green font-orbitron font-semibold mb-2">
-                Explicação:
+            <div className="bg-black/40 backdrop-blur-xl border-l-4 border-l-neon-green border border-white/5 rounded-r-2xl p-8 shadow-2xl relative overflow-hidden">
+               <div className="absolute top-0 right-0 w-32 h-32 bg-neon-green/5 blur-3xl rounded-full -mr-16 -mt-16" />
+              <h4 className="text-neon-green font-orbitron font-black text-xs uppercase tracking-[0.3em] mb-3">
+                Protocolo de Resposta:
               </h4>
-              <p className="text-white/80 leading-relaxed">
-                {question.explanation}
+              <p className="text-white/90 text-lg leading-relaxed font-medium italic">
+                "{question.explanation}"
               </p>
-            </GlowCard>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            </div>
 
-      {/* Next Button */}
-      <AnimatePresence>
-        {showExplanation && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-center"
-          >
-            <button
-              onClick={handleNextQuestion}
-              onMouseEnter={() => playHover()}
-              className="bg-neon-green text-black px-8 py-3 rounded-lg font-orbitron font-semibold hover:bg-neon-green/80 transition-all duration-300 inline-flex items-center gap-2"
-            >
-              {currentQuestion < totalQuestions - 1 ? 'Próxima Pergunta' : 'Finalizar Quiz'}
-              <span className="text-lg">→</span>
-            </button>
+            <div className="text-center pb-12">
+              <button
+                onClick={handleNextQuestion}
+                onMouseEnter={() => playHover()}
+                className="group bg-white text-black px-12 py-5 rounded-full font-orbitron font-black uppercase tracking-[0.2em] hover:bg-neon-green hover:scale-105 transition-all duration-500 shadow-[0_0_40px_rgba(255,255,255,0.15)] flex items-center gap-3 mx-auto"
+              >
+                {currentQuestion < totalQuestions - 1 ? 'Próximo Protocolo' : 'Finalizar Análise'}
+                <motion.span 
+                  animate={{ x: [0, 5, 0] }}
+                  transition={{ repeat: Infinity, duration: 1.5 }}
+                  className="text-2xl"
+                >
+                  →
+                </motion.span>
+              </button>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
