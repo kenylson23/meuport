@@ -78,6 +78,10 @@ const Skills = () => {
     "Backend & Data": [
       { name: "Node.js", level: 90, color: "#339933" },
       { name: "PostgreSQL", level: 80, color: "#336791" }
+    ],
+    "DevOps & Tools": [
+      { name: "GitHub", level: 90, color: "#ffffff" },
+      { name: "Docker", level: 75, color: "#2496ed" }
     ]
   };
 

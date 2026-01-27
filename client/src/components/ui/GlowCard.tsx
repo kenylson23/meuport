@@ -24,7 +24,7 @@ const GlowCard = ({
       onMouseEnter={() => playHover()}
       transition={{ duration: 0.3 }}
       className={cn(
-        "relative bg-black/20 backdrop-blur-sm border border-neon-green/20 rounded-lg transition-all duration-300",
+        "relative bg-black/40 backdrop-blur-md border border-neon-green/20 rounded-lg transition-all duration-300",
         className
       )}
       style={{
