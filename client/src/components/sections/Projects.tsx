@@ -160,31 +160,30 @@ const Projects = () => {
     },
     {
       title: "Site para Cuca",
-      description: "Site feito para a Marca de cerveja Cuca",
-      longDescription: "Inspirado na marca de cerveja Cuca",
-      tech: ["React", "TypeScript"],
+      description: "Estratégia digital que resultou em 25% mais engajamento com a marca.",
+      longDescription: "Revitalização da presença digital para uma das maiores marcas de cerveja, focando em experiência do usuário e conversão.",
+      tech: ["React", "Brand Strategy"],
       image: "/textures/cuca-beer.png",
       github: "#",
       live: "https://textcuca.netlify.app/",
       features: [
-        "Nossa História",
-        "Pontos de Venda",
-        "Galeria dos Fãs"
+        "Vitrine de Produtos Otimizada",
+        "Geolocalização de Pontos de Venda",
+        "Social Proof Integration"
       ]
     },
     {
-      title: "Site para o colégio Narfive",
-      description: "Site moderno e inovador para colégio",
-      longDescription: "Baseado em uma melhor experiência para os clientes do colégio",
-      tech: ["React", "TypeScript"],
+      title: "Colégio Narfive",
+      description: "Aumento de 50% nas solicitações de matrícula através do novo tour virtual.",
+      longDescription: "Transformação da jornada do pai/aluno no site, facilitando o acesso a informações críticas e conversão.",
+      tech: ["React", "UX Design"],
       image: "/textures/colegio-narfive.png",
       github: "#",
       live: "https://narff.netlify.app/",
       features: [
-        "Nossos Programas",
-        "Galeria Fotográfica",
+        "Tour Virtual Interativo",
         "Calculadora de Mensalidades",
-        "Tour Virtual"
+        "Sistema de Agendamento"
       ]
     },
     {

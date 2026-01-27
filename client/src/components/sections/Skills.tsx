@@ -92,11 +92,11 @@ const Skills = () => {
       <div className="max-w-6xl mx-auto px-4 z-20 relative">
         <div className="text-center mb-8">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-orbitron font-bold text-white mb-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-            Habilidades <span className="text-neon-green/90 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Técnicas</span>
+            Arsenal <span className="text-neon-green/90 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Tecnológico</span>
           </h2>
           <div className="w-16 h-1 bg-neon-green mx-auto mb-6 glow-box"></div>
           <p className="text-white/70 text-sm sm:text-base max-w-2xl mx-auto px-4">
-            Um conjunto abrangente de ferramentas categorizadas para construir o futuro da web
+            Utilizo as tecnologias mais modernas do mercado para garantir que seu projeto seja rápido, seguro e escalável.
           </p>
           
           {/* View Mode Toggle */}

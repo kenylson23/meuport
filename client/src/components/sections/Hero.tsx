@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ChevronDown, Sparkles, Star, Rocket, ShieldCheck, Play, ArrowRight } from "lucide-react";
+import { ChevronDown, Sparkles, Star, Rocket, ShieldCheck, Play, ArrowRight, Eye } from "lucide-react";
 import Typewriter from "typewriter-effect";
 
 const Hero = () => {
