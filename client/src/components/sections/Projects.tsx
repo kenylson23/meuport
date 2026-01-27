@@ -216,9 +216,29 @@ const Projects = () => {
     }
   ];
 
+  // Duplicate projects for seamless loop
+  const duplicatedProjects = [...projects, ...projects];
+
   return (
-    <section id="projects" className="min-h-screen py-32 relative flex items-center">
-      <div className="max-w-7xl mx-auto px-4 z-20 relative">
+    <section id="projects" className="min-h-screen py-32 relative flex flex-col items-center justify-center overflow-hidden">
+      <style>{`
+        @keyframes scroll-projects {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .projects-infinite-scroll {
+          animation: scroll-projects 40s linear infinite;
+        }
+        .projects-infinite-scroll:hover {
+          animation-play-state: paused;
+        }
+        .projects-mask {
+          mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+          -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+        }
+      `}</style>
+
+      <div className="max-w-7xl mx-auto px-4 z-20 relative w-full">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -235,22 +255,21 @@ const Projects = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.title}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-            >
-              <ProjectCard 
-                project={project} 
-                index={index} 
-                onViewDetails={() => handleViewDetails(project)}
-              />
-            </motion.div>
-          ))}
+        <div className="relative w-full py-10 projects-mask">
+          <div className="projects-infinite-scroll flex gap-8 w-max">
+            {duplicatedProjects.map((project, index) => (
+              <div
+                key={`${project.title}-${index}`}
+                className="w-[300px] sm:w-[350px] md:w-[400px] flex-shrink-0"
+              >
+                <ProjectCard 
+                  project={project} 
+                  index={index} 
+                  onViewDetails={() => handleViewDetails(project)}
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
