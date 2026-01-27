@@ -238,7 +238,7 @@ const Projects = () => {
             Soluções que <span className="text-neon-green/90 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Geram Valor</span>
           </h2>
           <div className="w-16 h-1 bg-neon-green mx-auto mb-6 glow-box"></div>
-          <p className="text-white/70 text-sm sm:text-base max-w-2xl mx-auto px-4">
+          <p className="text-white/70 text-sm sm:text-base max-w-2xl mx-auto px-4 font-sans">
             Confira como ajudei empresas a alcançarem resultados reais através de tecnologia e design estratégico.
           </p>
         </motion.div>
