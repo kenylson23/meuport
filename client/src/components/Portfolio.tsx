@@ -114,6 +114,18 @@ const Portfolio = () => {
             {/* Linhas de Varredura (Scanlines) */}
             <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_4px,3px_100%] pointer-events-none opacity-20"></div>
             
+            {/* Scanning Laser Line */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+              <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-neon-green/40 to-transparent animate-scan"></div>
+            </div>
+
+            {/* Glowing Orbs - Adição interessante e dinâmica */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+              <div className="absolute top-[20%] left-[15%] w-[300px] h-[300px] bg-neon-green/5 rounded-full blur-[100px] animate-pulse"></div>
+              <div className="absolute bottom-[25%] right-[10%] w-[400px] h-[400px] bg-cyan-500/5 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '3s' }}></div>
+              <div className="absolute top-[60%] left-[60%] w-[250px] h-[250px] bg-purple-500/5 rounded-full blur-[80px] animate-pulse" style={{ animationDelay: '5s' }}></div>
+            </div>
+
             {/* Partículas flutuantes sutis */}
             <div className="absolute inset-0">
               {particleData.slice(0, 30).map((particle, i) => (

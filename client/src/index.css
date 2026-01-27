@@ -76,6 +76,17 @@ canvas {
   animation: float linear infinite;
 }
 
+@keyframes scan {
+  0% { top: -5%; opacity: 0; }
+  5% { opacity: 1; }
+  95% { opacity: 1; }
+  100% { top: 105%; opacity: 0; }
+}
+
+.animate-scan {
+  animation: scan 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
 /* Melhorias para Mobile e Tablet */
 @media (max-width: 768px) {
   .min-h-screen {
