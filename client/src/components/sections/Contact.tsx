@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Send, Calendar, Instagram, Linkedin, MessageCircle, Twitter } from "lucide-react";
+import { Mail, Send, Calendar, Instagram, Linkedin, MessageCircle, Twitter, MapPin } from "lucide-react";
 import { useAudio } from "../../lib/stores/useAudio";
 
 const Contact = () => {
@@ -53,7 +53,7 @@ const Contact = () => {
             className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-neutral-100"
           >
             <Mail className="h-4 w-4" />
-            Let's Work Together
+            Vamos Trabalhar Juntos
           </motion.span>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -62,7 +62,7 @@ const Contact = () => {
             viewport={{ once: true }}
             className="mt-4 text-4xl sm:text-6xl tracking-tight font-semibold text-white"
           >
-            Ready to <span className="italic font-serif font-medium text-neutral-200">collaborate?</span>
+            Pronto para <span className="italic font-serif font-medium text-neutral-200">colaborar?</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -71,7 +71,7 @@ const Contact = () => {
             viewport={{ once: true }}
             className="mt-4 text-neutral-400 text-lg max-w-2xl mx-auto"
           >
-            Whether you need help with product design, strategy, or education, I'm here to help bring your vision to life.
+            Estou sempre animado para trabalhar em novos projetos e colaborar com mentes criativas. Seja para uma ideia específica ou consultoria, estou aqui para ajudar a tornar sua visão realidade.
           </motion.p>
         </div>
 
@@ -84,11 +84,11 @@ const Contact = () => {
             viewport={{ once: true }}
             className="relative rounded-2xl border border-white/10 bg-white/5 p-8 shadow-2xl backdrop-blur"
           >
-            <h3 className="text-xl font-semibold text-white mb-6">Send a Message</h3>
+            <h3 className="text-xl font-semibold text-white mb-6">Enviar uma Mensagem</h3>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="">
-                  <label className="block text-sm font-medium text-neutral-300 mb-2">Name</label>
+                  <label className="block text-sm font-medium text-neutral-300 mb-2">Nome</label>
                   <input 
                     type="text" 
                     name="name"
@@ -96,7 +96,7 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-neutral-100 placeholder-neutral-400 focus:border-white/20 focus:outline-none focus:ring-1 focus:ring-white/20" 
-                    placeholder="Your name" 
+                    placeholder="Seu nome" 
                   />
                 </div>
                 <div className="">
@@ -108,12 +108,12 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-neutral-100 placeholder-neutral-400 focus:border-white/20 focus:outline-none focus:ring-1 focus:ring-white/20" 
-                    placeholder="your@email.com" 
+                    placeholder="seu@email.com" 
                   />
                 </div>
               </div>
               <div className="">
-                <label className="block text-sm font-medium text-neutral-300 mb-2">Project Budget</label>
+                <label className="block text-sm font-medium text-neutral-300 mb-2">Orçamento do Projeto</label>
                 <select 
                   name="budget"
                   value={formData.budget}
@@ -127,7 +127,7 @@ const Contact = () => {
                 </select>
               </div>
               <div className="">
-                <label className="block text-sm font-medium text-neutral-300 mb-2">Message</label>
+                <label className="block text-sm font-medium text-neutral-300 mb-2">Mensagem</label>
                 <textarea 
                   name="message"
                   value={formData.message}
@@ -135,11 +135,11 @@ const Contact = () => {
                   required
                   rows={4} 
                   className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-neutral-100 placeholder-neutral-400 focus:border-white/20 focus:outline-none focus:ring-1 focus:ring-white/20" 
-                  placeholder="Tell me about your project..."
+                  placeholder="Conte-me sobre seu projeto..."
                 ></textarea>
               </div>
               <button type="submit" className="w-full inline-flex items-center justify-center gap-2 rounded-lg bg-white/10 border border-white/20 px-6 py-3 text-neutral-100 hover:bg-white/15 transition">
-                <span className="font-medium">Send Message</span>
+                <span className="font-medium">Enviar Mensagem</span>
                 <Send className="h-4 w-4" />
               </button>
             </form>
@@ -154,7 +154,7 @@ const Contact = () => {
               viewport={{ once: true }}
               className="relative rounded-2xl border border-white/10 bg-white/5 p-6 shadow-xl backdrop-blur"
             >
-              <div className="flex items-center gap-4">
+              <a href="mailto:kenylsonlourenco0@gmail.com" className="flex items-center gap-4">
                 <div className="h-12 w-12 rounded-xl bg-white/10 border-white/10 p-3 shadow-lg">
                   <Mail className="h-6 w-6 text-white" />
                 </div>
@@ -162,7 +162,7 @@ const Contact = () => {
                   <h3 className="text-lg font-semibold text-white">Email</h3>
                   <p className="text-neutral-400">kenylsonlourenco0@gmail.com</p>
                 </div>
-              </div>
+              </a>
             </motion.div>
 
             <motion.div 
@@ -172,13 +172,31 @@ const Contact = () => {
               viewport={{ once: true }}
               className="relative rounded-2xl border border-white/10 bg-white/5 p-6 shadow-xl backdrop-blur"
             >
-              <div className="flex items-center gap-4">
+              <a href="https://wa.me/244949639932" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4">
                 <div className="h-12 w-12 rounded-xl bg-white/10 border-white/10 p-3 shadow-lg">
-                  <Calendar className="h-6 w-6 text-white" />
+                  <MessageCircle className="h-6 w-6 text-white" />
                 </div>
                 <div className="">
-                  <h3 className="text-lg font-semibold text-white">Schedule a Call</h3>
-                  <p className="text-neutral-400">Book a free consultation</p>
+                  <h3 className="text-lg font-semibold text-white">WhatsApp</h3>
+                  <p className="text-neutral-400">+244 949 639 932</p>
+                </div>
+              </a>
+            </motion.div>
+
+            <motion.div 
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.55 }}
+              viewport={{ once: true }}
+              className="relative rounded-2xl border border-white/10 bg-white/5 p-6 shadow-xl backdrop-blur"
+            >
+              <div className="flex items-center gap-4">
+                <div className="h-12 w-12 rounded-xl bg-white/10 border-white/10 p-3 shadow-lg">
+                  <MapPin className="h-6 w-6 text-white" />
+                </div>
+                <div className="">
+                  <h3 className="text-lg font-semibold text-white">Localização</h3>
+                  <p className="text-neutral-400">Disponível Mundialmente</p>
                 </div>
               </div>
             </motion.div>
@@ -190,24 +208,40 @@ const Contact = () => {
               viewport={{ once: true }}
               className="relative rounded-2xl border border-white/10 bg-white/5 p-6 shadow-xl backdrop-blur"
             >
-              <h3 className="text-lg font-semibold text-white mb-4">Follow Me</h3>
+              <h3 className="text-lg font-semibold text-white mb-4">Siga-me</h3>
               <div className="flex items-center gap-4">
-                <a href="#" className="flex items-center justify-center w-10 h-10 rounded-lg bg-white/10 text-neutral-400 hover:text-white hover:bg-white/15 transition">
-                  <Twitter className="w-5 h-5" />
-                </a>
                 <a href="https://www.instagram.com/kenylson_lourenco/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-10 h-10 rounded-lg bg-white/10 text-neutral-400 hover:text-white hover:bg-white/15 transition">
                   <Instagram className="w-5 h-5" />
                 </a>
                 <a href="#" className="flex items-center justify-center w-10 h-10 rounded-lg bg-white/10 text-neutral-400 hover:text-white hover:bg-white/15 transition">
                   <Linkedin className="w-5 h-5" />
                 </a>
-                <a href="https://wa.me/244949639932" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-10 h-10 rounded-lg bg-white/10 text-neutral-400 hover:text-white hover:bg-white/15 transition">
-                  <MessageCircle className="w-5 h-5" />
-                </a>
               </div>
             </motion.div>
           </div>
         </div>
+        
+        {/* Footer */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          viewport={{ once: true }}
+          className="text-center mt-16 pt-8 border-t border-white/10"
+        >
+          <p className="text-white/60">
+            © 2025{" "}
+            <a 
+              href="https://www.instagram.com/kenylson_lourenco/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-white hover:text-neutral-300 transition-colors duration-300 cursor-pointer"
+            >
+              Kenylson Lourenço
+            </a>
+            . Construído com paixão e código.
+          </p>
+        </motion.div>
       </div>
 
       <div className="absolute bottom-0 left-0 right-0 pointer-events-none">
