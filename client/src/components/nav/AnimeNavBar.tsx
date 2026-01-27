@@ -128,9 +128,9 @@ export function AnimeNavBar({ items, className, defaultActive = "hero", currentS
                       damping: 30,
                     }}
                   >
-                    <div className="relative w-12 h-12">
+                    <div className="relative w-12 h-12 flex items-center justify-center">
                       <motion.div 
-                        className="absolute w-10 h-10 bg-neon-green rounded-full left-1/2 -translate-x-1/2 shadow-[0_0_15px_#39ff14]"
+                        className="w-10 h-10 bg-neon-green rounded-full shadow-[0_0_15px_#39ff14] flex items-center justify-center relative"
                         animate={
                           hoveredTab ? {
                             scale: [1, 1.1, 1],
@@ -160,7 +160,7 @@ export function AnimeNavBar({ items, className, defaultActive = "hero", currentS
                               }
                             } : {}
                           }
-                          style={{ left: '25%', top: '40%' }}
+                          style={{ left: '20%', top: '35%' }}
                         />
                         <motion.div 
                           className="absolute w-2 h-2 bg-black rounded-full"
@@ -173,7 +173,7 @@ export function AnimeNavBar({ items, className, defaultActive = "hero", currentS
                               }
                             } : {}
                           }
-                          style={{ right: '25%', top: '40%' }}
+                          style={{ right: '20%', top: '35%' }}
                         />
                         
                         <motion.div 
@@ -187,11 +187,12 @@ export function AnimeNavBar({ items, className, defaultActive = "hero", currentS
                               y: 0
                             }
                           }
-                          style={{ left: '30%', top: '60%' }}
+                          style={{ bottom: '25%' }}
                         />
                       </motion.div>
                       <motion.div
                         className="absolute -bottom-1 left-1/2 w-4 h-4 -translate-x-1/2"
+                        style={{ zIndex: -1 }}
                         animate={
                           hoveredTab ? {
                             y: [0, -4, 0],
