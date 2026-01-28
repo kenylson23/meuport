@@ -168,7 +168,7 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
               </div>
 
               {/* Content */}
-              <div className="p-8 overflow-y-auto custom-scrollbar flex-grow">
+              <div className="p-8 overflow-y-auto flex-grow h-[400px]">
                 {/* Overview Panel */}
                 <div
                   id="overview-panel"
