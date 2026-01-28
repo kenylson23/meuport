@@ -57,8 +57,8 @@ const defaultCompanies = [
 ];
 
 const defaultAchievements = [
-  { label: "Projetos Finalizados", value: "50+" },
-  { label: "Anos de Experiência", value: "5+" },
+  { label: "Projetos Finalizados", value: "10+" },
+  { label: "Anos de Experiência", value: "3+" },
   { label: "Clientes Satisfeitos", value: "100%" },
   { label: "Tecnologias Dominadas", value: "15+" },
 ];
