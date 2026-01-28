@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Volume2, VolumeX, Keyboard, Pause, Play, X } from "lucide-react";
+import { Volume2, VolumeX, CloudRain, Pause, Play, X } from "lucide-react";
 import { useAudio } from "../../lib/stores/useAudio";
 import { cn } from "../../lib/utils";
 
@@ -74,11 +74,11 @@ const AudioControls = () => {
 
             <div className="flex items-center gap-3 mb-5">
               <div className="w-10 h-10 rounded-xl bg-neon-green/10 border border-neon-green/30 flex items-center justify-center">
-                <Keyboard className="w-5 h-5 text-neon-green" />
+                <CloudRain className="w-5 h-5 text-neon-green" />
               </div>
               <div>
                 <h3 className="text-white font-semibold text-sm">Som Ambiente</h3>
-                <p className="text-white/50 text-xs">Teclado digitando</p>
+                <p className="text-white/50 text-xs">Chuva relaxante</p>
               </div>
             </div>
 

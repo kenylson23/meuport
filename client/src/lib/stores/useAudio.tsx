@@ -36,10 +36,10 @@ export const useAudio = create<AudioState>((set, get) => ({
   
   initializeAudio: () => {
     try {
-      // Initialize background music (keyboard typing sound)
-      const bgMusic = new Audio('/sounds/keyboard.mp3');
+      // Initialize background music (rain ambient sound)
+      const bgMusic = new Audio('/sounds/rain.mp3');
       bgMusic.loop = true;
-      bgMusic.volume = 0.3; // Moderate volume for typing sounds
+      bgMusic.volume = 0.3; // Moderate volume for rain sounds
       
       // Initialize sound effects
       const hit = new Audio('/sounds/hit.mp3');
@@ -87,7 +87,7 @@ export const useAudio = create<AudioState>((set, get) => ({
   startBackgroundMusic: () => {
     const { backgroundMusic, isMuted, volume } = get();
     if (backgroundMusic && !isMuted) {
-      backgroundMusic.volume = volume * 0.4; // Keyboard typing volume
+      backgroundMusic.volume = volume * 0.5; // Rain ambient volume
       backgroundMusic.muted = false;
       backgroundMusic.play().catch(error => {
         console.log("Background music play prevented:", error);
