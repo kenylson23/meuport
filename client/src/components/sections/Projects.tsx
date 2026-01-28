@@ -234,8 +234,8 @@ const Projects = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-orbitron font-bold text-white mb-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-            Soluções que <span className="text-neon-green/90 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] font-orbitron">Geram Valor</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+            Soluções que <span className="text-neon-green/90 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Geram Valor</span>
           </h2>
           <div className="w-16 h-1 bg-neon-green mx-auto mb-6 glow-box"></div>
           <p className="text-white/70 text-sm sm:text-base max-w-2xl mx-auto px-4 font-sans">
