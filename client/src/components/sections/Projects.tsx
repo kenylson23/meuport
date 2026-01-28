@@ -39,7 +39,7 @@ const ProjectCard = ({ project, index, onViewDetails }: ProjectCardProps) => {
           <div
             className="absolute bottom-3 left-3 flex items-center gap-2 rounded-full bg-black/60 px-2.5 py-1.5 ring-1 ring-white/10 backdrop-blur">
             <span className="h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
-            <span className="text-[12px] text-neutral-200 font-geist">Available for work</span>
+            <span className="text-[12px] text-neutral-200 font-geist">Disponível para trabalho</span>
           </div>
           
           {/* External Links Overlay */}
