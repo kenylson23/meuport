@@ -65,9 +65,21 @@ const LanguageShowcase = () => {
         <div
           className="text-center mt-12"
         >
-          <p className="text-neon-green/60 text-sm font-orbitron animate-pulse">
-            ← Passe o mouse e clique nos modelos 3D para interagir →
-          </p>
+          <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-neon-green/5 border border-neon-green/20 backdrop-blur-sm group hover:border-neon-green/40 transition-all duration-500">
+            <div className="flex gap-1">
+              <div className="w-1.5 h-1.5 rounded-full bg-neon-green animate-bounce [animation-delay:-0.3s]" />
+              <div className="w-1.5 h-1.5 rounded-full bg-neon-green animate-bounce [animation-delay:-0.15s]" />
+              <div className="w-1.5 h-1.5 rounded-full bg-neon-green animate-bounce" />
+            </div>
+            <p className="text-neon-green/80 text-xs font-bold uppercase tracking-[0.2em] group-hover:text-neon-green transition-colors">
+              Interaja com os Modelos 3D
+            </p>
+            <div className="flex gap-1">
+              <div className="w-1.5 h-1.5 rounded-full bg-neon-green animate-bounce" />
+              <div className="w-1.5 h-1.5 rounded-full bg-neon-green animate-bounce [animation-delay:-0.15s]" />
+              <div className="w-1.5 h-1.5 rounded-full bg-neon-green animate-bounce [animation-delay:-0.3s]" />
+            </div>
+          </div>
         </div>
       </div>
     </section>
