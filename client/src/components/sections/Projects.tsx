@@ -45,14 +45,6 @@ const ProjectCard = ({ project, index, onViewDetails }: ProjectCardProps) => {
           {/* External Links Overlay */}
           <div className="absolute top-3 right-3 flex gap-2">
             <a
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 bg-black/60 rounded-full text-neutral-300 hover:text-white ring-1 ring-white/10 backdrop-blur transition"
-            >
-              <Github className="w-4 h-4" />
-            </a>
-            <a
               href={project.live}
               target="_blank"
               rel="noopener noreferrer"
