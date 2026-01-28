@@ -67,7 +67,7 @@ export const About = ({
   title = "Sobre Mim",
   description = "Desenvolvedor Full Stack especializado em transformar desafios técnicos em soluções de alto impacto. Meu foco é criar sistemas escaláveis e experiências digitais imersivas que impulsionam o crescimento de empresas através de tecnologia moderna e design focado no usuário.",
   mainImage = {
-    src: "/images/profile.png",
+    src: "/images/profile_new.png",
     alt: "Kenylson Lourenço - Desenvolvedor Full Stack",
   },
   secondaryImage = {
