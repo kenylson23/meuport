@@ -106,18 +106,18 @@ export const About = ({
         
         <div className="grid gap-6 lg:grid-cols-12 max-w-5xl mx-auto">
           <div
-            className="lg:col-span-7"
+            className="lg:col-span-5"
           >
             <img
               src={mainImage.src}
               alt={mainImage.alt}
-              className="w-full h-[220px] lg:h-[260px] rounded-xl object-cover object-bottom border border-white/10"
+              className="w-full h-[400px] lg:h-[450px] rounded-xl object-cover object-bottom border border-white/10"
             />
           </div>
           
-          <div className="flex flex-col gap-6 md:flex-row lg:flex-col lg:col-span-5">
+          <div className="flex flex-col gap-6 md:flex-row lg:flex-col lg:col-span-7">
             <div 
-              className="flex flex-col justify-between gap-3 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 p-5 md:w-1/2 lg:w-auto"
+              className="flex flex-col justify-between gap-3 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 p-5 md:w-1/2 lg:w-auto h-full"
             >
               <img
                 src={breakout.src}
@@ -136,12 +136,12 @@ export const About = ({
             </div>
             
             <div
-              className="grow basis-0 md:w-1/2 lg:w-auto"
+              className="grow basis-0 md:w-1/2 lg:w-auto h-full"
             >
               <img
                 src={secondaryImage.src}
                 alt={secondaryImage.alt}
-                className="w-full h-[150px] lg:h-[165px] rounded-xl object-cover border border-white/10"
+                className="w-full h-full min-h-[150px] rounded-xl object-cover border border-white/10"
               />
             </div>
           </div>
