@@ -1,21 +1,21 @@
 import { useState, useEffect, useCallback, useRef } from "react"
 
-// Tetris pieces - pure black and white
+// Tetris pieces - neon green
 const TETRIS_PIECES = [
   // I-piece
-  { shape: [[1, 1, 1, 1]], color: 'bg-black dark:bg-white' },
+  { shape: [[1, 1, 1, 1]], color: 'bg-neon-green shadow-[0_0_10px_#39ff14]' },
   // O-piece
-  { shape: [[1, 1], [1, 1]], color: 'bg-black dark:bg-white' },
+  { shape: [[1, 1], [1, 1]], color: 'bg-neon-green shadow-[0_0_10px_#39ff14]' },
   // T-piece
-  { shape: [[0, 1, 0], [1, 1, 1]], color: 'bg-black dark:bg-white' },
+  { shape: [[0, 1, 0], [1, 1, 1]], color: 'bg-neon-green shadow-[0_0_10px_#39ff14]' },
   // L-piece
-  { shape: [[1, 0], [1, 0], [1, 1]], color: 'bg-black dark:bg-white' },
+  { shape: [[1, 0], [1, 0], [1, 1]], color: 'bg-neon-green shadow-[0_0_10px_#39ff14]' },
   // S-piece
-  { shape: [[0, 1, 1], [1, 1, 0]], color: 'bg-black dark:bg-white' },
+  { shape: [[0, 1, 1], [1, 1, 0]], color: 'bg-neon-green shadow-[0_0_10px_#39ff14]' },
   // Z-piece
-  { shape: [[1, 1, 0], [0, 1, 1]], color: 'bg-black dark:bg-white' },
+  { shape: [[1, 1, 0], [0, 1, 1]], color: 'bg-neon-green shadow-[0_0_10px_#39ff14]' },
   // J-piece
-  { shape: [[0, 1], [0, 1], [1, 1]], color: 'bg-black dark:bg-white' },
+  { shape: [[0, 1], [0, 1], [1, 1]], color: 'bg-neon-green shadow-[0_0_10px_#39ff14]' },
 ]
 
 interface Cell {
@@ -172,7 +172,7 @@ export default function TetrisLoading({
         // Mark lines for clearing animation
         const newGrid = prevGrid.map((row, rowIndex) => {
           if (linesToClear.includes(rowIndex)) {
-            return row.map(cell => ({ ...cell, color: 'bg-black dark:bg-white animate-pulse opacity-50' }))
+            return row.map(cell => ({ ...cell, color: 'bg-neon-green animate-pulse opacity-50' }))
           }
           return row
         })
@@ -278,10 +278,10 @@ export default function TetrisLoading({
         {row.map((cell, colIndex) => (
           <div
             key={`${rowIndex}-${colIndex}`}
-            className={`${config.cellSize} border border-gray-300 dark:border-gray-600 transition-all duration-100 ${
+            className={`${config.cellSize} border border-neon-green/10 transition-all duration-100 ${
               cell.filled 
                 ? `${cell.color} scale-100` 
-                : 'bg-white dark:bg-black scale-95'
+                : 'bg-black scale-95'
             } ${isClearing && rowIndex < 4 ? 'animate-pulse' : ''}`}
           />
         ))}
@@ -292,14 +292,14 @@ export default function TetrisLoading({
   return (
     <div className="flex flex-col items-center justify-center min-h-[300px]">
       <div className="mb-6">
-        <div className={`border-2 border-gray-800 dark:border-gray-200 bg-white dark:bg-black ${config.padding} transition-colors`}>
+        <div className={`border-2 border-neon-green/30 bg-black ${config.padding} transition-colors shadow-[0_0_20px_rgba(57,255,20,0.1)]`}>
           {renderGrid()}
         </div>
       </div>
 
       {showLoadingText && (
         <div className="text-center">
-          <p className="text-black dark:text-white font-medium transition-colors font-geist">{loadingText}</p>
+          <p className="text-neon-green font-medium animate-pulse-neon transition-colors font-orbitron tracking-widest">{loadingText}</p>
         </div>
       )}
     </div>
