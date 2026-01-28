@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { Volume2, VolumeX, Music, Pause, Play } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Volume2, VolumeX, Keyboard, Pause, Play, X } from "lucide-react";
 import { useAudio } from "../../lib/stores/useAudio";
 import { cn } from "../../lib/utils";
 
@@ -20,7 +20,6 @@ const AudioControls = () => {
   const [isInitialized, setIsInitialized] = useState(false);
 
   useEffect(() => {
-    // Initialize audio on first user interaction
     const handleFirstInteraction = () => {
       if (!isInitialized) {
         initializeAudio();
@@ -28,7 +27,6 @@ const AudioControls = () => {
       }
     };
 
-    // Listen for any click to initialize audio context
     document.addEventListener('click', handleFirstInteraction, { once: true });
     document.addEventListener('keydown', handleFirstInteraction, { once: true });
 
@@ -42,7 +40,6 @@ const AudioControls = () => {
     if (!isInitialized) {
       initializeAudio();
       setIsInitialized(true);
-      return;
     }
 
     if (isBackgroundPlaying) {
@@ -58,106 +55,114 @@ const AudioControls = () => {
   };
 
   return (
-    <motion.div
-      className="fixed bottom-4 right-4 z-50"
-      initial={{ opacity: 0, scale: 0.8 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ delay: 2 }}
-    >
-      <div className="flex flex-col items-end space-y-2">
-        {/* Expanded Controls */}
-        <motion.div
-          initial={false}
-          animate={{ 
-            opacity: isExpanded ? 1 : 0,
-            y: isExpanded ? 0 : 20,
-            scale: isExpanded ? 1 : 0.8
-          }}
-          transition={{ duration: 0.2 }}
-          className={cn(
-            "bg-black/80 backdrop-blur-md border border-neon-green/30 rounded-lg p-4 space-y-3",
-            !isExpanded && "pointer-events-none"
-          )}
-        >
-          {/* Background Music Control */}
-          <div className="flex items-center space-x-3">
-            <Music className="w-4 h-4 text-neon-green" />
-            <span className="text-white text-sm font-orbitron">Ambient</span>
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={handleToggleMusic}
-              aria-label={isBackgroundPlaying ? "Pausar música ambiente" : "Reproduzir música ambiente"}
-              className={cn(
-                "p-1 rounded text-xs",
-                isBackgroundPlaying 
-                  ? "text-neon-green bg-neon-green/20" 
-                  : "text-white/60 bg-white/10"
-              )}
+    <div className="fixed bottom-4 right-4 z-50">
+      <AnimatePresence>
+        {isExpanded && (
+          <motion.div
+            initial={{ opacity: 0, y: 10, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 10, scale: 0.95 }}
+            transition={{ duration: 0.2 }}
+            className="absolute bottom-14 right-0 bg-gradient-to-br from-gray-900/95 to-black/95 backdrop-blur-xl border border-neon-green/20 rounded-2xl p-5 shadow-2xl shadow-neon-green/10 min-w-[220px]"
+          >
+            <button
+              onClick={() => setIsExpanded(false)}
+              className="absolute top-3 right-3 text-white/40 hover:text-white transition-colors"
             >
-              {isBackgroundPlaying ? <Pause className="w-3 h-3" /> : <Play className="w-3 h-3" />}
-            </motion.button>
-          </div>
+              <X className="w-4 h-4" />
+            </button>
 
-          {/* Volume Control */}
-          <div className="flex items-center space-x-3">
-            <Volume2 className="w-4 h-4 text-neon-green" />
-            <input
-              type="range"
-              min="0"
-              max="1"
-              step="0.1"
-              value={volume}
-              onChange={handleVolumeChange}
-              aria-label="Controle de volume"
-              aria-valuemin={0}
-              aria-valuemax={1}
-              aria-valuenow={volume}
-              aria-valuetext={`${Math.round(volume * 100)}%`}
-              className="w-20 h-1 bg-gray-600 rounded-lg appearance-none cursor-pointer"
-              style={{
-                background: `linear-gradient(to right, var(--neon-green) 0%, var(--neon-green) ${volume * 100}%, #374151 ${volume * 100}%, #374151 100%)`
-              }}
-            />
-            <span className="text-white/60 text-xs font-mono min-w-[2rem]">
-              {Math.round(volume * 100)}%
-            </span>
-          </div>
-        </motion.div>
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-10 h-10 rounded-xl bg-neon-green/10 border border-neon-green/30 flex items-center justify-center">
+                <Keyboard className="w-5 h-5 text-neon-green" />
+              </div>
+              <div>
+                <h3 className="text-white font-semibold text-sm">Som Ambiente</h3>
+                <p className="text-white/50 text-xs">Teclado digitando</p>
+              </div>
+            </div>
 
-        {/* Main Toggle Button */}
-        <motion.button
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          onClick={() => setIsExpanded(!isExpanded)}
-          onMouseEnter={() => setIsExpanded(true)}
-          aria-label={isExpanded ? "Fechar controles de áudio" : "Abrir controles de áudio"}
-          aria-expanded={isExpanded}
-          className="bg-black/80 backdrop-blur-md border border-neon-green/30 rounded-full p-3 text-neon-green hover:border-neon-green transition-colors duration-300"
-        >
-          {isMuted ? (
-            <VolumeX className="w-5 h-5" />
-          ) : (
-            <Volume2 className="w-5 h-5" />
-          )}
-        </motion.button>
+            <div className="flex items-center justify-between mb-4">
+              <span className="text-white/70 text-xs uppercase tracking-wider">Reproduzir</span>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={handleToggleMusic}
+                aria-label={isBackgroundPlaying ? "Pausar som" : "Reproduzir som"}
+                className={cn(
+                  "w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300",
+                  isBackgroundPlaying 
+                    ? "bg-neon-green text-black shadow-lg shadow-neon-green/40" 
+                    : "bg-white/10 text-white/60 hover:bg-white/20"
+                )}
+              >
+                {isBackgroundPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4 ml-0.5" />}
+              </motion.button>
+            </div>
 
-        {/* Mute Toggle */}
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={toggleMute}
-          className={cn(
-            "px-3 py-1 rounded text-xs font-orbitron border transition-colors duration-300",
-            isMuted 
-              ? "text-red-400 border-red-400/30 bg-red-400/10" 
-              : "text-neon-green border-neon-green/30 bg-neon-green/10"
-          )}
-        >
-          {isMuted ? "MUTED" : "AUDIO ON"}
-        </motion.button>
-      </div>
-    </motion.div>
+            <div className="space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="text-white/70 text-xs uppercase tracking-wider">Volume</span>
+                <span className="text-neon-green text-xs font-mono font-bold">
+                  {Math.round(volume * 100)}%
+                </span>
+              </div>
+              <div className="flex items-center gap-3">
+                <VolumeX className="w-3.5 h-3.5 text-white/40" />
+                <input
+                  type="range"
+                  min="0"
+                  max="1"
+                  step="0.05"
+                  value={volume}
+                  onChange={handleVolumeChange}
+                  aria-label="Volume"
+                  className="flex-1 h-1.5 bg-white/10 rounded-full appearance-none cursor-pointer accent-neon-green"
+                  style={{
+                    background: `linear-gradient(to right, rgb(57, 255, 20) 0%, rgb(57, 255, 20) ${volume * 100}%, rgba(255,255,255,0.1) ${volume * 100}%, rgba(255,255,255,0.1) 100%)`
+                  }}
+                />
+                <Volume2 className="w-3.5 h-3.5 text-white/40" />
+              </div>
+            </div>
+
+            <div className="mt-4 pt-4 border-t border-white/5">
+              <button
+                onClick={toggleMute}
+                className={cn(
+                  "w-full py-2 rounded-lg text-xs font-medium transition-all duration-300",
+                  isMuted 
+                    ? "bg-red-500/20 text-red-400 border border-red-500/30" 
+                    : "bg-neon-green/10 text-neon-green border border-neon-green/30"
+                )}
+              >
+                {isMuted ? "Som Desativado" : "Som Ativado"}
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <motion.button
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        onClick={() => setIsExpanded(!isExpanded)}
+        aria-label="Controles de áudio"
+        aria-expanded={isExpanded}
+        className={cn(
+          "w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg",
+          isExpanded 
+            ? "bg-neon-green text-black shadow-neon-green/40" 
+            : "bg-gray-900/90 backdrop-blur-md border border-neon-green/30 text-neon-green hover:border-neon-green"
+        )}
+      >
+        {isMuted ? (
+          <VolumeX className="w-5 h-5" />
+        ) : (
+          <Volume2 className="w-5 h-5" />
+        )}
+      </motion.button>
+    </div>
   );
 };
 
