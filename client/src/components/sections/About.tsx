@@ -111,7 +111,7 @@ export const About = ({
             <img
               src={mainImage.src}
               alt={mainImage.alt}
-              className="w-full h-[300px] lg:h-[350px] rounded-xl object-cover border border-white/10"
+              className="w-full h-[300px] lg:h-[350px] rounded-xl object-cover object-top border border-white/10"
             />
           </div>
           
