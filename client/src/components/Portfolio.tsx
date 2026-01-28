@@ -7,6 +7,7 @@ import { AnimeNavBar } from "./nav/AnimeNavBar";
 import { Home, User, Cpu, Globe, FolderCode, Mail } from "lucide-react";
 import { usePortfolio } from "../lib/stores/usePortfolio";
 import { useAudio } from "../lib/stores/useAudio";
+import TetrisLoading from "./ui/TetrisLoading";
 
 const About = lazy(() => import("./sections/About"));
 const Skills = lazy(() => import("./sections/Skills"));
@@ -85,7 +86,7 @@ const Portfolio = () => {
   if (!isLoaded) {
     return (
       <div className="flex items-center justify-center h-screen bg-black">
-        <div className="text-neon-green text-xl animate-pulse font-orbitron">CARREGANDO...</div>
+        <TetrisLoading size="md" speed="normal" loadingText="Carregando Portfólio..." />
       </div>
     );
   }

@@ -265,7 +265,7 @@ export default function TetrisLoading({
             const gridX = fallingPiece.x + col
             const gridY = fallingPiece.y + row
 
-            if (gridY >= 0 && gridY < config.gridHeight && gridX >= 0 && config.gridWidth) {
+            if (gridY >= 0 && gridY < config.gridHeight && gridX >= 0 && gridX < config.gridWidth) {
               displayGrid[gridY][gridX] = { filled: true, color: fallingPiece.color }
             }
           }
