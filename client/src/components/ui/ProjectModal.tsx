@@ -26,13 +26,13 @@ interface ProjectModalProps {
 
 const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
   const { playSuccess, playButtonClick } = useAudio();
-  const [activeTab, setActiveTab] = useState<'overview' | 'code' | 'gallery'>('overview');
-  const [copiedCode, setCopiedCode] = useState(false);
+  const [activeTab, setActiveTab] = useState<'overview' | 'gallery'>('overview');
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
+      setActiveTab('overview');
     } else {
       document.body.style.overflow = 'unset';
     }
@@ -58,60 +58,20 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
     };
   }, [isOpen, onClose]);
 
-  const handleCopyCode = async () => {
-    if (project?.codeSnippet) {
-      try {
-        await navigator.clipboard.writeText(project.codeSnippet);
-        setCopiedCode(true);
-        playSuccess();
-        setTimeout(() => setCopiedCode(false), 2000);
-      } catch (err) {
-        console.error('Failed to copy code:', err);
-      }
-    }
-  };
-
-  const handleTabChange = (tab: 'overview' | 'code' | 'gallery') => {
+  const handleTabChange = (tab: 'overview' | 'gallery') => {
     setActiveTab(tab);
     playButtonClick();
   };
 
   if (!project) return null;
 
-  const mockCodeSnippet = `// ${project.title} - Core Implementation
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-
-const ${project.title.replace(/[^a-zA-Z0-9]/g, '')} = () => {
-  const [isLoaded, setIsLoaded] = useState(false);
-  
-  useEffect(() => {
-    // Initialize component
-    setIsLoaded(true);
-  }, []);
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="component-container"
-    >
-      <h1>{isLoaded ? '${project.title}' : 'Loading...'}</h1>
-      {/* Component implementation */}
-    </motion.div>
-  );
-};
-
-export default ${project.title.replace(/[^a-zA-Z0-9]/g, '')};`;
-
   const mockFeatures = project.features || [
-    "Responsive design for all devices",
-    "Real-time data synchronization",
-    "Advanced animation system",
-    "Optimized performance",
-    "Modern UI/UX patterns",
-    "Secure authentication"
+    "Design responsivo para todos os dispositivos",
+    "Sincronização de dados em tempo real",
+    "Sistema de animação avançado",
+    "Performance otimizada",
+    "Padrões modernos de UI/UX",
+    "Segurança e autenticação"
   ];
 
   const mockDemoImages = project.demoImages || [
@@ -140,7 +100,7 @@ export default ${project.title.replace(/[^a-zA-Z0-9]/g, '')};`;
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.8, opacity: 0 }}
             transition={{ type: "spring", damping: 25, stiffness: 500 }}
-            className="relative w-full max-w-6xl max-h-[90vh] overflow-hidden"
+            className="relative w-full max-w-4xl max-h-[90vh] overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             <GlowCard className="h-full overflow-hidden">
@@ -150,20 +110,10 @@ export default ${project.title.replace(/[^a-zA-Z0-9]/g, '')};`;
                   <h2 className="text-2xl font-orbitron font-bold text-white">
                     {project.title}
                   </h2>
-                  <p className="text-neon-green text-sm mt-1">Interactive Project Details</p>
+                  <p className="text-neon-green text-sm mt-1">Detalhes do Projeto</p>
                 </div>
                 
                 <div className="flex items-center space-x-3">
-                  <motion.a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.1 }}
-                    aria-label="Ver código-fonte no GitHub"
-                    className="p-2 text-neon-green hover:text-white transition-colors"
-                  >
-                    <Github className="w-5 h-5" />
-                  </motion.a>
                   <motion.a
                     href={project.live}
                     target="_blank"
@@ -189,9 +139,8 @@ export default ${project.title.replace(/[^a-zA-Z0-9]/g, '')};`;
               {/* Tabs */}
               <div className="flex border-b border-neon-green/20" role="tablist">
                 {[
-                  { id: 'overview', label: 'Overview', icon: Eye },
-                  { id: 'code', label: 'Code', icon: Code },
-                  { id: 'gallery', label: 'Gallery', icon: ExternalLink }
+                  { id: 'overview', label: 'Visão Geral', icon: Eye },
+                  { id: 'gallery', label: 'Galeria', icon: ExternalLink }
                 ].map(({ id, label, icon: Icon }) => (
                   <button
                     key={id}
@@ -214,7 +163,7 @@ export default ${project.title.replace(/[^a-zA-Z0-9]/g, '')};`;
               </div>
 
               {/* Content */}
-              <div className="p-6 h-96 overflow-y-auto">
+              <div className="p-6 max-h-[60vh] overflow-y-auto">
                 {/* Overview Panel */}
                 <div
                   id="overview-panel"
@@ -224,7 +173,7 @@ export default ${project.title.replace(/[^a-zA-Z0-9]/g, '')};`;
                   className="space-y-6"
                 >
                   {/* Hero Image */}
-                  <div className="relative h-48 rounded-lg overflow-hidden">
+                  <div className="relative h-64 rounded-lg overflow-hidden">
                     <img
                       src={project.image}
                       alt={project.title}
@@ -236,7 +185,7 @@ export default ${project.title.replace(/[^a-zA-Z0-9]/g, '')};`;
                   {/* Description */}
                   <div>
                     <h3 className="text-lg font-orbitron font-semibold text-neon-green mb-3">
-                      About This Project
+                      Sobre este Projeto
                     </h3>
                     <p className="text-white/80 leading-relaxed">
                       {project.longDescription || project.description}
@@ -246,7 +195,7 @@ export default ${project.title.replace(/[^a-zA-Z0-9]/g, '')};`;
                   {/* Tech Stack */}
                   <div>
                     <h3 className="text-lg font-orbitron font-semibold text-neon-green mb-3">
-                      Technologies Used
+                      Tecnologias Utilizadas
                     </h3>
                     <div className="flex flex-wrap gap-2">
                       {project.tech.map((tech, index) => (
@@ -263,7 +212,7 @@ export default ${project.title.replace(/[^a-zA-Z0-9]/g, '')};`;
                   {/* Features */}
                   <div>
                     <h3 className="text-lg font-orbitron font-semibold text-neon-green mb-3">
-                      Key Features
+                      Principais Funcionalidades
                     </h3>
                     <ul className="space-y-2">
                       {mockFeatures.map((feature, index) => (
@@ -279,38 +228,6 @@ export default ${project.title.replace(/[^a-zA-Z0-9]/g, '')};`;
                   </div>
                 </div>
 
-                {/* Code Panel */}
-                <div
-                  id="code-panel"
-                  role="tabpanel"
-                  aria-labelledby="code-tab"
-                  hidden={activeTab !== 'code'}
-                  className="space-y-4"
-                >
-                  <div className="flex items-center justify-between">
-                    <h3 className="text-lg font-orbitron font-semibold text-neon-green">
-                      Code Preview
-                    </h3>
-                    <NeonButton
-                      size="sm"
-                      variant="outline"
-                      onClick={handleCopyCode}
-                      className="flex items-center space-x-2"
-                    >
-                      {copiedCode ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
-                      <span>{copiedCode ? 'Copied!' : 'Copy'}</span>
-                    </NeonButton>
-                  </div>
-                  
-                  <div className="relative">
-                    <pre className="bg-black/50 border border-neon-green/20 rounded-lg p-4 overflow-x-auto text-sm">
-                      <code className="text-white/90 font-mono">
-                        {project.codeSnippet || mockCodeSnippet}
-                      </code>
-                    </pre>
-                  </div>
-                </div>
-
                 {/* Gallery Panel */}
                 <div
                   id="gallery-panel"
@@ -320,14 +237,14 @@ export default ${project.title.replace(/[^a-zA-Z0-9]/g, '')};`;
                   className="space-y-4"
                 >
                   <h3 className="text-lg font-orbitron font-semibold text-neon-green">
-                    Project Gallery
+                    Galeria do Projeto
                   </h3>
                   
                   {/* Main Image */}
-                  <div className="relative h-64 rounded-lg overflow-hidden">
+                  <div className="relative h-80 rounded-lg overflow-hidden">
                     <img
                       src={mockDemoImages[currentImageIndex]}
-                      alt={`${project.title} - Image ${currentImageIndex + 1}`}
+                      alt={`${project.title} - Imagem ${currentImageIndex + 1}`}
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -340,7 +257,7 @@ export default ${project.title.replace(/[^a-zA-Z0-9]/g, '')};`;
                         onClick={() => setCurrentImageIndex(index)}
                         aria-label={`Ver imagem ${index + 1}`}
                         aria-current={index === currentImageIndex}
-                        className={`relative h-16 rounded overflow-hidden border-2 transition-colors hover:scale-105 ${
+                        className={`relative h-20 rounded overflow-hidden border-2 transition-colors hover:scale-105 ${
                           index === currentImageIndex
                             ? 'border-neon-green'
                             : 'border-transparent hover:border-neon-green/50'
@@ -361,23 +278,15 @@ export default ${project.title.replace(/[^a-zA-Z0-9]/g, '')};`;
               <div className="flex items-center justify-between p-6 border-t border-neon-green/20">
                 <div className="flex space-x-3">
                   <NeonButton
-                    onClick={() => window.open(project.github, '_blank')}
-                    variant="outline"
-                    size="sm"
-                  >
-                    <Github className="w-4 h-4 mr-2" />
-                    View Source
-                  </NeonButton>
-                  <NeonButton
                     onClick={() => window.open(project.live, '_blank')}
                     size="sm"
                   >
                     <ExternalLink className="w-4 h-4 mr-2" />
-                    Live Demo
+                    Acessar Projeto
                   </NeonButton>
                 </div>
                 <NeonButton variant="outline" onClick={onClose}>
-                  Close
+                  Fechar
                 </NeonButton>
               </div>
             </GlowCard>
