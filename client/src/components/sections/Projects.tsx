@@ -116,20 +116,6 @@ const Projects = () => {
 
   const projects: Project[] = [
     {
-      title: "Site para Marca de Cerveja Kenito",
-      description: "Aumento de 40% na visibilidade da marca online com design focado em conversão.",
-      longDescription: "Projeto estratégico focado no lançamento da marca, integrando storytelling com fluxos de venda otimizados.",
-      tech: ["React", "Conversion Focus"],
-      image: "/textures/kenito-beer.png",
-      github: "#",
-      live: "https://kenybeerr.netlify.app/",
-      features: [
-        "Design de alta conversão",
-        "Integração com pontos de venda",
-        "Otimização para dispositivos móveis"
-      ]
-    },
-    {
       title: "Escola de Condução Maria Olga",
       description: "Redução de 60% no tempo de atendimento via site através de ferramentas interativas.",
       longDescription: "Plataforma digital completa que automatiza dúvidas frequentes e facilita a matrícula de novos alunos.",
@@ -141,20 +127,6 @@ const Projects = () => {
         "Calculadora de Mensalidades (Lead Gen)",
         "Quiz Interativo de Retenção",
         "Funil de Matrícula Otimizado"
-      ]
-    },
-    {
-      title: "Site para Cuca",
-      description: "Estratégia digital que resultou em 25% mais engajamento com a marca.",
-      longDescription: "Revitalização da presença digital para uma das maiores marcas de cerveja, focando em experiência do usuário e conversão.",
-      tech: ["React", "Brand Strategy"],
-      image: "/textures/cuca-beer.png",
-      github: "#",
-      live: "https://textcuca.netlify.app/",
-      features: [
-        "Vitrine de Produtos Otimizada",
-        "Geolocalização de Pontos de Venda",
-        "Social Proof Integration"
       ]
     },
     {
@@ -170,22 +142,6 @@ const Projects = () => {
         "Calculadora de Mensalidades",
         "Sistema de Agendamento"
       ]
-    },
-    {
-      title: "App Web Mobile-First",
-      description: "Progressive Web App com capacidades offline, notificações push e design responsivo.",
-      tech: ["Vue.js", "PWA", "Service Workers", "Firebase"],
-      image: "/textures/sand.jpg",
-      github: "#",
-      live: "#"
-    },
-    {
-      title: "Ferramenta Alimentada por IA",
-      description: "Aplicação web de aprendizado de máquina para reconhecimento e classificação de imagens com processamento em tempo real.",
-      tech: ["Python", "TensorFlow", "Flask", "React"],
-      image: "/textures/sky.png",
-      github: "#",
-      live: "#"
     }
   ];
 
