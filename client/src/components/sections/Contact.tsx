@@ -82,7 +82,7 @@ const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3 }}
             viewport={{ once: true }}
-            className="relative rounded-2xl border border-white/10 bg-white/5 p-8 shadow-2xl backdrop-blur"
+            className="relative rounded-2xl border border-white/20 bg-black/70 p-8 shadow-2xl backdrop-blur-md"
           >
             <h3 className="text-xl font-semibold text-white mb-6">Enviar uma Mensagem</h3>
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -95,7 +95,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-neutral-100 placeholder-neutral-400 focus:border-white/20 focus:outline-none focus:ring-1 focus:ring-white/20" 
+                    className="w-full rounded-lg border border-white/20 bg-black/50 px-4 py-3 text-neutral-100 placeholder-neutral-500 focus:border-white/30 focus:outline-none focus:ring-1 focus:ring-white/30" 
                     placeholder="Seu nome" 
                   />
                 </div>
@@ -107,7 +107,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-neutral-100 placeholder-neutral-400 focus:border-white/20 focus:outline-none focus:ring-1 focus:ring-white/20" 
+                    className="w-full rounded-lg border border-white/20 bg-black/50 px-4 py-3 text-neutral-100 placeholder-neutral-500 focus:border-white/30 focus:outline-none focus:ring-1 focus:ring-white/30" 
                     placeholder="seu@email.com" 
                   />
                 </div>
@@ -120,11 +120,11 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   rows={4} 
-                  className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-neutral-100 placeholder-neutral-400 focus:border-white/20 focus:outline-none focus:ring-1 focus:ring-white/20" 
+                  className="w-full rounded-lg border border-white/20 bg-black/50 px-4 py-3 text-neutral-100 placeholder-neutral-500 focus:border-white/30 focus:outline-none focus:ring-1 focus:ring-white/30" 
                   placeholder="Conte-me sobre seu projeto..."
                 ></textarea>
               </div>
-              <button type="submit" className="w-full inline-flex items-center justify-center gap-2 rounded-lg bg-white/10 border border-white/20 px-6 py-3 text-neutral-100 hover:bg-white/15 transition">
+              <button type="submit" className="w-full inline-flex items-center justify-center gap-2 rounded-lg bg-white/20 border border-white/30 px-6 py-3 text-white font-medium hover:bg-white/30 transition">
                 <span className="font-medium">Enviar Mensagem</span>
                 <Send className="h-4 w-4" />
               </button>
