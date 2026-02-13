@@ -78,20 +78,14 @@ const ProjectCard = ({ project, index, onViewDetails }: ProjectCardProps) => {
           <div className="my-5 h-px bg-gradient-to-r from-white/10 via-white/5 to-transparent"></div>
           
           <div className="mb-2 flex items-center gap-2">
-            <button
-              onClick={onViewDetails}
-              className="flex-1 inline-flex items-center justify-center gap-2 rounded-full bg-white text-black px-4 py-2 text-sm font-medium shadow hover:shadow-lg transition font-geist"
-            >
-              Ver Detalhes
-              <Eye className="h-4 w-4" />
-            </button>
             <a 
               href={project.live}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] hover:bg-white/[0.06] transition"
+              className="flex-1 inline-flex items-center justify-center gap-2 rounded-full bg-white text-black px-4 py-2 text-sm font-medium shadow hover:shadow-lg transition font-geist"
             >
-              <ExternalLink className="h-4 w-4 text-neutral-300" />
+              Visualizar Projeto
+              <ExternalLink className="h-4 w-4" />
             </a>
           </div>
         </div>
