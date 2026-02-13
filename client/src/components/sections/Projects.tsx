@@ -130,13 +130,13 @@ const Projects = () => {
       ]
     },
     {
-      title: "Colégio Narfive",
+      title: "Site para o Colégio Angola",
       description: "Aumento de 50% nas solicitações de matrícula através do novo tour virtual.",
       longDescription: "Transformação da jornada do pai/aluno no site, facilitando o acesso a informações críticas e conversão.",
       tech: ["React", "UX Design"],
-      image: "/textures/colegio-narfive.png",
+      image: "/images/colegio_angola.png",
       github: "#",
-      live: "https://narff.netlify.app/",
+      live: "https://colegioangola.netlify.app/",
       features: [
         "Tour Virtual Interativo",
         "Calculadora de Mensalidades",
