@@ -116,13 +116,13 @@ const Projects = () => {
 
   const projects: Project[] = [
     {
-      title: "Escola de Condução Maria Olga",
+      title: "Escola de Condução KL",
       description: "Redução de 60% no tempo de atendimento via site através de ferramentas interativas.",
       longDescription: "Plataforma digital completa que automatiza dúvidas frequentes e facilita a matrícula de novos alunos.",
       tech: ["React", "Automation"],
-      image: "/textures/escola-conducao.png",
+      image: "/images/escola_kl.png",
       github: "#",
-      live: "https://escoladeconducaomariaolga.netlify.app/",
+      live: "https://escoladeconducaokl.netlify.app/",
       features: [
         "Calculadora de Mensalidades (Lead Gen)",
         "Quiz Interativo de Retenção",
