@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import GlowCard from "../ui/GlowCard";
-import { useAudio } from "../../lib/stores/useAudio";
 
 interface QuizQuestion {
   id: number;
@@ -125,7 +124,6 @@ const Quiz = ({ onComplete }: QuizProps) => {
   const [showExplanation, setShowExplanation] = useState(false);
   const [quizCompleted, setQuizCompleted] = useState(false);
   const [answers, setAnswers] = useState<number[]>([]);
-  const { playHover, playHit, playSuccess } = useAudio();
 
   const question = programmingQuestions[currentQuestion];
   const totalQuestions = programmingQuestions.length;
@@ -140,13 +138,11 @@ const Quiz = ({ onComplete }: QuizProps) => {
     
     if (answerIndex === question.correctAnswer) {
       setScore(score + 1);
-      playSuccess();
       // Auto-advance on correct answer after a short delay
       setTimeout(() => {
         handleNextQuestion();
       }, 1500);
     } else {
-      playHit();
       setShowExplanation(true);
     }
   };
@@ -236,7 +232,6 @@ const Quiz = ({ onComplete }: QuizProps) => {
 
             <button
               onClick={resetQuiz}
-              onMouseEnter={() => playHover()}
               className="bg-neon-green text-black px-10 py-4 rounded-full font-orbitron font-black uppercase tracking-widest hover:bg-white hover:scale-105 transition-all duration-300 shadow-[0_0_20px_rgba(57,255,20,0.4)]"
             >
               Tentar Novamente
@@ -322,7 +317,6 @@ const Quiz = ({ onComplete }: QuizProps) => {
                 <motion.button
                   key={index}
                   onClick={() => handleAnswerSelect(index)}
-                  onMouseEnter={() => playHover()}
                   disabled={selectedAnswer !== null}
                   whileHover={{ scale: selectedAnswer === null ? 1.01 : 1, x: selectedAnswer === null ? 5 : 0 }}
                   whileTap={{ scale: 0.99 }}
@@ -392,7 +386,6 @@ const Quiz = ({ onComplete }: QuizProps) => {
             <div className="text-center pb-12">
               <button
                 onClick={handleNextQuestion}
-                onMouseEnter={() => playHover()}
                 className="group bg-white text-black px-12 py-5 rounded-full font-orbitron font-black uppercase tracking-[0.2em] hover:bg-neon-green hover:scale-105 transition-all duration-500 shadow-[0_0_40px_rgba(255,255,255,0.15)] flex items-center gap-3 mx-auto"
               >
                 {currentQuestion < totalQuestions - 1 ? 'Próximo Protocolo' : 'Finalizar Análise'}

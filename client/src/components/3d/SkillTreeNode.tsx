@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { useAudio } from "../../lib/stores/useAudio";
 
 interface SkillNode {
   id: string;
@@ -28,7 +27,6 @@ const SkillTreeNode = ({
   onNodeClick, 
   onNodeHover 
 }: SkillTreeNodeProps) => {
-  const { playHover, playHit } = useAudio();
   const [isSelected, setIsSelected] = useState(false);
   const [screenWidth, setScreenWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
 
@@ -51,12 +49,10 @@ const SkillTreeNode = ({
       onNodeHover(isSelected ? null : node.id);
     }
     
-    playHit();
   };
 
   const handleMouseEnter = () => {
     onNodeHover(node.id);
-    playHover();
   };
 
   const handleMouseLeave = () => {

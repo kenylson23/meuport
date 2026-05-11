@@ -1,10 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, Send, Calendar, Instagram, Linkedin, MessageCircle, Twitter, MapPin } from "lucide-react";
-import { useAudio } from "../../lib/stores/useAudio";
-
 const Contact = () => {
-  const { playSuccess } = useAudio();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -19,7 +16,6 @@ const Contact = () => {
     const mailtoLink = `mailto:kenylsonlourenco0@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     
     window.location.href = mailtoLink;
-    playSuccess();
     setFormData({ name: "", email: "", message: "", budget: "$5k - $10k" });
   };
 

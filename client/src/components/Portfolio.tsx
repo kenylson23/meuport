@@ -4,7 +4,6 @@ import MarqueeSection from "./sections/MarqueeSection";
 import ServicesSection from "./sections/ServicesSection";
 import Projects from "./sections/Projects";
 import Contact from "./sections/Contact";
-import AudioControls from "./ui/AudioControls";
 import TetrisLoading from "./ui/TetrisLoading";
 import { useState, useEffect } from "react";
 
@@ -41,7 +40,6 @@ const Portfolio = () => {
         <Contact />
       </main>
 
-      <AudioControls />
     </div>
   );
 };

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { useAudio } from "../../lib/stores/useAudio";
 
 interface LanguageModel3DProps {
   language: {
@@ -13,13 +12,11 @@ interface LanguageModel3DProps {
 }
 
 const LanguageModel3D = ({ language, index }: LanguageModel3DProps) => {
-  const { playHover, playHit } = useAudio();
   const [isHovered, setIsHovered] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
 
   const handleClick = () => {
     setIsClicked(true);
-    playHit();
     setTimeout(() => setIsClicked(false), 300);
   };
 
@@ -39,7 +36,6 @@ const LanguageModel3D = ({ language, index }: LanguageModel3DProps) => {
       onClick={handleClick}
       onMouseEnter={() => {
         setIsHovered(true);
-        playHover();
       }}
       onMouseLeave={() => setIsHovered(false)}
     >

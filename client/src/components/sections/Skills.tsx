@@ -4,7 +4,6 @@ import { LayoutGrid, Network, HelpCircle } from "lucide-react";
 import GlowCard from "../ui/GlowCard";
 import SkillTreeVisualization from "../3d/SkillTreeVisualization";
 import Quiz from "./Quiz";
-import { useAudio } from "../../lib/stores/useAudio";
 import { SkillsNav } from "../ui/SkillsNav";
 
 interface Skill {
@@ -66,7 +65,6 @@ const SkillCard = ({ skill, index }: SkillCardProps) => {
 
 const Skills = () => {
   const [viewMode, setViewMode] = useState<'grid' | 'tree' | 'quiz'>('grid');
-  const { playHover, playHit } = useAudio();
   
   const skillsByCategory = {
     "Frontend": [
@@ -110,7 +108,6 @@ const Skills = () => {
               activeItem={viewMode}
               onItemClick={(id) => {
                 setViewMode(id as 'grid' | 'tree' | 'quiz');
-                playHit();
               }}
             />
           </div>

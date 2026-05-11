@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, Github, ExternalLink, Code, Eye, Copy, Check } from "lucide-react";
 import NeonButton from "./NeonButton";
 import GlowCard from "./GlowCard";
-import { useAudio } from "../../lib/stores/useAudio";
 
 interface Project {
   title: string;
@@ -25,7 +24,6 @@ interface ProjectModalProps {
 }
 
 const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
-  const { playSuccess, playButtonClick } = useAudio();
   const [activeTab, setActiveTab] = useState<'overview' | 'gallery'>('overview');
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -60,7 +58,6 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
 
   const handleTabChange = (tab: 'overview' | 'gallery') => {
     setActiveTab(tab);
-    playButtonClick();
   };
 
   if (!project) return null;
