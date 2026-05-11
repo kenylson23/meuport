@@ -38,9 +38,9 @@ const Hero = () => {
       <div className="overflow-hidden">
         <FadeIn delay={0.15} y={40}>
           <h1
-            className="hero-heading font-black uppercase tracking-tight leading-none whitespace-nowrap w-full text-[14vw] sm:text-[15vw] md:text-[16vw] lg:text-[17.5vw] mt-6 sm:mt-4 md:-mt-5 px-4 md:px-8"
+            className="hero-heading font-black uppercase tracking-tight leading-none whitespace-nowrap w-full text-[10vw] sm:text-[10.5vw] md:text-[11vw] lg:text-[12vw] mt-6 sm:mt-4 md:-mt-5 px-4 md:px-8"
           >
-            Olá, sou Kenylson
+            Olá, sou Keny
           </h1>
         </FadeIn>
       </div>
