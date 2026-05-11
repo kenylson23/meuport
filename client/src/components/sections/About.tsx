@@ -60,7 +60,7 @@ const About = () => {
           }}
         >
           <AnimatedText
-            text="Com mais de 3 anos de experiência em desenvolvimento web, foco em frontend, backend e experiência do usuário. Adoro trabalhar com empresas que querem se destacar e apresentar a melhor versão digital do seu negócio. Vamos construir algo incrível juntos!"
+            text="Talvez o teu negócio ainda não tenha presença online — ou tens um site que não traz resultados. Eu sei exactamente como te ajudar. Trabalho com donos de negócios que querem ser encontrados, ser levados a sério e atrair os clientes certos. Sem complicações, sem tecnicismos — só resultados."
             className="font-medium text-center leading-relaxed max-w-[560px] mx-auto"
           />
         </div>

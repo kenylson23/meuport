@@ -3,33 +3,33 @@ import FadeIn from "../ui/FadeIn";
 const services = [
   {
     number: "01",
-    name: "Desenvolvimento Frontend",
+    name: "Presença Online Profissional",
     description:
-      "Criação de interfaces modernas, responsivas e de alto desempenho com React, TypeScript e Tailwind CSS, focadas em conversão.",
+      "O teu negócio na internet de forma que inspira confiança imediata. Quando alguém te pesquisa, encontra algo que impressiona — e não um site amador que afasta clientes.",
   },
   {
     number: "02",
-    name: "Desenvolvimento Backend",
+    name: "Site que Atrai e Converte",
     description:
-      "APIs robustas e escaláveis com Node.js e PostgreSQL para suportar qualquer volume de negócios com segurança e performance.",
+      "Não basta ter um site bonito. Criamos páginas pensadas para transformar visitantes em contactos reais e vendas concretas para o teu negócio.",
   },
   {
     number: "03",
-    name: "Aplicações Full Stack",
+    name: "Do Zero ao Online Sem Dores de Cabeça",
     description:
-      "Do conceito ao deploy, entrego aplicações web completas com foco em performance, segurança e resultados mensuráveis.",
+      "Trato de tudo — do design ao lançamento. Tu ficas completamente livre para gerir o teu negócio enquanto eu entrego o resultado no prazo combinado.",
   },
   {
     number: "04",
-    name: "UI/UX Design",
+    name: "Design que Encanta à Primeira Vista",
     description:
-      "Interfaces intuitivas e visualmente impactantes que transformam visitantes em clientes e melhoram a experiência do utilizador.",
+      "A primeira impressão é decisiva. Criamos uma identidade visual que faz os teus clientes sentir que estão a lidar com uma marca séria e de confiança.",
   },
   {
     number: "05",
-    name: "Estratégia Digital",
+    name: "Posicionamento que Te Destaca",
     description:
-      "Análise, consultoria e planeamento digital para posicionar o seu negócio de forma competitiva e maximizar resultados online.",
+      "O teu concorrente já está online. Vamos garantir que quando o teu cliente ideal procura o que tu ofereces, és tu que apareces — e és tu que convence.",
   },
 ];
 

@@ -16,8 +16,8 @@ interface ProjectData {
 const projects: ProjectData[] = [
   {
     number: "01",
-    category: "Cliente",
-    name: "Escola de Condução KL",
+    category: "Cliente — Escola de Condução",
+    name: "Mais alunos, mais matrículas",
     href: "https://escoladeconducaokl.netlify.app/",
     col1img1: "/images/escola_kl.png",
     col1img2: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055431_11d841fd-8b41-46a5-82e4-b04f2407a7d8.png&w=1280&q=85",
@@ -25,8 +25,8 @@ const projects: ProjectData[] = [
   },
   {
     number: "02",
-    category: "Cliente",
-    name: "Site para o Colégio Angola",
+    category: "Cliente — Colégio Angola",
+    name: "Presença que transmite confiança",
     href: "https://colegioangola.netlify.app/",
     col1img1: "/images/colegio_angola.png",
     col1img2: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055723_5ceda0b8-d9c2-4665-b2e3-83ba19ba76d1.png&w=1280&q=85",
@@ -34,8 +34,8 @@ const projects: ProjectData[] = [
   },
   {
     number: "03",
-    category: "Pessoal",
-    name: "Portfólio Interativo 3D",
+    category: "Projecto Próprio",
+    name: "Portfólio que impressiona e converte",
     href: "#hero",
     col1img1: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055759_963cfb0b-4bd1-4b0f-9d0a-09bd6cf95b2f.png&w=1280&q=85",
     col1img2: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_060108_438f781a-9846-4dcc-89ab-c4e6cb830f5b.png&w=1280&q=85",

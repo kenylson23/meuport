@@ -49,7 +49,7 @@ const Contact = () => {
             className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-neutral-100"
           >
             <Mail className="h-4 w-4" />
-            Vamos Trabalhar Juntos
+            Resposta em menos de 24 horas
           </motion.span>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -58,7 +58,7 @@ const Contact = () => {
             viewport={{ once: true }}
             className="mt-4 text-4xl sm:text-6xl tracking-tight font-semibold text-white"
           >
-            Vamos escalar seu <span className="italic font-serif font-medium text-neon-green">negócio?</span>
+            Pronto para ter mais <span className="italic font-serif font-medium text-neon-green">clientes?</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -67,7 +67,7 @@ const Contact = () => {
             viewport={{ once: true }}
             className="mt-4 text-neutral-400 text-lg max-w-2xl mx-auto"
           >
-            Se você busca um site que não apenas seja bonito, mas que venda e atraia os clientes certos, você está no lugar certo. Entre em contato e peça um orçamento sem compromisso.
+            Conta-me o teu negócio e o que queres alcançar. Não precisas de saber nada de tecnologia — eu trato de tudo. O orçamento é gratuito e sem compromisso.
           </motion.p>
         </div>
 
@@ -80,11 +80,12 @@ const Contact = () => {
             viewport={{ once: true }}
             className="relative rounded-2xl border border-white/20 bg-black/70 p-8 shadow-2xl backdrop-blur-md"
           >
-            <h3 className="text-xl font-semibold text-white mb-6">Enviar uma Mensagem</h3>
+            <h3 className="text-xl font-semibold text-white mb-2">Fala comigo</h3>
+            <p className="text-neutral-400 text-sm mb-6">Sem complicações. Conta-me o teu projecto e eu respondo com uma proposta clara.</p>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="">
-                  <label className="block text-sm font-medium text-neutral-300 mb-2">Nome</label>
+                  <label className="block text-sm font-medium text-neutral-300 mb-2">O teu nome</label>
                   <input 
                     type="text" 
                     name="name"
@@ -92,24 +93,24 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     className="w-full rounded-lg border border-white/20 bg-black/50 px-4 py-3 text-neutral-100 placeholder-neutral-500 focus:border-white/30 focus:outline-none focus:ring-1 focus:ring-white/30" 
-                    placeholder="Seu nome" 
+                    placeholder="Como te chamas?" 
                   />
                 </div>
                 <div className="">
-                  <label className="block text-sm font-medium text-neutral-300 mb-2">Email</label>
+                  <label className="block text-sm font-medium text-neutral-300 mb-2">WhatsApp ou Email</label>
                   <input 
-                    type="email" 
+                    type="text" 
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
                     required
                     className="w-full rounded-lg border border-white/20 bg-black/50 px-4 py-3 text-neutral-100 placeholder-neutral-500 focus:border-white/30 focus:outline-none focus:ring-1 focus:ring-white/30" 
-                    placeholder="seu@email.com" 
+                    placeholder="Para eu te responder" 
                   />
                 </div>
               </div>
               <div className="">
-                <label className="block text-sm font-medium text-neutral-300 mb-2">Mensagem</label>
+                <label className="block text-sm font-medium text-neutral-300 mb-2">O teu negócio e o que precisas</label>
                 <textarea 
                   name="message"
                   value={formData.message}
@@ -117,11 +118,11 @@ const Contact = () => {
                   required
                   rows={4} 
                   className="w-full rounded-lg border border-white/20 bg-black/50 px-4 py-3 text-neutral-100 placeholder-neutral-500 focus:border-white/30 focus:outline-none focus:ring-1 focus:ring-white/30" 
-                  placeholder="Conte-me sobre seu projeto..."
+                  placeholder="Ex: Tenho uma escola de condução e quero um site para atrair mais alunos..."
                 ></textarea>
               </div>
               <button type="submit" className="w-full inline-flex items-center justify-center gap-2 rounded-lg bg-white/20 border border-white/30 px-6 py-3 text-white font-medium hover:bg-white/30 transition">
-                <span className="font-medium">Enviar Mensagem</span>
+                <span className="font-medium">Quero o meu orçamento gratuito</span>
                 <Send className="h-4 w-4" />
               </button>
             </form>
@@ -221,7 +222,7 @@ const Contact = () => {
             >
               Kenylson Lourenço
             </a>
-            . Construído com paixão e código.
+            . Feito para fazer o teu negócio crescer.
           </p>
         </motion.div>
       </div>

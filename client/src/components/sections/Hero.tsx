@@ -55,7 +55,7 @@ const Hero = () => {
               fontSize: "clamp(0.75rem, 1.4vw, 1.5rem)",
             }}
           >
-            um dev full stack focado em criar experiências digitais marcantes e inesquecíveis
+            o teu negócio merece um site que impressiona, convence e traz clientes
           </p>
         </FadeIn>
 
