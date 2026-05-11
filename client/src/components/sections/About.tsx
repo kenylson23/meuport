@@ -1,187 +1,72 @@
-import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
+import FadeIn from "../ui/FadeIn";
+import AnimatedText from "../ui/AnimatedText";
+import ContactButton from "../ui/ContactButton";
 
-interface About3Props {
-  title?: string;
-  description?: string;
-  mainImage?: {
-    src: string;
-    alt: string;
-  };
-  secondaryImage?: {
-    src: string;
-    alt: string;
-  };
-  breakout?: {
-    src: string;
-    alt: string;
-    title?: string;
-    description?: string;
-    buttonText?: string;
-    buttonUrl?: string;
-  };
-  companiesTitle?: string;
-  companies?: Array<{
-    src: string;
-    alt: string;
-  }>;
-  achievementsTitle?: string;
-  achievementsDescription?: string;
-  achievements?: Array<{
-    label: string;
-    value: string;
-  }>;
-}
-
-const defaultCompanies = [
-  {
-    src: "https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/javascript.svg",
-    alt: "JavaScript",
-  },
-  {
-    src: "https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/git-icon.svg",
-    alt: "Git",
-  },
-  {
-    src: "https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/github-icon.svg",
-    alt: "GitHub",
-  },
-  {
-    src: "https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/nodejs-icon.svg",
-    alt: "Node.js",
-  },
-  {
-    src: "https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/react.svg",
-    alt: "React",
-  },
-];
-
-const defaultAchievements = [
-  { label: "Projetos Finalizados", value: "10+" },
-  { label: "Anos de Experiência", value: "3+" },
-  { label: "Clientes Satisfeitos", value: "100%" },
-  { label: "Tecnologias Dominadas", value: "15+" },
-];
-
-export const About = ({
-  title = "Sobre Mim",
-  description = "Desenvolvedor Full Stack especializado em transformar desafios técnicos em soluções de alto impacto. Meu foco é criar sistemas escaláveis e experiências digitais imersivas que impulsionam o crescimento de empresas através de tecnologia moderna e design focado no usuário.",
-  mainImage = {
-    src: "/images/profile_new.png",
-    alt: "Kenylson Lourenço - Desenvolvedor Full Stack",
-  },
-  secondaryImage = {
-    src: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
-    alt: "Resultados e Tecnologia",
-  },
-  breakout = {
-    src: "https://shadcnblocks.com/images/block/block-1.svg",
-    alt: "logo",
-    title: "Foco em Resultados",
-    description:
-      "Combinando arquitetura robusta de backend com interfaces frontend de última geração para entregar performance e conversão.",
-    buttonText: "Ver Projetos",
-    buttonUrl: "#projects",
-  },
-  companiesTitle = "Tecnologias que utilizo para escalar negócios",
-  companies = defaultCompanies,
-  achievementsTitle = "Minha Jornada em Números",
-  achievementsDescription = "Transformando ideias complexas em soluções digitais elegantes e eficientes.",
-  achievements = defaultAchievements,
-}: About3Props = {}) => {
+const About = () => {
   return (
-    <section id="about" className="py-20 relative">
-      <div className="max-w-5xl mx-auto px-4 z-20 relative">
-        <div className="grid gap-6 lg:grid-cols-12 items-center mb-10">
-          <div className="lg:col-span-4 text-center md:text-left">
-            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] mb-4">
-              Sobre <span className="text-neon-green/90 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Mim</span>
-            </h2>
-            <div className="w-12 h-1 bg-neon-green mx-auto md:mx-0 mb-6 glow-box"></div>
-          </div>
-          <div className="lg:col-span-8">
-            <p className="text-slate-200 text-sm leading-relaxed border-l-2 border-neon-green/30 pl-6 italic">{description}</p>
-          </div>
-        </div>
-        
-        <div className="grid gap-6 lg:grid-cols-12 max-w-5xl mx-auto">
-          <div
-            className="lg:col-span-5"
+    <section
+      id="about"
+      className="relative min-h-screen flex flex-col items-center justify-center px-5 sm:px-8 md:px-10 py-20 overflow-hidden"
+      style={{ background: "#0C0C0C" }}
+    >
+      {/* Decorative 3D images in corners */}
+      <FadeIn delay={0.1} x={-80} y={0} duration={0.9} className="absolute top-[4%] left-[1%] sm:left-[2%] md:left-[4%] pointer-events-none">
+        <img
+          src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/moon_icon.11395d36.png"
+          alt=""
+          className="w-[120px] sm:w-[160px] md:w-[210px]"
+        />
+      </FadeIn>
+
+      <FadeIn delay={0.25} x={-80} y={0} duration={0.9} className="absolute bottom-[8%] left-[3%] sm:left-[6%] md:left-[10%] pointer-events-none">
+        <img
+          src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/p59_1.4659672e.png"
+          alt=""
+          className="w-[100px] sm:w-[140px] md:w-[180px]"
+        />
+      </FadeIn>
+
+      <FadeIn delay={0.15} x={80} y={0} duration={0.9} className="absolute top-[4%] right-[1%] sm:right-[2%] md:right-[4%] pointer-events-none">
+        <img
+          src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/lego_icon-1.703bb594.png"
+          alt=""
+          className="w-[120px] sm:w-[160px] md:w-[210px]"
+        />
+      </FadeIn>
+
+      <FadeIn delay={0.3} x={80} y={0} duration={0.9} className="absolute bottom-[8%] right-[3%] sm:right-[6%] md:right-[10%] pointer-events-none">
+        <img
+          src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/Group_134-1.2e04f3ce.png"
+          alt=""
+          className="w-[130px] sm:w-[170px] md:w-[220px]"
+        />
+      </FadeIn>
+
+      {/* Center content */}
+      <div className="flex flex-col items-center gap-10 sm:gap-14 md:gap-16 relative z-10 max-w-3xl text-center">
+        <FadeIn delay={0} y={40}>
+          <h2
+            className="hero-heading font-black uppercase leading-none tracking-tight"
+            style={{ fontSize: "clamp(3rem, 12vw, 160px)" }}
           >
-            <img
-              src={mainImage.src}
-              alt={mainImage.alt}
-              className="w-full h-[400px] lg:h-[450px] rounded-xl object-cover object-bottom border border-white/10"
-            />
-          </div>
-          
-          <div className="flex flex-col gap-6 md:flex-row lg:flex-col lg:col-span-7">
-            <div 
-              className="flex flex-col justify-between gap-3 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 p-5 md:w-1/2 lg:w-auto h-full"
-            >
-              <img
-                src={breakout.src}
-                alt={breakout.alt}
-                className="mr-auto h-8 invert opacity-50"
-              />
-              <div>
-                <p className="mb-0.5 text-sm font-semibold text-neon-green">{breakout.title}</p>
-                <p className="text-slate-300 text-xs leading-tight">{breakout.description}</p>
-              </div>
-              <Button variant="outline" size="sm" className="h-8 px-3 text-[10px] mr-auto border-neon-green text-neon-green hover:bg-neon-green hover:text-black transition-colors" asChild>
-                <a href={breakout.buttonUrl}>
-                  {breakout.buttonText}
-                </a>
-              </Button>
-            </div>
-            
-            <div
-              className="grow basis-0 md:w-1/2 lg:w-auto h-full"
-            >
-              <img
-                src={secondaryImage.src}
-                alt={secondaryImage.alt}
-                className="w-full h-full min-h-[150px] rounded-xl object-cover border border-white/10"
-              />
-            </div>
-          </div>
-        </div>
+            Sobre mim
+          </h2>
+        </FadeIn>
 
-        <div className="py-24">
-          <p className="text-center text-slate-400 uppercase tracking-widest text-xs">{companiesTitle}</p>
-          <div className="mt-6 flex flex-wrap justify-center gap-8 opacity-80 hover:opacity-100 transition-opacity duration-500">
-            {companies.map((company, idx) => (
-              <div className="flex items-center gap-2 grayscale hover:grayscale-0 transition-all duration-300" key={company.src + idx}>
-                <img
-                  src={company.src}
-                  alt={company.alt}
-                  className="h-8 w-auto md:h-10"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div 
-          className="relative overflow-hidden rounded-xl bg-white/5 backdrop-blur-md border border-white/10 p-5 md:p-6 max-w-3xl mx-auto"
+        <div
+          style={{
+            color: "#D7E2EA",
+            fontSize: "clamp(1rem, 2vw, 1.35rem)",
+          }}
         >
-          <div className="flex flex-col gap-2 text-center md:text-left relative z-20 mb-6">
-            <h2 className="text-xl font-bold text-white tracking-tight">{achievementsTitle}</h2>
-            <p className="max-w-xl text-slate-300 text-[10px]">
-              {achievementsDescription}
-            </p>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-center relative z-20">
-            {achievements.map((item, idx) => (
-              <div className="flex flex-col gap-0.5 p-2 rounded-lg bg-white/5 border border-white/5 hover:border-neon-green/30 transition-colors" key={item.label + idx}>
-                <span className="text-xl font-bold text-neon-green/90">
-                  {item.value}
-                </span>
-                <p className="text-slate-400 text-[9px] uppercase tracking-wider font-medium">{item.label}</p>
-              </div>
-            ))}
-          </div>
-          <div className="pointer-events-none absolute -top-1 right-1 z-10 hidden h-full w-full bg-[linear-gradient(to_right,rgba(57,255,20,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(57,255,20,0.05)_1px,transparent_1px)] bg-[size:60px_60px] [mask-image:linear-gradient(to_bottom_right,#000,transparent,transparent)] md:block"></div>
+          <AnimatedText
+            text="Com mais de 3 anos de experiência em desenvolvimento web, foco em frontend, backend e experiência do usuário. Adoro trabalhar com empresas que querem se destacar e apresentar a melhor versão digital do seu negócio. Vamos construir algo incrível juntos!"
+            className="font-medium text-center leading-relaxed max-w-[560px] mx-auto"
+          />
+        </div>
+
+        <div className="mt-4 sm:mt-6 md:mt-8">
+          <ContactButton />
         </div>
       </div>
     </section>

@@ -1,207 +1,180 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { ExternalLink, Github, Eye } from "lucide-react";
-import GlowCard from "../ui/GlowCard";
-import NeonButton from "../ui/NeonButton";
-import ProjectModal from "../ui/ProjectModal";
+import { useRef, CSSProperties } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import LiveProjectButton from "../ui/LiveProjectButton";
+import FadeIn from "../ui/FadeIn";
 
-interface Project {
-  title: string;
-  description: string;
-  tech: string[];
-  image: string;
-  github: string;
-  live: string;
-  longDescription?: string;
-  features?: string[];
-  codeSnippet?: string;
-  demoImages?: string[];
+interface ProjectData {
+  number: string;
+  category: string;
+  name: string;
+  href: string;
+  col1img1: string;
+  col1img2: string;
+  col2img: string;
 }
+
+const projects: ProjectData[] = [
+  {
+    number: "01",
+    category: "Cliente",
+    name: "Escola de Condução KL",
+    href: "https://escoladeconducaokl.netlify.app/",
+    col1img1: "/images/escola_kl.png",
+    col1img2: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055431_11d841fd-8b41-46a5-82e4-b04f2407a7d8.png&w=1280&q=85",
+    col2img: "/images/escola_kl.png",
+  },
+  {
+    number: "02",
+    category: "Cliente",
+    name: "Site para o Colégio Angola",
+    href: "https://colegioangola.netlify.app/",
+    col1img1: "/images/colegio_angola.png",
+    col1img2: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055723_5ceda0b8-d9c2-4665-b2e3-83ba19ba76d1.png&w=1280&q=85",
+    col2img: "/images/colegio_angola.png",
+  },
+  {
+    number: "03",
+    category: "Pessoal",
+    name: "Portfólio Interativo 3D",
+    href: "#hero",
+    col1img1: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055759_963cfb0b-4bd1-4b0f-9d0a-09bd6cf95b2f.png&w=1280&q=85",
+    col1img2: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_060108_438f781a-9846-4dcc-89ab-c4e6cb830f5b.png&w=1280&q=85",
+    col2img: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055818_9d062121-ad7e-46b9-999a-1a6a692ef1ee.png&w=1280&q=85",
+  },
+];
+
+const totalCards = projects.length;
 
 interface ProjectCardProps {
-  project: Project;
+  project: ProjectData;
   index: number;
-  onViewDetails: () => void;
 }
 
-const ProjectCard = ({ project, index, onViewDetails }: ProjectCardProps) => {
+const ProjectCard = ({ project, index }: ProjectCardProps) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  });
+
+  const targetScale = 1 - (totalCards - 1 - index) * 0.03;
+  const scale = useTransform(scrollYProgress, [0, 1], [1, targetScale]);
+
+  const stickyStyle: CSSProperties = {
+    position: "sticky",
+    top: `${96 + index * 28}px`,
+    background: "#0C0C0C",
+    borderRadius: "clamp(24px, 4vw, 60px)",
+    border: "2px solid #D7E2EA",
+    padding: "clamp(1rem, 2vw, 2rem)",
+    display: "flex",
+    flexDirection: "column",
+    gap: "clamp(1rem, 2vw, 1.5rem)",
+  };
+
   return (
-    <section
-      className="relative shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)] overflow-hidden border-white/10 border rounded-3xl backdrop-blur-lg h-full"
+    <div
+      ref={containerRef}
+      style={{ height: "85vh", display: "flex", alignItems: "flex-start", paddingTop: `${index * 28}px` }}
     >
-      <div className="p-3 sm:p-4 h-full flex flex-col">
-        <div className="relative rounded-2xl overflow-hidden bg-neutral-900 ring-1 ring-white/10 shrink-0">
-          <img 
-            src={project.image} 
-            alt={project.title} 
-            className="h-48 sm:h-56 w-full object-cover transition-transform duration-300 group-hover:scale-110"
-          />
-          <div
-            className="absolute bottom-3 left-3 flex items-center gap-2 rounded-full bg-black/60 px-2.5 py-1.5 ring-1 ring-white/10 backdrop-blur">
-            <span className="h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
-            <span className="text-[12px] text-neutral-200 font-geist">Disponível para trabalho</span>
-          </div>
-          
-          {/* External Links Overlay */}
-          <div className="absolute top-3 right-3 flex gap-2">
-            <a
-              href={project.live}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 bg-black/60 rounded-full text-neutral-300 hover:text-white ring-1 ring-white/10 backdrop-blur transition"
+      <motion.div style={{ ...stickyStyle, scale, width: "100%" }}>
+        {/* Top row */}
+        <div className="flex items-center justify-between flex-wrap gap-4">
+          <div className="flex items-center gap-4 md:gap-8">
+            <span
+              className="font-black leading-none select-none"
+              style={{
+                color: "#D7E2EA",
+                fontSize: "clamp(2.5rem, 7vw, 100px)",
+                lineHeight: 1,
+              }}
             >
-              <ExternalLink className="w-4 h-4" />
-            </a>
-          </div>
-        </div>
-        
-        <div className="px-2 sm:px-1 flex flex-col flex-grow">
-          <h2 className="mt-4 text-xl text-neutral-100 font-geist tracking-tighter line-clamp-1">
-            {project.title}
-          </h2>
-          <p className="mt-1 text-sm text-neutral-400 font-geist line-clamp-2 flex-grow">
-            {project.description}
-          </p>
-          
-          {/* Tech Stack */}
-          <div className="mt-4 flex flex-wrap gap-1.5">
-            {project.tech.slice(0, 3).map((tech, techIndex) => (
+              {project.number}
+            </span>
+            <div className="flex flex-col">
               <span
-                key={techIndex}
-                className="px-2 py-0.5 bg-white/5 border border-white/10 rounded-full text-neutral-300 text-[10px] font-geist"
+                className="text-xs uppercase tracking-widest font-medium opacity-60"
+                style={{ color: "#D7E2EA" }}
               >
-                {tech}
+                {project.category}
               </span>
-            ))}
+              <span
+                className="font-medium uppercase"
+                style={{
+                  color: "#D7E2EA",
+                  fontSize: "clamp(0.9rem, 2.2vw, 1.8rem)",
+                }}
+              >
+                {project.name}
+              </span>
+            </div>
+          </div>
+          <LiveProjectButton href={project.href} label="Ver Projeto" />
+        </div>
+
+        {/* Bottom row - image grid */}
+        <div className="flex gap-3 md:gap-4">
+          {/* Left column - 40% - 2 stacked images */}
+          <div className="flex flex-col gap-3 md:gap-4" style={{ flex: "0 0 40%" }}>
+            <img
+              src={project.col1img1}
+              alt={project.name}
+              className="w-full object-cover"
+              style={{
+                height: "clamp(100px, 14vw, 200px)",
+                borderRadius: "clamp(16px, 3vw, 40px)",
+              }}
+            />
+            <img
+              src={project.col1img2}
+              alt={project.name}
+              className="w-full object-cover"
+              style={{
+                height: "clamp(130px, 18vw, 300px)",
+                borderRadius: "clamp(16px, 3vw, 40px)",
+              }}
+            />
           </div>
 
-          <div className="my-5 h-px bg-gradient-to-r from-white/10 via-white/5 to-transparent"></div>
-          
-          <div className="mb-2 flex items-center gap-2">
-            <a 
-              href={project.live}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1 inline-flex items-center justify-center gap-2 rounded-full bg-white text-black px-4 py-2 text-sm font-medium shadow hover:shadow-lg transition font-geist"
-            >
-              Visualizar Projeto
-              <ExternalLink className="h-4 w-4" />
-            </a>
+          {/* Right column - 60% - 1 tall image */}
+          <div style={{ flex: "1" }}>
+            <img
+              src={project.col2img}
+              alt={project.name}
+              className="w-full object-cover"
+              style={{
+                height: "clamp(230px, 32vw, 500px)",
+                borderRadius: "clamp(16px, 3vw, 40px)",
+              }}
+            />
           </div>
         </div>
-      </div>
-    </section>
+      </motion.div>
+    </div>
   );
 };
 
 const Projects = () => {
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleViewDetails = (project: Project) => {
-    setSelectedProject(project);
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-    setTimeout(() => setSelectedProject(null), 300);
-  };
-
-  const projects: Project[] = [
-    {
-      title: "Escola de Condução KL",
-      description: "Redução de 60% no tempo de atendimento via site através de ferramentas interativas.",
-      longDescription: "Plataforma digital completa que automatiza dúvidas frequentes e facilita a matrícula de novos alunos.",
-      tech: ["React", "Automation"],
-      image: "/images/escola_kl.png",
-      github: "#",
-      live: "https://escoladeconducaokl.netlify.app/",
-      features: [
-        "Calculadora de Mensalidades (Lead Gen)",
-        "Quiz Interativo de Retenção",
-        "Funil de Matrícula Otimizado"
-      ]
-    },
-    {
-      title: "Site para o Colégio Angola",
-      description: "Aumento de 50% nas solicitações de matrícula através do novo tour virtual.",
-      longDescription: "Transformação da jornada do pai/aluno no site, facilitando o acesso a informações críticas e conversão.",
-      tech: ["React", "UX Design"],
-      image: "/images/colegio_angola.png",
-      github: "#",
-      live: "https://colegioangola.netlify.app/",
-      features: [
-        "Tour Virtual Interativo",
-        "Calculadora de Mensalidades",
-        "Sistema de Agendamento"
-      ]
-    }
-  ];
-
-  // Duplicate projects for seamless loop
-  const duplicatedProjects = [...projects, ...projects];
-
   return (
-    <section id="projects" className="min-h-screen py-24 relative flex flex-col items-center justify-center overflow-hidden">
-      <style>{`
-        @keyframes scroll-projects {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-        .projects-infinite-scroll {
-          animation: scroll-projects 40s linear infinite;
-        }
-        .projects-infinite-scroll:hover {
-          animation-play-state: paused;
-        }
-        .projects-mask {
-          mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-          -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-        }
-      `}</style>
-
-      <div className="max-w-6xl mx-auto px-4 z-20 relative w-full">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-12"
+    <section
+      id="projects"
+      className="rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] -mt-10 sm:-mt-12 md:-mt-14 relative px-4 sm:px-6 md:px-10 pt-16 sm:pt-20 md:pt-28 pb-24"
+      style={{ background: "#0C0C0C", zIndex: 10 }}
+    >
+      <FadeIn y={40} className="text-center mb-12 md:mb-16">
+        <h2
+          className="hero-heading font-black uppercase leading-none tracking-tight"
+          style={{ fontSize: "clamp(3rem, 12vw, 160px)" }}
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-            Soluções que <span className="text-neon-green/90 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Geram Valor</span>
-          </h2>
-          <div className="w-16 h-1 bg-neon-green mx-auto mb-6 glow-box"></div>
-          <p className="text-white/70 text-sm sm:text-base max-w-2xl mx-auto px-4 font-sans">
-            Confira como ajudei empresas a alcançarem resultados reais através de tecnologia e design estratégico.
-          </p>
-        </motion.div>
+          Projetos
+        </h2>
+      </FadeIn>
 
-        <div className="relative w-full py-10 projects-mask">
-          <div className="projects-infinite-scroll flex gap-8 w-max">
-            {duplicatedProjects.map((project, index) => (
-              <div
-                key={`${project.title}-${index}`}
-                className="w-[300px] sm:w-[350px] md:w-[400px] flex-shrink-0"
-              >
-                <ProjectCard 
-                  project={project} 
-                  index={index} 
-                  onViewDetails={() => handleViewDetails(project)}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
+      <div className="flex flex-col">
+        {projects.map((project, i) => (
+          <ProjectCard key={project.number} project={project} index={i} />
+        ))}
       </div>
-
-      {/* Project Detail Modal */}
-      <ProjectModal
-        project={selectedProject}
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-      />
     </section>
   );
 };
