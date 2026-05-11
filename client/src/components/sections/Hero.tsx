@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import Magnet from "../ui/Magnet";
 import ContactButton from "../ui/ContactButton";
 import FadeIn from "../ui/FadeIn";
@@ -11,7 +10,7 @@ const Hero = () => {
       style={{ background: "#0C0C0C" }}
     >
       {/* Navbar */}
-      <FadeIn delay={0} y={-20} className="flex justify-between items-center px-6 md:px-10 pt-6 md:pt-8">
+      <FadeIn delay={0} y={-20} className="flex-shrink-0 px-6 md:px-10 pt-6 md:pt-8">
         <nav className="w-full flex justify-between">
           {["Sobre", "Serviços", "Projetos", "Contato"].map((item) => (
             <button
@@ -34,21 +33,26 @@ const Hero = () => {
         </nav>
       </FadeIn>
 
+      {/* Spacer */}
+      <div className="flex-1" />
+
       {/* Hero Heading */}
-      <div className="overflow-hidden">
+      <div className="overflow-hidden flex-shrink-0">
         <FadeIn delay={0.15} y={40}>
           <h1
-            className="hero-heading font-black uppercase tracking-tight leading-none whitespace-nowrap w-full text-[10vw] sm:text-[10.5vw] md:text-[11vw] lg:text-[12vw] mt-6 sm:mt-4 md:-mt-5 px-4 md:px-8"
+            className="hero-heading font-black uppercase tracking-tight leading-none w-full px-4 md:px-8"
+            style={{ fontSize: "clamp(2.5rem, 9.5vw, 10rem)", whiteSpace: "nowrap" }}
           >
             Olá, sou Keny
           </h1>
         </FadeIn>
       </div>
 
+      {/* Spacer */}
+      <div className="flex-1" />
+
       {/* Bottom Bar */}
-      <div
-        className="flex justify-between items-end pb-7 sm:pb-8 md:pb-10 px-6 md:px-10 mt-auto"
-      >
+      <div className="flex-shrink-0 flex justify-between items-end pb-8 md:pb-10 px-6 md:px-10">
         <FadeIn delay={0.35} y={20}>
           <p
             className="font-light uppercase tracking-wide leading-snug max-w-[160px] sm:max-w-[220px] md:max-w-[260px]"
@@ -71,7 +75,7 @@ const Hero = () => {
         <FadeIn
           delay={0.6}
           y={30}
-          className="w-[260px] sm:w-[360px] md:w-[460px] lg:w-[540px] pointer-events-auto"
+          className="w-[240px] sm:w-[330px] md:w-[420px] lg:w-[500px] pointer-events-auto"
         >
           <Magnet
             padding={150}
@@ -83,7 +87,7 @@ const Hero = () => {
               src="/images/hero_portrait.png"
               alt="Kenylson Lourenço"
               className="w-full h-auto object-contain select-none"
-              style={{ maxHeight: "88vh" }}
+              style={{ maxHeight: "82vh" }}
               draggable={false}
             />
           </Magnet>
