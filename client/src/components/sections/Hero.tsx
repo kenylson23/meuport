@@ -67,27 +67,28 @@ const Hero = () => {
       </div>
 
       {/* Portrait - centered absolutely */}
-      <FadeIn
-        delay={0.6}
-        y={30}
-        className="absolute left-1/2 -translate-x-1/2 z-10 w-[220px] sm:w-[300px] md:w-[380px] lg:w-[440px] top-1/2 -translate-y-1/2 sm:top-auto sm:translate-y-0 sm:bottom-0 pointer-events-none"
-      >
-        <Magnet
-          padding={150}
-          strength={3}
-          activeTransition="transform 0.3s ease-out"
-          inactiveTransition="transform 0.6s ease-in-out"
-          className="pointer-events-auto"
+      <div className="absolute inset-0 flex justify-center items-end z-10 pointer-events-none">
+        <FadeIn
+          delay={0.6}
+          y={30}
+          className="w-[260px] sm:w-[360px] md:w-[460px] lg:w-[540px] pointer-events-auto"
         >
-          <img
-            src="/images/profile_new.png"
-            alt="Kenylson Lourenço"
-            className="w-full h-auto object-cover object-top select-none"
-            style={{ maxHeight: "85vh" }}
-            draggable={false}
-          />
-        </Magnet>
-      </FadeIn>
+          <Magnet
+            padding={150}
+            strength={3}
+            activeTransition="transform 0.3s ease-out"
+            inactiveTransition="transform 0.6s ease-in-out"
+          >
+            <img
+              src="/images/hero_portrait.png"
+              alt="Kenylson Lourenço"
+              className="w-full h-auto object-contain select-none"
+              style={{ maxHeight: "88vh" }}
+              draggable={false}
+            />
+          </Magnet>
+        </FadeIn>
+      </div>
     </section>
   );
 };
