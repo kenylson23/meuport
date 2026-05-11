@@ -33,26 +33,20 @@ const Hero = () => {
         </nav>
       </FadeIn>
 
-      {/* Spacer */}
-      <div className="flex-1" />
-
-      {/* Hero Heading */}
-      <div className="overflow-hidden flex-shrink-0">
+      {/* Hero Heading — huge, right below navbar, fills full width */}
+      <div className="overflow-hidden flex-shrink-0 -mt-2 md:-mt-3">
         <FadeIn delay={0.15} y={40}>
           <h1
-            className="hero-heading font-black uppercase tracking-tight leading-none w-full px-4 md:px-8"
-            style={{ fontSize: "clamp(2.5rem, 9.5vw, 10rem)", whiteSpace: "nowrap" }}
+            className="hero-heading font-black uppercase tracking-tight leading-none w-full whitespace-nowrap"
+            style={{ fontSize: "clamp(3rem, 15.5vw, 18rem)", paddingLeft: "2vw" }}
           >
             Olá, sou Keny
           </h1>
         </FadeIn>
       </div>
 
-      {/* Spacer */}
-      <div className="flex-1" />
-
-      {/* Bottom Bar */}
-      <div className="flex-shrink-0 flex justify-between items-end pb-8 md:pb-10 px-6 md:px-10">
+      {/* Bottom Bar — pinned to bottom */}
+      <div className="mt-auto flex-shrink-0 flex justify-between items-end pb-8 md:pb-10 px-6 md:px-10">
         <FadeIn delay={0.35} y={20}>
           <p
             className="font-light uppercase tracking-wide leading-snug max-w-[160px] sm:max-w-[220px] md:max-w-[260px]"
@@ -70,12 +64,12 @@ const Hero = () => {
         </FadeIn>
       </div>
 
-      {/* Portrait - centered absolutely */}
+      {/* Portrait — centered, overlapping heading, anchored at bottom */}
       <div className="absolute inset-0 flex justify-center items-end z-10 pointer-events-none">
         <FadeIn
           delay={0.6}
           y={30}
-          className="w-[240px] sm:w-[330px] md:w-[420px] lg:w-[500px] pointer-events-auto"
+          className="w-[260px] sm:w-[360px] md:w-[460px] lg:w-[520px] pointer-events-auto"
         >
           <Magnet
             padding={150}
@@ -87,7 +81,7 @@ const Hero = () => {
               src="/images/hero_portrait.png"
               alt="Kenylson Lourenço"
               className="w-full h-auto object-contain select-none"
-              style={{ maxHeight: "82vh" }}
+              style={{ maxHeight: "85vh" }}
               draggable={false}
             />
           </Magnet>
