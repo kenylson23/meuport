@@ -55,7 +55,7 @@ const ServicesSection = () => {
         {services.map((service, i) => (
           <FadeIn key={service.number} delay={i * 0.1} y={30}>
             <div
-              className="flex items-start gap-6 md:gap-10 py-8 sm:py-10 md:py-12"
+              className="flex items-start gap-4 sm:gap-6 md:gap-10 py-6 sm:py-8 md:py-12"
               style={{
                 borderTop: i === 0 ? "1px solid rgba(12,12,12,0.15)" : undefined,
                 borderBottom: "1px solid rgba(12,12,12,0.15)",
@@ -65,18 +65,18 @@ const ServicesSection = () => {
                 className="font-black leading-none flex-shrink-0 select-none"
                 style={{
                   color: "#0C0C0C",
-                  fontSize: "clamp(3rem, 10vw, 140px)",
+                  fontSize: "clamp(2rem, 8vw, 140px)",
                   lineHeight: 1,
                 }}
               >
                 {service.number}
               </span>
-              <div className="flex flex-col justify-center pt-2 md:pt-4">
+              <div className="flex flex-col justify-center pt-1 md:pt-4">
                 <h3
                   className="font-medium uppercase mb-2"
                   style={{
                     color: "#0C0C0C",
-                    fontSize: "clamp(1rem, 2.2vw, 2.1rem)",
+                    fontSize: "clamp(0.95rem, 2.2vw, 2.1rem)",
                   }}
                 >
                   {service.name}
@@ -86,7 +86,7 @@ const ServicesSection = () => {
                   style={{
                     color: "#0C0C0C",
                     opacity: 0.6,
-                    fontSize: "clamp(0.85rem, 1.6vw, 1.25rem)",
+                    fontSize: "clamp(0.82rem, 1.6vw, 1.25rem)",
                   }}
                 >
                   {service.description}

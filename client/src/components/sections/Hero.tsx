@@ -46,20 +46,20 @@ const Hero = () => {
       </div>
 
       {/* Bottom Bar — pinned to bottom */}
-      <div className="mt-auto flex-shrink-0 flex justify-between items-end pb-8 md:pb-10 px-6 md:px-10">
+      <div className="mt-auto flex-shrink-0 flex justify-between items-end pb-8 md:pb-10 px-6 md:px-10 gap-4">
         <FadeIn delay={0.35} y={20}>
           <p
-            className="font-light uppercase tracking-wide leading-snug max-w-[160px] sm:max-w-[220px] md:max-w-[260px]"
+            className="font-light uppercase tracking-wide leading-snug max-w-[180px] sm:max-w-[240px] md:max-w-[280px]"
             style={{
               color: "#D7E2EA",
-              fontSize: "clamp(0.75rem, 1.4vw, 1.5rem)",
+              fontSize: "clamp(0.7rem, 2.2vw, 1.5rem)",
             }}
           >
             o teu negócio merece um site que impressiona, convence e traz clientes
           </p>
         </FadeIn>
 
-        <FadeIn delay={0.5} y={20}>
+        <FadeIn delay={0.5} y={20} className="flex-shrink-0">
           <ContactButton />
         </FadeIn>
       </div>

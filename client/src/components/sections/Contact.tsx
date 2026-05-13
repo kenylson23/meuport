@@ -28,11 +28,7 @@ const Contact = () => {
 
   return (
     <section
-      className="md:pt-40 bg-center z-[70] bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/77f55872-adf5-4910-9a7c-d21c0041bbe1_3840w.webp)] bg-cover pt-40 pb-40 relative"
-      style={{
-        maskImage: "linear-gradient(90deg, transparent, black 55%, black 60%, transparent)",
-        WebkitMaskImage: "linear-gradient(90deg, transparent, black 55%, black 60%, transparent)"
-      }}
+      className="md:pt-40 bg-center z-[70] bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/77f55872-adf5-4910-9a7c-d21c0041bbe1_3840w.webp)] bg-cover pt-20 md:pt-40 pb-20 md:pb-40 relative"
       id="contact"
     >
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">

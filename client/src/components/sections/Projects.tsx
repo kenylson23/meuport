@@ -62,60 +62,63 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
 
   const stickyStyle: CSSProperties = {
     position: "sticky",
-    top: `${96 + index * 28}px`,
+    top: `${80 + index * 20}px`,
     background: "#0C0C0C",
-    borderRadius: "clamp(24px, 4vw, 60px)",
+    borderRadius: "clamp(20px, 4vw, 60px)",
     border: "2px solid #D7E2EA",
-    padding: "clamp(1rem, 2vw, 2rem)",
+    padding: "clamp(0.85rem, 2vw, 2rem)",
     display: "flex",
     flexDirection: "column",
-    gap: "clamp(1rem, 2vw, 1.5rem)",
+    gap: "clamp(0.75rem, 2vw, 1.5rem)",
   };
 
   return (
     <div
       ref={containerRef}
-      style={{ height: "85vh", display: "flex", alignItems: "flex-start", paddingTop: `${index * 28}px` }}
+      style={{ height: "auto", minHeight: "60vh", display: "flex", alignItems: "flex-start", paddingTop: `${index * 20}px` }}
     >
       <motion.div style={{ ...stickyStyle, scale, width: "100%" }}>
         {/* Top row */}
-        <div className="flex items-center justify-between flex-wrap gap-4">
-          <div className="flex items-center gap-4 md:gap-8">
+        <div className="flex items-center justify-between gap-3">
+          <div className="flex items-center gap-3 md:gap-8 min-w-0">
             <span
-              className="font-black leading-none select-none"
+              className="font-black leading-none select-none flex-shrink-0"
               style={{
                 color: "#D7E2EA",
-                fontSize: "clamp(2.5rem, 7vw, 100px)",
+                fontSize: "clamp(1.8rem, 6vw, 100px)",
                 lineHeight: 1,
               }}
             >
               {project.number}
             </span>
-            <div className="flex flex-col">
+            <div className="flex flex-col min-w-0">
               <span
-                className="text-xs uppercase tracking-widest font-medium opacity-60"
+                className="text-[10px] sm:text-xs uppercase tracking-widest font-medium opacity-60 truncate"
                 style={{ color: "#D7E2EA" }}
               >
                 {project.category}
               </span>
               <span
-                className="font-medium uppercase"
+                className="font-medium uppercase leading-tight"
                 style={{
                   color: "#D7E2EA",
-                  fontSize: "clamp(0.9rem, 2.2vw, 1.8rem)",
+                  fontSize: "clamp(0.8rem, 3vw, 1.8rem)",
                 }}
               >
                 {project.name}
               </span>
             </div>
           </div>
-          <LiveProjectButton href={project.href} label="Ver Projeto" />
+          <div className="flex-shrink-0">
+            <LiveProjectButton href={project.href} label="Ver Projeto" />
+          </div>
         </div>
 
         {/* Bottom row - image grid */}
-        <div className="flex gap-3 md:gap-4">
+        {/* Mobile: single image full width | Desktop: 40/60 split */}
+        <div className="hidden md:flex gap-4">
           {/* Left column - 40% - 2 stacked images */}
-          <div className="flex flex-col gap-3 md:gap-4" style={{ flex: "0 0 40%" }}>
+          <div className="flex flex-col gap-4" style={{ flex: "0 0 40%" }}>
             <img
               src={project.col1img1}
               alt={project.name}
@@ -148,6 +151,16 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
               }}
             />
           </div>
+        </div>
+
+        {/* Mobile only: single full-width image */}
+        <div className="md:hidden">
+          <img
+            src={project.col2img}
+            alt={project.name}
+            className="w-full object-cover"
+            style={{ height: "200px", borderRadius: "20px" }}
+          />
         </div>
       </motion.div>
     </div>
